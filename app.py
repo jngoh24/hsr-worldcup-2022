@@ -524,13 +524,14 @@ def base_layout(title="", height=400, xaxis=None, yaxis=None):
 # ─────────────────────────────────────────────
 # Tabs
 # ─────────────────────────────────────────────
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "Players",
     "Teams",
     "Positions",
-    "Definition comparison",
-    "Pitch map",
-    "Match analysis",
+    "Definition Comparison",
+    "Pitch Map",
+    "Match Analysis",
+    "Tournament Phases",
 ])
 
 # ══════════════════════════════════════════════
@@ -1610,91 +1611,253 @@ with tab6:
                 )
                 st.plotly_chart(fig_pm, use_container_width=True)
 
+
+
+# ══════════════════════════════════════════════
+# TAB 7 — Tournament Phases
+# ══════════════════════════════════════════════
+with tab7:
+    st.markdown("### Group Stage vs Knockout")
+    st.markdown(
+        '<p class="kicker">How does high-speed running change as the tournament progresses '
+        'and the stakes increase?</p>',
+        unsafe_allow_html=True
+    )
+    st.divider()
+
+    if match_meta_df.empty:
+        st.info("Add `match_metadata.csv` to the `data/` folder to enable this tab.")
+    elif "game_id" not in runs_df.columns:
+        st.info("hsr_runs.csv requires a game_id column.")
+    else:
+        runs_with_round = runs_df.merge(
+            match_meta_df[["game_id", "Round"]].assign(
+                game_id=match_meta_df["game_id"].astype(str)
+            ),
+            left_on=runs_df["game_id"].astype(str),
+            right_on="game_id",
+            how="left"
+        )
+        runs_with_round = runs_with_round[
+            runs_with_round["pct_of_vmax"] >= threshold_pct
+        ]
+
+        # Apply team/position filters
+        if "team_short" in runs_with_round.columns:
+            runs_with_round = runs_with_round[
+                runs_with_round["team_short"].isin(selected_teams)
+            ]
+        if "pos" in runs_with_round.columns:
+            runs_with_round = runs_with_round[
+                runs_with_round["pos"].isin(selected_positions)
+            ]
+
+        if runs_with_round.empty:
+            st.warning("No runs match the current filters.")
+        else:
+            round_agg = (
+                runs_with_round
+                .groupby("Round")
+                .agg(
+                    total_runs      = ("run_id", "count"),
+                    avg_pct_vmax    = ("pct_of_vmax", "mean"),
+                    avg_peak_speed  = ("peak_speed_kmh", "mean"),
+                    avg_distance    = ("distance_m", "mean"),
+                    avg_duration    = ("duration_sec", "mean"),
+                )
+                .reset_index()
+            )
+            round_agg["avg_pct_vmax"] = (round_agg["avg_pct_vmax"] * 100).round(1)
+
+            n_gs = match_meta_df[match_meta_df["Round"] == "Group Stage"].shape[0]
+            n_ko = match_meta_df[match_meta_df["Round"] == "Knockout"].shape[0]
+            round_agg["n_games"] = round_agg["Round"].map(
+                {"Group Stage": n_gs, "Knockout": n_ko}
+            )
+            round_agg["runs_per_game"] = (
+                round_agg["total_runs"] / round_agg["n_games"]
+            ).round(1)
+
+            rnd_colors = {"Group Stage": BLUE, "Knockout": RED}
+
+            # ── KPI row ───────────────────────────────────────────────────
+            st.markdown("#### Summary metrics")
+            kpi_cols = st.columns(4)
+            metrics_kpi = [
+                ("runs_per_game",  "Runs per game"),
+                ("avg_pct_vmax",   "Avg intensity (% v-max)"),
+                ("avg_peak_speed", "Avg peak speed (km/h)"),
+                ("avg_distance",   "Avg run distance (m)"),
+            ]
+            for col, (metric, label) in zip(kpi_cols, metrics_kpi):
+                fig_r = go.Figure(go.Bar(
+                    x=round_agg["Round"],
+                    y=round_agg[metric].round(1),
+                    marker=dict(
+                        color=[rnd_colors.get(r, BLUE) for r in round_agg["Round"]],
+                        opacity=0.85, line=dict(width=0),
+                    ),
+                    text=round_agg[metric].round(1),
+                    textposition="outside",
+                ))
+                fig_r.update_layout(**base_layout(label, height=300))
+                col.plotly_chart(fig_r, use_container_width=True)
+
             st.divider()
 
-            # ── Group Stage vs Knockout comparison ───────────────────────
-            st.markdown("#### Group Stage vs Knockout — HSR comparison")
+            # ── Week-by-week trend ────────────────────────────────────────
+            st.markdown("#### Week-by-week trend")
             st.markdown(
                 '<p style="font-family:Inter;font-size:12px;color:#666;">'
-                'Comparing average HSR metrics across all Group Stage and Knockout matches.</p>',
+                'Average HSR runs per player per game across tournament weeks.</p>',
                 unsafe_allow_html=True
             )
 
-            if not match_meta_df.empty and "game_id" in runs_df.columns:
-                runs_with_round = runs_df.merge(
-                    match_meta_df[["game_id", "Round"]].assign(
-                        game_id=match_meta_df["game_id"].astype(str)
-                    ),
-                    left_on=runs_df["game_id"].astype(str),
-                    right_on="game_id",
-                    how="left"
-                )
-                runs_with_round = runs_with_round[
-                    runs_with_round["pct_of_vmax"] >= threshold_pct
-                ]
+            week_meta = match_meta_df[["game_id", "week", "Round"]].assign(
+                game_id=match_meta_df["game_id"].astype(str)
+            )
+            runs_with_week = runs_df.merge(
+                week_meta,
+                left_on=runs_df["game_id"].astype(str),
+                right_on="game_id",
+                how="left"
+            )
+            runs_with_week = runs_with_week[
+                runs_with_week["pct_of_vmax"] >= threshold_pct
+            ]
 
-                round_agg = (
-                    runs_with_round
-                    .groupby("Round")
-                    .agg(
-                        total_runs      = ("run_id", "count"),
-                        avg_pct_vmax    = ("pct_of_vmax", "mean"),
-                        avg_peak_speed  = ("peak_speed_kmh", "mean"),
-                        avg_distance    = ("distance_m", "mean"),
-                        avg_duration    = ("duration_sec", "mean"),
+            week_agg = (
+                runs_with_week
+                .groupby(["week_y" if "week_y" in runs_with_week.columns else "week", "Round"])
+                .agg(
+                    total_runs      = ("run_id", "count"),
+                    n_games         = ("game_id_y" if "game_id_y" in runs_with_week.columns
+                                       else "game_id", "nunique"),
+                    avg_peak_speed  = ("peak_speed_kmh", "mean"),
+                    avg_pct_vmax    = ("pct_of_vmax", "mean"),
+                )
+                .reset_index()
+            )
+            week_col = "week_y" if "week_y" in week_agg.columns else "week"
+            week_agg["runs_per_game"] = (
+                week_agg["total_runs"] / week_agg["n_games"].clip(lower=1)
+            ).round(1)
+            week_agg["avg_pct_vmax"] = (week_agg["avg_pct_vmax"] * 100).round(1)
+            week_agg = week_agg.sort_values(week_col)
+
+            tw1, tw2 = st.columns(2)
+
+            with tw1:
+                fig_week = go.Figure()
+                for rnd, color in rnd_colors.items():
+                    sub = week_agg[week_agg["Round"] == rnd]
+                    if sub.empty:
+                        continue
+                    fig_week.add_trace(go.Scatter(
+                        x=sub[week_col],
+                        y=sub["runs_per_game"],
+                        mode="lines+markers",
+                        name=rnd,
+                        line=dict(color=color, width=2),
+                        marker=dict(size=8, color=color),
+                        hovertemplate=f"<b>{rnd}</b><br>Week %{{x}}<br>Runs/game: %{{y}}<extra></extra>",
+                    ))
+                fig_week.update_layout(
+                    **base_layout(
+                        "HSR runs per game by week",
+                        height=340,
+                        xaxis=dict(title="Tournament week", dtick=1),
+                        yaxis=dict(title="Runs per game"),
                     )
+                )
+                st.plotly_chart(fig_week, use_container_width=True)
+
+            with tw2:
+                fig_intensity = go.Figure()
+                for rnd, color in rnd_colors.items():
+                    sub = week_agg[week_agg["Round"] == rnd]
+                    if sub.empty:
+                        continue
+                    fig_intensity.add_trace(go.Scatter(
+                        x=sub[week_col],
+                        y=sub["avg_pct_vmax"],
+                        mode="lines+markers",
+                        name=rnd,
+                        line=dict(color=color, width=2),
+                        marker=dict(size=8, color=color),
+                        hovertemplate=f"<b>{rnd}</b><br>Week %{{x}}<br>Avg % v-max: %{{y}}<extra></extra>",
+                    ))
+                fig_intensity.update_layout(
+                    **base_layout(
+                        "Avg intensity (% v-max) by week",
+                        height=340,
+                        xaxis=dict(title="Tournament week", dtick=1),
+                        yaxis=dict(title="Avg % of v-max"),
+                    )
+                )
+                st.plotly_chart(fig_intensity, use_container_width=True)
+
+            st.divider()
+
+            # ── Position breakdown by round ───────────────────────────────
+            st.markdown("#### Position breakdown by round")
+
+            if "pos" in runs_with_round.columns:
+                pos_round = (
+                    runs_with_round
+                    .groupby(["Round", "pos"])
+                    .agg(total_runs=("run_id", "count"))
                     .reset_index()
                 )
-                round_agg["avg_pct_vmax"] = (round_agg["avg_pct_vmax"] * 100).round(1)
+                games_by_round = match_meta_df.groupby("Round").size().reset_index(name="n_games")
+                pos_round = pos_round.merge(games_by_round, on="Round", how="left")
+                pos_round["runs_per_game"] = (
+                    pos_round["total_runs"] / pos_round["n_games"]
+                ).round(2)
 
-                n_gs = match_meta_df[match_meta_df["Round"] == "Group Stage"].shape[0]
-                n_ko = match_meta_df[match_meta_df["Round"] == "Knockout"].shape[0]
-                round_agg["n_games"] = round_agg["Round"].map(
-                    {"Group Stage": n_gs, "Knockout": n_ko}
+                fig_pos_round = px.bar(
+                    pos_round,
+                    x="pos", y="runs_per_game",
+                    color="Round",
+                    barmode="group",
+                    color_discrete_map={"Group Stage": BLUE, "Knockout": RED},
+                    labels={
+                        "pos": "Position",
+                        "runs_per_game": "HSR runs per game",
+                        "Round": "Round",
+                    },
+                    text=pos_round["runs_per_game"],
                 )
-                round_agg["runs_per_game"] = (
-                    round_agg["total_runs"] / round_agg["n_games"]
-                ).round(1)
-
-                rnd_colors = {"Group Stage": BLUE, "Knockout": RED}
-
-                metrics = [
-                    ("runs_per_game",   "HSR runs per game"),
-                    ("avg_pct_vmax",    "Avg intensity (% v-max)"),
-                    ("avg_peak_speed",  "Avg peak speed (km/h)"),
-                    ("avg_distance",    "Avg run distance (m)"),
-                ]
-                cols_r = st.columns(4)
-                for col, (metric, label) in zip(cols_r, metrics):
-                    fig_r = go.Figure(go.Bar(
-                        x=round_agg["Round"],
-                        y=round_agg[metric].round(1),
-                        marker=dict(
-                            color=[rnd_colors.get(r, BLUE) for r in round_agg["Round"]],
-                            opacity=0.85, line=dict(width=0),
-                        ),
-                        text=round_agg[metric].round(1),
-                        textposition="outside",
-                    ))
-                    fig_r.update_layout(**base_layout(label, height=280))
-                    col.plotly_chart(fig_r, use_container_width=True)
-
-                st.dataframe(
-                    round_agg
-                    .rename(columns={
-                        "Round":          "Round",
-                        "n_games":        "Games",
-                        "total_runs":     "Total runs",
-                        "runs_per_game":  "Runs / game",
-                        "avg_pct_vmax":   "Avg intensity (% v-max)",
-                        "avg_peak_speed": "Avg peak speed (km/h)",
-                        "avg_distance":   "Avg distance (m)",
-                        "avg_duration":   "Avg duration (s)",
-                    })
-                    .round(2),
-                    use_container_width=True,
-                    hide_index=True,
+                fig_pos_round.update_traces(
+                    texttemplate="%{text:.1f}",
+                    textposition="outside",
+                    marker=dict(line=dict(width=0)),
                 )
+                fig_pos_round.update_layout(
+                    **base_layout("HSR runs per game by position and round", height=380)
+                )
+                st.plotly_chart(fig_pos_round, use_container_width=True)
+
+            st.divider()
+
+            # ── Summary table ─────────────────────────────────────────────
+            st.markdown("#### Summary table")
+            st.dataframe(
+                round_agg
+                .rename(columns={
+                    "Round":          "Round",
+                    "n_games":        "Games",
+                    "total_runs":     "Total runs",
+                    "runs_per_game":  "Runs / game",
+                    "avg_pct_vmax":   "Avg intensity (% v-max)",
+                    "avg_peak_speed": "Avg peak speed (km/h)",
+                    "avg_distance":   "Avg distance (m)",
+                    "avg_duration":   "Avg duration (s)",
+                })
+                .round(2),
+                use_container_width=True,
+                hide_index=True,
+            )
 
 # ─────────────────────────────────────────────
 # Footer
