@@ -1,0 +1,65 @@
+game_id,date,home_team_name,home_team_short,away_team_name,away_team_short,stadium_name,week,competition_name,Round
+3814,2022-11-20T16:00:00,Qatar,QAT,Ecuador,ECU,Al Bayt Stadium,1,FIFA Men's World Cup,Group Stage
+3813,2022-11-21T13:00:00,England,ENG,Iran,IRN,Khalifa International Stadium,1,FIFA Men's World Cup,Group Stage
+3812,2022-11-21T16:00:00,Senegal,SEN,Netherlands,NED,Al Thumama Stadium,1,FIFA Men's World Cup,Group Stage
+3815,2022-11-21T19:00:00,United States,USA,Wales,WAL,Ahmad Bin Ali Stadium,1,FIFA Men's World Cup,Group Stage
+3816,2022-11-22T10:00:00,Argentina,ARG,Saudi Arabia,KSA,Lusail Stadium,1,FIFA Men's World Cup,Group Stage
+3817,2022-11-22T13:00:00,Denmark,DEN,Tunisia,TUN,Education City Stadium,1,FIFA Men's World Cup,Group Stage
+3818,2022-11-22T16:00:00,Mexico,MEX,Poland,POL,Stadium 974,1,FIFA Men's World Cup,Group Stage
+3819,2022-11-22T19:00:00,France,FRA,Australia,AUS,Al Janoub Stadium,1,FIFA Men's World Cup,Group Stage
+3820,2022-11-23T10:00:00,Morocco,MAR,Croatia,CRO,Al Bayt Stadium,1,FIFA Men's World Cup,Group Stage
+3821,2022-11-23T13:00:00,Germany,GER,Japan,JPN,Khalifa International Stadium,1,FIFA Men's World Cup,Group Stage
+3822,2022-11-23T16:00:00,Spain,ESP,Costa Rica,CRC,Al Thumama Stadium,1,FIFA Men's World Cup,Group Stage
+3823,2022-11-23T19:00:00,Belgium,BEL,Canada,CAN,Ahmad Bin Ali Stadium,1,FIFA Men's World Cup,Group Stage
+3824,2022-11-24T10:00:00,Switzerland,SUI,Cameroon,CMR,Al Janoub Stadium,1,FIFA Men's World Cup,Group Stage
+3825,2022-11-24T13:00:00,Uruguay,URU,South Korea,KOR,Education City Stadium,1,FIFA Men's World Cup,Group Stage
+3826,2022-11-24T16:00:00,Portugal,POR,Ghana,GHA,Stadium 974,1,FIFA Men's World Cup,Group Stage
+3827,2022-11-24T19:00:00,Brazil,BRA,Serbia,SRB,Lusail Stadium,1,FIFA Men's World Cup,Group Stage
+3828,2022-11-25T10:00:00,Wales,WAL,Iran,IRN,Ahmad Bin Ali Stadium,2,FIFA Men's World Cup,Group Stage
+3829,2022-11-25T13:00:00,Qatar,QAT,Senegal,SEN,Al Thumama Stadium,2,FIFA Men's World Cup,Group Stage
+3830,2022-11-25T16:00:00,Netherlands,NED,Ecuador,ECU,Khalifa International Stadium,2,FIFA Men's World Cup,Group Stage
+3831,2022-11-25T19:00:00,England,ENG,United States,USA,Al Bayt Stadium,2,FIFA Men's World Cup,Group Stage
+3832,2022-11-26T10:00:00,Tunisia,TUN,Australia,AUS,Al Janoub Stadium,2,FIFA Men's World Cup,Group Stage
+3833,2022-11-26T13:00:00,Poland,POL,Saudi Arabia,KSA,Education City Stadium,2,FIFA Men's World Cup,Group Stage
+3834,2022-11-26T16:00:00,France,FRA,Denmark,DEN,Stadium 974,2,FIFA Men's World Cup,Group Stage
+3835,2022-11-26T19:00:00,Argentina,ARG,Mexico,MEX,Lusail Stadium,2,FIFA Men's World Cup,Group Stage
+3836,2022-11-27T10:00:00,Japan,JPN,Costa Rica,CRC,Ahmad Bin Ali Stadium,2,FIFA Men's World Cup,Group Stage
+3837,2022-11-27T13:00:00,Belgium,BEL,Morocco,MAR,Al Thumama Stadium,2,FIFA Men's World Cup,Group Stage
+3838,2022-11-27T16:00:00,Croatia,CRO,Canada,CAN,Khalifa International Stadium,2,FIFA Men's World Cup,Group Stage
+3839,2022-11-27T19:00:00,Spain,ESP,Germany,GER,Al Bayt Stadium,2,FIFA Men's World Cup,Group Stage
+3840,2022-11-28T10:00:00,Cameroon,CMR,Serbia,SRB,Al Janoub Stadium,2,FIFA Men's World Cup,Group Stage
+3841,2022-11-28T13:00:00,South Korea,KOR,Ghana,GHA,Education City Stadium,2,FIFA Men's World Cup,Group Stage
+3842,2022-11-28T16:00:00,Brazil,BRA,Switzerland,SUI,Stadium 974,2,FIFA Men's World Cup,Group Stage
+3843,2022-11-28T19:00:00,Portugal,POR,Uruguay,URU,Lusail Stadium,2,FIFA Men's World Cup,Group Stage
+3844,2022-11-29T15:00:00,Ecuador,ECU,Senegal,SEN,Khalifa International Stadium,3,FIFA Men's World Cup,Group Stage
+3845,2022-11-29T15:00:00,Netherlands,NED,Qatar,QAT,Al Bayt Stadium,3,FIFA Men's World Cup,Group Stage
+3846,2022-11-29T19:00:00,Wales,WAL,England,ENG,Ahmad Bin Ali Stadium,3,FIFA Men's World Cup,Group Stage
+3847,2022-11-29T19:00:00,Iran,IRN,United States,USA,Al Thumama Stadium,3,FIFA Men's World Cup,Group Stage
+3848,2022-11-30T15:00:00,Australia,AUS,Denmark,DEN,Al Janoub Stadium,3,FIFA Men's World Cup,Group Stage
+3849,2022-11-30T15:00:00,Tunisia,TUN,France,FRA,Education City Stadium,3,FIFA Men's World Cup,Group Stage
+3850,2022-11-30T19:00:00,Poland,POL,Argentina,ARG,Stadium 974,3,FIFA Men's World Cup,Group Stage
+3851,2022-11-30T19:00:00,Saudi Arabia,KSA,Mexico,MEX,Lusail Stadium,3,FIFA Men's World Cup,Group Stage
+3852,2022-12-01T15:00:00,Croatia,CRO,Belgium,BEL,Ahmad Bin Ali Stadium,3,FIFA Men's World Cup,Group Stage
+3853,2022-12-01T15:00:00,Canada,CAN,Morocco,MAR,Al Thumama Stadium,3,FIFA Men's World Cup,Group Stage
+3854,2022-12-01T19:00:00,Japan,JPN,Spain,ESP,Khalifa International Stadium,3,FIFA Men's World Cup,Group Stage
+3855,2022-12-01T19:00:00,Costa Rica,CRC,Germany,GER,Al Bayt Stadium,3,FIFA Men's World Cup,Group Stage
+3856,2022-12-02T15:00:00,Ghana,GHA,Uruguay,URU,Al Janoub Stadium,3,FIFA Men's World Cup,Group Stage
+3857,2022-12-02T15:00:00,South Korea,KOR,Portugal,POR,Education City Stadium,3,FIFA Men's World Cup,Group Stage
+3858,2022-12-02T19:00:00,Serbia,SRB,Switzerland,SUI,Stadium 974,3,FIFA Men's World Cup,Group Stage
+3859,2022-12-02T19:00:00,Cameroon,CMR,Brazil,BRA,Lusail Stadium,3,FIFA Men's World Cup,Group Stage
+10502,2022-12-03T15:00:00,Netherlands,NED,United States,USA,Khalifa International Stadium,4,FIFA Men's World Cup,Knockout
+10503,2022-12-03T19:00:00,Argentina,ARG,Australia,AUS,Ahmad Bin Ali Stadium,4,FIFA Men's World Cup,Knockout
+10504,2022-12-04T15:00:00,France,FRA,Poland,POL,Al Thumama Stadium,4,FIFA Men's World Cup,Knockout
+10505,2022-12-04T19:00:00,England,ENG,Senegal,SEN,Al Bayt Stadium,4,FIFA Men's World Cup,Knockout
+10506,2022-12-05T15:00:00,Japan,JPN,Croatia,CRO,Al Janoub Stadium,4,FIFA Men's World Cup,Knockout
+10507,2022-12-05T19:00:00,Brazil,BRA,South Korea,KOR,Stadium 974,4,FIFA Men's World Cup,Knockout
+10508,2022-12-06T15:00:00,Morocco,MAR,Spain,ESP,Education City Stadium,4,FIFA Men's World Cup,Knockout
+10509,2022-12-06T19:00:00,Portugal,POR,Switzerland,SUI,Lusail Stadium,4,FIFA Men's World Cup,Knockout
+10510,2022-12-09T15:00:00,Croatia,CRO,Brazil,BRA,Education City Stadium,5,FIFA Men's World Cup,Knockout
+10511,2022-12-09T19:00:00,Netherlands,NED,Argentina,ARG,Lusail Stadium,5,FIFA Men's World Cup,Knockout
+10512,2022-12-10T15:00:00,Morocco,MAR,Portugal,POR,Al Thumama Stadium,5,FIFA Men's World Cup,Knockout
+10513,2022-12-10T19:00:00,England,ENG,France,FRA,Al Bayt Stadium,5,FIFA Men's World Cup,Knockout
+10514,2022-12-13T19:00:00,Argentina,ARG,Croatia,CRO,Lusail Stadium,6,FIFA Men's World Cup,Knockout
+10515,2022-12-14T19:00:00,France,FRA,Morocco,MAR,Al Bayt Stadium,6,FIFA Men's World Cup,Knockout
+10516,2022-12-17T15:00:00,Croatia,CRO,Morocco,MAR,Khalifa International Stadium,7,FIFA Men's World Cup,Knockout
+10517,2022-12-18T15:00:00,Argentina,ARG,France,FRA,Lusail Stadium,8,FIFA Men's World Cup,Knockout
