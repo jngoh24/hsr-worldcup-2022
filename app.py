@@ -706,6 +706,28 @@ with tab2:
         )
         st.plotly_chart(fig_dist, use_container_width=True)
 
+    st.divider()
+    st.markdown("#### Team summary table")
+    st.dataframe(
+        team_agg
+        .sort_values("avg_runs_per_game", ascending=False)
+        .reset_index(drop=True)
+        .rename(columns={
+            "team_name":                    "Team",
+            "team_short":                   "Code",
+            "avg_runs_per_game":            "Avg runs / game",
+            "total_team_runs":              "Total runs",
+            "avg_vmax":                     "Avg v-max (km/h)",
+            "avg_peak_speed":               "Avg peak speed (km/h)",
+            "avg_hsr_distance":             "Avg HSR dist / game (m)",
+            "avg_intensity":                "Avg intensity (% v-max)",
+            "n_players_tracked":            "Players tracked",
+        })
+        .round(2),
+        use_container_width=True,
+        height=400,
+    )
+
 # ══════════════════════════════════════════════
 # TAB 3 — Position analysis
 # ══════════════════════════════════════════════
@@ -933,19 +955,25 @@ with tab4:
                           "runs_absolute_dynamic", "runs_relative_dynamic",
                           "run_delta", "pct_change", "category"])
         .sort_values("run_delta", key=abs, ascending=False)
-        .head(30)
         .reset_index(drop=True)
     )
+    st.caption(f"{len(most_affected):,} players · sorted by absolute run delta")
     st.dataframe(
         most_affected.rename(columns={
-            "player_name": "Player", "team_short": "Team",
-            "position": "Pos", "vmax_kmh": "v-max",
-            "threshold_kmh": "Threshold", "runs_absolute": "Runs (20 km/h)",
-            "runs_relative": "Runs (relative)", "run_delta": "Delta",
-            "pct_change": "% change", "category": "Category",
+            "player_name":          "Player",
+            "team_short":           "Team",
+            "pos":                  "Pos",
+            "pos_detail":           "Pos detail",
+            "vmax_kmh":             "v-max (km/h)",
+            "threshold_at_pct":     "Threshold (km/h)",
+            "runs_absolute_dynamic":"HSR Industry Standard",
+            "runs_relative_dynamic":"HSR New Definition",
+            "run_delta":            "Delta",
+            "pct_change":           "% change",
+            "category":             "Category",
         }),
         use_container_width=True,
-        height=400,
+        height=600,
     )
 
 # ══════════════════════════════════════════════
