@@ -1,0 +1,680 @@
+player_id,player_name,team_name,team_short,position,jersey_number,is_starter,vmax_kmh,threshold_kmh,low_confidence,games_appeared,total_runs,runs_per_game,total_hsr_distance_m,hsr_distance_per_game_m,mean_duration_sec,mean_pct_of_vmax_pct,tournament_peak_speed_kmh,mean_peak_speed_kmh
+4674,Axel Witsel,Belgium,BEL,CM,6,true,17.76,13.32,false,3,186,62.0,1467.8,489.3,1.84,91.2,28.27,16.19
+2134,Moises Caicedo,Ecuador,ECU,CM,23,true,18.07,13.56,false,3,144,48.0,1157.8,385.9,1.84,90.2,41.74,16.3
+1381,Marcos Llorente,Spain,ESP,CM,6,false,20.97,15.73,false,1,45,45.0,500.8,500.8,2.1,98.4,45.0,20.65
+1683,Casemiro,Brazil,BRA,CM,5,true,18.31,13.74,false,4,179,44.75,1462.2,365.6,1.82,93.9,45.0,17.19
+12561,Sergej Milinković-Savić,Serbia,SRB,LW,20,true,18.56,13.92,false,3,133,44.33,1209.4,403.1,2.02,92.6,32.69,17.19
+265,Declan Rice,England,ENG,CM,4,true,18.53,13.9,false,5,221,44.2,1876.1,375.2,1.88,91.5,41.84,16.96
+13956,Assim Madibo,Qatar,QAT,CDM,23,false,17.07,12.81,false,2,85,42.5,655.9,328.0,1.82,93.3,33.7,15.94
+1339,Tyler Adams,United States,USA,CM,4,true,19.64,14.73,false,4,168,42.0,1514.0,378.5,1.87,92.4,42.04,18.15
+3387,Orbelín Pineda,Mexico,MEX,CM,17,false,19.17,14.38,false,1,42,42.0,392.6,392.6,2.04,90.2,21.99,17.3
+4677,Jude Bellingham,England,ENG,CM,22,true,19.31,14.48,false,5,207,41.4,1751.9,350.4,1.78,92.3,30.33,17.82
+8062,Aaron Ramsey,Wales,WAL,CM,10,true,19.52,14.64,false,3,122,40.67,1163.2,387.7,1.96,92.9,38.14,18.13
+7966,Kieffer Moore,Wales,WAL,CF,13,false,18.34,13.76,false,3,113,37.67,949.0,316.3,1.87,92.3,31.19,16.92
+13857,Borna Barisic,Croatia,CRO,LB,3,false,20.02,15.01,false,1,37,37.0,396.0,396.0,2.17,94.8,30.36,18.98
+1034,Jhegson Méndez,Ecuador,ECU,CM,20,true,18.14,13.61,false,2,74,37.0,610.7,305.4,1.84,93.0,41.61,16.88
+1519,Sergio Busquets,Spain,ESP,CM,5,true,18.37,13.78,false,4,147,36.75,1270.5,317.6,1.9,93.9,43.17,17.25
+8129,Marcelo Brozovic,Croatia,CRO,CM,11,true,20.16,15.12,false,6,219,36.5,2121.3,353.5,1.95,93.7,37.64,18.9
+4732,Djibril Sow,Switzerland,SUI,CAM,15,true,18.9,14.17,false,4,146,36.5,1325.8,331.4,1.97,92.2,40.93,17.42
+22,Kevin De Bruyne,Belgium,BEL,RW,7,true,20.5,15.38,false,3,109,36.33,994.9,331.6,1.77,96.9,35.65,19.86
+8328,Remo Freuler,Switzerland,SUI,CM,8,true,19.27,14.45,false,4,145,36.25,1333.8,333.4,1.94,94.2,44.52,18.15
+1931,Ethan Ampadu,Wales,WAL,CM,15,true,19.27,14.46,false,3,108,36.0,933.7,311.2,1.85,91.7,24.58,17.68
+1841,Pau Torres,Spain,ESP,LCB,4,false,17.39,13.04,false,1,36,36.0,349.2,349.2,2.26,92.8,20.43,16.14
+13788,Yeltsin Tejeda,Costa Rica,CRC,CM,17,true,18.37,13.78,false,3,108,36.0,922.2,307.4,1.9,92.2,31.45,16.94
+12664,Saša Lukić,Serbia,SRB,CM,16,true,19.72,14.79,false,3,106,35.33,980.5,326.8,1.94,91.8,29.81,18.1
+4758,Ellyes Skhiri,Tunisia,TUN,CM,17,true,20.11,15.08,false,3,105,35.0,993.2,331.1,1.91,93.3,36.56,18.77
+3858,Idrissa Gueye,Senegal,SEN,CAM,5,true,20.66,15.5,false,3,104,34.67,1044.4,348.1,1.96,92.7,30.06,19.14
+4613,Benjamin Pavard,France,FRA,RB,2,true,19.31,14.48,false,1,34,34.0,325.8,325.8,2.02,93.8,38.57,18.11
+13976,Sadegh Moharrami,Iran,IRN,RWB,2,true,20.65,15.49,false,1,34,34.0,373.0,373.0,2.11,97.8,36.13,20.2
+8854,Jackson Irvine,Australia,AUS,CM,22,true,20.53,15.4,false,4,135,33.75,1374.3,343.6,2.0,93.4,36.57,19.18
+12514,Piotr Zielinski,Poland,POL,CM,20,true,19.06,14.3,false,4,135,33.75,1214.5,303.6,1.91,92.9,28.63,17.7
+4621,Jamal Musiala,Germany,GER,LW,14,true,19.83,14.87,false,3,100,33.33,889.2,296.4,1.8,93.9,35.72,18.61
+8037,Dusan Tadić,Serbia,SRB,RW,10,true,20.27,15.2,false,3,100,33.33,1025.1,341.7,2.08,92.6,34.17,18.76
+13121,Yunus Musah,United States,USA,CM,6,true,20.53,15.4,false,4,133,33.25,1345.3,336.3,1.99,93.7,39.72,19.24
+13996,Hassan Tambakti,Saudi Arabia,KSA,RCB,17,true,19.99,14.99,false,2,66,33.0,687.2,343.6,2.12,94.2,28.26,18.84
+1530,Pedri,Spain,ESP,CM,26,true,18.81,14.11,false,4,131,32.75,1142.2,285.5,1.87,95.1,33.48,17.9
+449,Aaron Mooy,Australia,AUS,CDM,13,true,19.68,14.76,false,4,131,32.75,1281.6,320.4,1.99,94.7,38.83,18.64
+1977,André Zambo Anguissa,Cameroon,CMR,CM,8,true,20.08,15.06,false,3,97,32.33,866.3,288.8,1.77,94.5,44.64,18.98
+8054,Adrien Rabiot,France,FRA,CM,14,true,20.17,15.13,false,6,193,32.17,1686.5,281.1,1.75,94.1,37.05,18.97
+13850,Grzegorz Krychowiak,Poland,POL,CDM,10,true,18.96,14.22,false,4,128,32.0,1106.0,276.5,1.83,94.7,36.05,17.95
+13980,Saeid Ezatolahi,Iran,IRN,CDM,6,false,18.45,13.84,false,3,96,32.0,773.3,257.8,1.78,93.1,33.89,17.17
+8578,Simon Kjaer,Denmark,DEN,UNK,4,true,18.69,14.01,false,1,32,32.0,273.0,273.0,1.83,96.7,23.4,18.07
+13867,Bilal El Khannouss,Morocco,MAR,CAM,23,false,17.64,13.23,false,1,32,32.0,253.3,253.3,1.83,90.9,21.09,16.04
+11853,Antonio Silva,Portugal,POR,RCB,24,false,19.89,14.92,false,1,32,32.0,355.9,355.9,2.28,92.4,26.27,18.37
+4616,Joshua Kimmich,Germany,GER,CM,6,true,19.64,14.73,false,3,95,31.67,918.9,306.3,1.95,97.6,45.0,19.17
+3367,Henry Martín,Mexico,MEX,CF,20,true,19.71,14.78,false,2,63,31.5,671.6,335.8,2.2,91.9,30.84,18.11
+13994,Saud Abdulhamid,Saudi Arabia,KSA,RB,12,true,21.45,16.09,false,3,94,31.33,1084.4,361.5,2.13,97.2,45.0,20.86
+7443,Christian Eriksen,Denmark,DEN,CM,10,true,20.17,15.12,false,3,94,31.33,929.5,309.8,1.97,94.8,30.24,19.11
+20,Ilkay Gündogan,Germany,GER,CM,21,true,18.29,13.72,false,3,93,31.0,798.9,266.3,1.92,93.2,42.43,17.04
+3888,Aurélien Tchouaméni,France,FRA,CM,8,true,19.85,14.89,false,7,216,30.86,1999.9,285.7,1.86,94.9,45.0,18.84
+3978,Pape Gueye,Senegal,SEN,CDM,26,false,18.39,13.79,false,3,92,30.67,801.7,267.2,1.94,92.8,33.7,17.06
+8551,Stephen Eustaquio,Canada,CAN,CM,7,true,20.08,15.06,false,2,61,30.5,605.2,302.6,2.02,92.9,28.21,18.65
+4611,Alphonso Davies,Canada,CAN,LWB,19,true,21.79,16.34,false,3,91,30.33,955.0,318.3,1.89,97.1,38.93,21.16
+107,Christian Pulisic,United States,USA,LW,10,true,19.57,14.68,false,4,121,30.25,1203.8,301.0,2.06,92.9,32.33,18.18
+4408,Salis Abdul Samed,Ghana,GHA,CM,21,true,19.32,14.49,false,3,90,30.0,903.6,301.2,2.1,93.2,45.0,18.0
+1334,Weston McKennie,United States,USA,CM,8,true,19.84,14.88,false,4,120,30.0,1089.8,272.5,1.86,93.9,43.06,18.64
+12222,Majid Hosseini,Iran,IRN,LCB,19,true,18.71,14.03,false,3,90,30.0,858.6,286.2,2.0,97.2,37.4,18.18
+8561,Mehdi Taremi,Iran,IRN,CF,9,true,21.17,15.88,false,3,90,30.0,979.9,326.6,2.07,94.3,28.36,19.96
+14023,Mohamed Ali Ben Romdhane,Tunisia,TUN,CM,15,false,18.53,13.9,false,1,30,30.0,255.2,255.2,1.87,92.8,26.55,17.19
+13781,Celso Borges,Costa Rica,CRC,CM,5,true,18.31,13.73,false,3,90,30.0,856.0,285.3,2.04,94.3,33.79,17.27
+4624,Thomas Müller,Germany,GER,CAM,13,true,19.61,14.71,false,3,89,29.67,792.5,264.2,1.84,93.8,33.21,18.4
+67,Jan Vertonghen,Belgium,BEL,LCB,5,true,19.79,14.84,false,3,89,29.67,888.7,296.2,2.01,97.6,45.0,19.32
+13945,Boualem Khoukhi,Qatar,QAT,UNK,16,true,18.56,13.92,false,3,88,29.33,820.9,273.6,1.96,99.5,45.0,18.46
+1522,Frenkie de Jong,Netherlands,NED,CM,21,true,20.26,15.19,false,5,146,29.2,1438.2,287.6,1.94,95.2,35.42,19.28
+14030,Anis Slimane,Tunisia,TUN,RW,25,true,20.66,15.49,false,2,58,29.0,568.0,284.0,1.92,92.5,36.64,19.1
+1684,Federico Valverde,Uruguay,URU,CM,15,true,20.31,15.23,false,3,87,29.0,881.3,293.8,1.99,95.3,35.93,19.35
+13998,Salem Al-Dawsari,Saudi Arabia,KSA,LM,10,true,20.64,15.48,false,3,87,29.0,897.2,299.1,1.98,97.4,34.77,20.11
+157,Granit Xhaka,Switzerland,SUI,CM,10,true,20.47,15.36,false,4,115,28.75,1137.8,284.4,1.93,94.0,42.14,19.24
+11856,Enzo Fernandez,Argentina,ARG,CM,24,false,19.13,14.35,false,7,201,28.71,1767.2,252.5,1.82,96.3,41.93,18.43
+7584,Rodrigo Bentancur,Uruguay,URU,CM,6,true,19.52,14.64,false,3,86,28.67,809.3,269.8,1.95,93.6,34.13,18.28
+11841,Hidemasa Morita,Japan,JPN,CDM,13,false,20.07,15.05,false,3,86,28.67,813.6,271.2,1.84,97.9,45.0,19.65
+5098,Ko Itakura,Japan,JPN,RCB,4,true,17.38,13.04,false,3,86,28.67,783.0,261.0,1.99,101.5,45.0,17.65
+6655,Nicolas N'Koulou,Cameroon,CMR,LCB,3,true,19.84,14.88,false,2,57,28.5,568.1,284.0,2.04,93.1,26.07,18.47
+14004,Abdulelah Al-Malki,Saudi Arabia,KSA,CDM,8,true,19.39,14.54,false,2,57,28.5,575.2,287.6,2.12,92.7,33.95,17.97
+4142,Dylan Bronn,Tunisia,TUN,RCB,6,true,17.7,13.28,false,2,57,28.5,495.0,247.5,1.95,97.8,37.74,17.31
+1876,William Carvalho,Portugal,POR,CDM,14,false,17.95,13.46,false,4,114,28.5,872.2,218.1,1.75,91.8,27.05,16.47
+395,Pierre-Emile Höjbjerg,Denmark,DEN,CM,23,true,20.36,15.27,false,3,85,28.33,905.2,301.7,2.06,97.1,42.27,19.77
+13852,Damian Szymanski,Poland,POL,CM,8,false,15.76,11.82,false,1,28,28.0,175.2,175.2,1.66,89.2,18.55,14.06
+5135,Josh Sargent,United States,USA,CF,24,true,18.02,13.51,false,3,84,28.0,693.3,231.1,1.87,91.6,22.35,16.51
+13901,Pape Abou Cissé,Senegal,SEN,LCB,4,true,19.67,14.75,false,1,28,28.0,302.8,302.8,2.17,98.5,31.0,19.38
+13779,Juan Pablo Vargas,Costa Rica,CRC,LCB,3,false,18.43,13.82,false,1,28,28.0,281.3,281.3,2.14,96.2,24.38,17.73
+13977,Morteza Pouraliganji,Iran,IRN,RCB,8,true,21.27,15.95,false,3,84,28.0,981.1,327.0,2.19,95.1,31.36,20.22
+1907,Vitinha,Portugal,POR,CM,16,false,17.53,13.15,false,3,84,28.0,662.5,220.8,1.86,91.3,22.03,16.0
+4695,Nico Elvedi,Switzerland,SUI,LCB,4,true,18.82,14.12,false,2,56,28.0,559.0,279.5,2.08,97.7,45.0,18.39
+214,Nampalys Mendy,Senegal,SEN,CM,6,true,20.13,15.09,false,4,111,27.75,1040.8,260.2,1.85,94.4,38.07,19.0
+3930,Lucas Paquetá,Brazil,BRA,CM,7,true,19.6,14.7,false,4,111,27.75,1035.0,258.7,1.93,93.1,25.97,18.25
+13228,Youssouf Sabaly,Senegal,SEN,RB,21,true,20.27,15.2,false,4,111,27.75,1185.8,296.5,2.08,97.2,36.86,19.69
+1593,Óscar Duarte,Costa Rica,CRC,RCB,6,true,18.78,14.08,false,3,83,27.67,764.0,254.7,1.93,96.0,27.72,18.02
+13971,Ehsan Hajsafi,Iran,IRN,LW,3,true,20.06,15.05,false,3,83,27.67,874.2,291.4,2.12,93.7,31.18,18.8
+1960,Timothy Castagne,Belgium,BEL,RWB,21,true,20.77,15.58,false,3,83,27.67,866.7,288.9,2.03,93.9,33.64,19.5
+9,Aymeric Laporte,Spain,ESP,LCB,24,true,19.3,14.47,false,3,83,27.67,897.3,299.1,2.19,100.2,40.99,19.34
+1168,Nouhou Tolo,Cameroon,CMR,LB,25,true,21.3,15.98,false,3,83,27.67,869.4,289.8,1.96,95.7,31.11,20.39
+10,John Stones,England,ENG,RCB,5,true,18.91,14.18,false,5,138,27.6,1391.3,278.3,2.14,95.1,29.41,17.98
+1973,Antonee Robinson,United States,USA,LB,5,true,21.09,15.82,false,4,110,27.5,1158.8,289.7,1.93,99.4,45.0,20.95
+4174,Jean-Charles Castelletto,Cameroon,CMR,RCB,21,true,19.51,14.63,false,2,55,27.5,538.6,269.3,2.0,95.8,29.02,18.69
+13222,Nahuel Molina,Argentina,ARG,RB,26,true,20.02,15.02,false,6,164,27.33,1603.7,267.3,1.9,100.2,45.0,20.06
+100,Mateo Kovacic,Croatia,CRO,CM,8,true,19.57,14.68,false,7,190,27.14,1725.8,246.5,1.82,96.7,42.06,18.92
+1534,Antoine Griezmann,France,FRA,CAM,7,true,19.44,14.58,false,7,190,27.14,1717.1,245.3,1.86,93.3,36.12,18.14
+12642,Ivan Ilić,Serbia,SRB,CM,24,false,18.57,13.93,false,1,27,27.0,241.8,241.8,1.96,93.1,22.06,17.29
+1687,Luka Modric,Croatia,CRO,CM,10,true,20.18,15.14,false,7,189,27.0,1868.4,266.9,1.94,97.0,35.94,19.57
+66,Toby Alderweireld,Belgium,BEL,UNK,2,true,18.62,13.97,false,3,81,27.0,770.4,256.8,1.99,100.8,37.14,18.77
+13911,Young-gwon Kim,South Korea,KOR,LCB,19,true,19.16,14.37,false,4,107,26.75,1032.3,258.1,1.97,99.7,45.0,19.1
+8022,Jurrien Timber,Netherlands,NED,RCB,2,false,21.07,15.8,false,4,107,26.75,1093.3,273.3,1.9,97.0,37.76,20.43
+14019,Yassine Meriah,Tunisia,TUN,UNK,4,true,18.67,14.0,false,3,80,26.67,752.3,250.8,1.97,96.3,38.7,17.98
+163,Bukayo Saka,England,ENG,RW,17,true,19.77,14.83,false,4,106,26.5,1050.8,262.7,2.01,94.9,39.35,18.76
+3965,Jonathan David,Canada,CAN,CF,20,true,19.92,14.94,false,3,79,26.33,782.4,260.8,2.03,91.5,27.42,18.24
+926,Alistair Johnston,Canada,CAN,RCB,2,true,21.29,15.96,false,3,78,26.0,821.5,273.8,1.89,101.0,45.0,21.5
+14003,Mohamed Kanno,Saudi Arabia,KSA,CM,23,true,20.23,15.17,false,3,78,26.0,739.7,246.6,1.84,96.3,32.32,19.47
+4615,Josip Stanisic,Croatia,CRO,RB,2,false,19.65,14.73,false,1,26,26.0,238.1,238.1,1.83,98.8,28.37,19.41
+105,Mason Mount,England,ENG,CAM,19,true,19.6,14.7,false,3,78,26.0,679.3,226.4,1.8,93.4,38.53,18.31
+8341,Gavi,Spain,ESP,CM,9,true,19.65,14.74,false,4,104,26.0,954.2,238.5,1.86,96.2,35.97,18.91
+1971,Tim Ream,United States,USA,LCB,13,true,20.38,15.28,false,4,103,25.75,1214.9,303.7,2.28,98.9,45.0,20.16
+18,Rodri,Spain,ESP,RCB,16,true,20.58,15.44,false,4,103,25.75,1157.6,289.4,2.13,98.1,45.0,20.18
+4625,Robert Lewandowski,Poland,POL,CF,9,true,19.96,14.97,false,4,103,25.75,1022.5,255.6,1.96,97.2,33.23,19.4
+1377,Kieran Trippier,England,ENG,RB,12,true,20.23,15.17,false,3,77,25.67,799.9,266.6,2.04,96.4,33.32,19.5
+14028,Issam Jebali,Tunisia,TUN,CF,9,true,18.25,13.69,false,3,77,25.67,595.4,198.5,1.72,93.8,26.4,17.11
+13780,Keysher Fuller,Costa Rica,CRC,RM,4,true,21.36,16.02,false,3,77,25.67,839.2,279.7,2.0,96.9,45.0,20.69
+1380,Thomas Partey,Ghana,GHA,CM,5,true,19.68,14.76,false,3,77,25.67,767.4,255.8,2.0,96.6,45.0,19.02
+8257,Harry Souttar,Australia,AUS,RCB,19,true,19.77,14.83,false,4,102,25.5,1019.7,254.9,1.97,97.7,45.0,19.31
+40,Dejan Lovren,Croatia,CRO,RCB,6,true,19.65,14.74,false,6,153,25.5,1593.3,265.5,2.1,96.5,39.81,18.95
+4684,Thorgan Hazard,Belgium,BEL,LW,16,false,19.12,14.34,false,2,51,25.5,422.2,211.1,1.77,92.8,25.6,17.74
+14025,Youssef Msakni,Tunisia,TUN,LW,7,true,21.08,15.81,false,2,51,25.5,495.6,247.8,1.82,97.2,29.63,20.49
+2095,Daichi Kamada,Japan,JPN,CAM,15,true,20.3,15.23,false,4,102,25.5,992.2,248.0,1.92,95.1,44.02,19.32
+4908,Dani Olmo,Spain,ESP,LW,21,true,20.67,15.5,false,4,102,25.5,1060.9,265.2,1.95,99.9,45.0,20.66
+4012,Eduardo Camavinga,France,FRA,CM,25,false,19.67,14.75,false,2,51,25.5,511.0,255.5,2.02,97.3,36.28,19.13
+1698,Gareth Bale,Wales,WAL,CF,11,true,18.66,13.99,false,3,76,25.33,714.0,238.0,1.99,96.0,32.56,17.91
+90,Antonio Rüdiger,Germany,GER,RCB,2,true,21.23,15.92,false,3,76,25.33,920.5,306.8,2.24,97.9,45.0,20.79
+2083,Joe Rodon,Wales,WAL,UNK,6,true,19.21,14.4,false,3,76,25.33,758.8,252.9,2.08,95.1,25.75,18.26
+1257,In-beom Hwang,South Korea,KOR,CM,6,true,20.78,15.58,false,4,101,25.25,1019.0,254.7,1.93,96.0,37.69,19.96
+13371,Bryan Oviedo,Costa Rica,CRC,LB,8,true,19.95,14.97,false,3,75,25.0,707.9,236.0,1.86,96.3,32.78,19.21
+4892,Josko Gvardiol,Croatia,CRO,LCB,20,true,19.97,14.98,false,7,175,25.0,1803.6,257.7,2.04,95.9,32.0,19.16
+474,Cheikhou Kouyaté,Senegal,SEN,CM,8,true,20.21,15.15,false,1,25,25.0,282.8,282.8,2.24,96.5,23.93,19.51
+13824,Kye Rowles,Australia,AUS,LCB,4,true,20.39,15.29,false,4,99,24.75,1152.8,288.2,2.26,98.0,43.74,19.98
+1896,Matty Cash,Poland,POL,RB,2,true,20.25,15.19,false,4,99,24.75,1004.7,251.2,1.94,100.8,45.0,20.41
+13954,Abdulaziz Hatem,Qatar,QAT,CM,6,true,19.44,14.58,false,3,74,24.67,731.5,243.8,2.07,91.8,23.91,17.86
+8031,Mohammed Kudus,Ghana,GHA,CM,20,true,20.11,15.08,false,3,74,24.67,748.4,249.5,2.02,95.4,30.93,19.19
+13872,Collins Fai,Cameroon,CMR,RB,19,true,21.21,15.91,false,3,74,24.67,822.6,274.2,2.04,97.5,41.72,20.68
+5038,Jae-sung Lee,South Korea,KOR,CAM,10,true,21.24,15.93,false,3,74,24.67,883.0,294.3,2.28,94.3,33.92,20.04
+57,Xherdan Shaqiri,Switzerland,SUI,RW,23,true,19.37,14.53,false,3,74,24.67,697.4,232.5,1.91,98.2,45.0,19.01
+7649,Mohamed Drager,Tunisia,TUN,RWB,20,true,19.83,14.88,false,2,49,24.5,449.2,224.6,1.83,95.8,45.0,19.0
+8343,Sergiño Dest,United States,USA,RB,2,true,20.36,15.27,false,4,98,24.5,1033.8,258.4,2.02,99.7,45.0,20.3
+4324,Azzedine Ounahi,Morocco,MAR,CM,8,true,20.28,15.21,false,7,171,24.43,1647.3,235.3,1.88,95.6,36.41,19.38
+4606,Dayot Upamecano,France,FRA,LCB,18,true,20.4,15.3,false,5,122,24.4,1395.1,279.0,2.19,97.2,39.9,19.82
+13049,Gonzalo Plata,Ecuador,ECU,RM,19,true,20.67,15.5,false,3,73,24.33,746.2,248.7,1.96,95.3,44.03,19.69
+1025,Kamal Miller,Canada,CAN,LCB,4,true,20.12,15.09,false,3,73,24.33,664.7,221.6,1.74,101.6,42.44,20.44
+8061,Danilo,Brazil,BRA,RB,2,true,22.36,16.77,false,3,73,24.33,737.9,246.0,1.79,97.3,34.79,21.76
+9993,Kalidou Koulibaly,Senegal,SEN,RCB,3,true,20.8,15.6,false,4,96,24.0,955.8,238.9,1.87,98.8,36.43,20.55
+2443,Moon-hwan Kim,South Korea,KOR,RB,15,true,22.63,16.97,false,4,96,24.0,1072.1,268.0,1.91,99.5,45.0,22.52
+133,Bruno Fernandes,Portugal,POR,RW,8,true,20.61,15.46,false,4,96,24.0,929.1,232.3,1.85,99.0,33.95,20.4
+8927,Ao Tanaka,Japan,JPN,CM,17,true,19.46,14.59,false,3,72,24.0,671.0,223.7,1.95,91.3,38.31,17.76
+13997,Abdullah Madu,Saudi Arabia,KSA,LCB,3,false,18.32,13.74,false,1,24,24.0,219.6,219.6,2.08,90.1,20.76,16.51
+11967,Victor Nelsson,Denmark,DEN,RCB,3,false,21.27,15.95,false,1,24,24.0,298.4,298.4,2.24,102.2,44.74,21.74
+13815,Mathew Leckie,Australia,AUS,RM,7,true,20.97,15.73,false,4,96,24.0,1012.1,253.0,1.96,98.4,45.0,20.63
+13874,Samuel Oum Gouet,Cameroon,CMR,CM,14,true,18.65,13.98,false,2,48,24.0,423.4,211.7,1.93,91.8,24.0,17.12
+1682,Daniel Carvajal,Spain,ESP,RB,20,false,19.95,14.96,false,2,48,24.0,426.7,213.4,1.77,95.2,31.25,18.98
+13946,Pedro Miguel,Qatar,QAT,RWB,2,true,19.11,14.33,false,3,72,24.0,652.1,217.4,1.82,100.1,43.18,19.13
+4618,Leon Goretzka,Germany,GER,CM,8,false,19.67,14.75,false,3,72,24.0,650.4,216.8,1.85,94.0,45.0,18.48
+14011,Saleh Al-Shehri,Saudi Arabia,KSA,CF,11,true,17.95,13.47,false,3,72,24.0,677.1,225.7,2.08,96.8,29.03,17.37
+13953,Karim Boudiaf,Qatar,QAT,CM,12,true,19.04,14.28,false,3,72,24.0,665.0,221.7,1.95,94.2,41.08,17.94
+8564,Pepe,Portugal,POR,RCB,3,false,18.84,14.13,false,4,96,24.0,831.6,207.9,1.8,99.3,31.16,18.72
+5070,Saman Ghoddos,Iran,IRN,CAM,14,false,20.76,15.57,false,1,24,24.0,230.9,230.9,1.93,91.0,23.31,18.89
+4152,Pape Sarr,Senegal,SEN,CM,17,false,17.03,12.78,false,2,48,24.0,349.8,174.9,1.78,90.2,20.09,15.37
+4734,Filip Kostic,Serbia,SRB,LM,17,false,21.85,16.39,false,2,48,24.0,549.0,274.5,1.98,100.5,45.0,21.96
+4795,Woo-yeong Jeong,South Korea,KOR,CF,25,false,17.44,13.08,false,1,24,24.0,201.1,201.1,2.01,90.7,19.6,15.83
+13912,Jin-su Kim,South Korea,KOR,LB,3,true,20.02,15.01,false,4,95,23.75,974.2,243.5,1.99,97.3,45.0,19.47
+14040,Andre Ayew,Ghana,GHA,CF,10,true,18.5,13.88,false,3,71,23.67,593.7,197.9,1.82,94.4,33.89,17.47
+12960,Ricardo Rodriguez,Switzerland,SUI,LB,13,true,20.7,15.53,false,4,94,23.5,986.4,246.6,1.97,98.8,45.0,20.45
+3868,Ángel Di María,Argentina,ARG,RM,11,true,18.78,14.08,false,4,94,23.5,856.6,214.1,1.96,95.2,40.2,17.88
+1681,Achraf Hakimi,Morocco,MAR,RB,2,true,20.65,15.49,false,7,164,23.43,1704.6,243.5,1.93,100.8,45.0,20.83
+5085,Abdul Rahman Baba,Ghana,GHA,LWB,17,true,19.56,14.67,false,3,70,23.33,690.0,230.0,2.0,95.3,39.78,18.65
+13961,Akram Afif,Qatar,QAT,CF,11,true,20.64,15.48,false,3,70,23.33,773.7,257.9,2.1,97.2,36.75,20.06
+11790,Steven Vitoria,Canada,CAN,UNK,5,true,21.13,15.85,false,3,70,23.33,761.2,253.7,1.96,103.4,45.0,21.87
+7988,Boulaye Dia,Senegal,SEN,CF,9,true,20.94,15.7,false,4,93,23.25,966.0,241.5,1.96,96.1,30.73,20.12
+13819,Mitchell Duke,Australia,AUS,CF,15,true,20.35,15.27,false,4,93,23.25,914.1,228.5,1.92,95.1,40.22,19.36
+4608,Niklas Süle,Germany,GER,RB,15,true,19.63,14.72,false,3,69,23.0,789.9,263.3,2.26,101.4,45.0,19.91
+3352,Jorge Sánchez,Mexico,MEX,RB,19,true,22.35,16.76,false,2,46,23.0,557.3,278.6,2.08,102.6,43.96,22.93
+8099,Rasmus Kristensen,Denmark,DEN,RWB,13,true,20.89,15.67,false,3,69,23.0,678.7,226.2,1.84,97.5,41.86,20.37
+963,Tajon Buchanan,Canada,CAN,RW,11,true,21.39,16.04,false,3,69,23.0,765.3,255.1,2.03,96.4,44.55,20.61
+10715,Julian Alvarez,Argentina,ARG,CF,9,false,20.96,15.72,false,7,161,23.0,1771.6,253.1,2.08,96.0,35.83,20.12
+8555,Otavio,Portugal,POR,CM,25,true,19.63,14.72,false,3,69,23.0,602.8,200.9,1.79,94.1,30.43,18.47
+11,Nicolás Otamendi,Argentina,ARG,LCB,19,true,19.45,14.59,false,7,160,22.86,1562.0,223.1,1.96,99.6,45.0,19.37
+118,Harry Maguire,England,ENG,LCB,6,true,18.2,13.65,false,5,114,22.8,1110.4,222.1,2.1,99.5,45.0,18.1
+13960,Hasan Al-Haydos,Qatar,QAT,CM,10,true,19.65,14.73,false,3,68,22.67,630.3,210.1,1.86,97.6,41.05,19.17
+3865,Neymar,Brazil,BRA,CAM,10,true,19.73,14.8,false,3,68,22.67,615.1,205.0,1.77,101.9,37.48,20.11
+1406,Pervis Estupinan,Ecuador,ECU,LB,7,true,20.96,15.72,false,3,68,22.67,763.3,254.4,2.1,99.7,45.0,20.89
+11960,Enner Valencia,Ecuador,ECU,CF,13,true,19.7,14.77,false,3,68,22.67,698.1,232.7,2.07,95.0,30.49,18.72
+284,Nathan Aké,Netherlands,NED,LCB,5,true,19.35,14.51,false,5,113,22.6,1103.9,220.8,1.99,97.1,33.58,18.78
+8026,Daley Blind,Netherlands,NED,LWB,17,true,19.64,14.73,false,5,113,22.6,1133.2,226.6,1.99,98.0,38.2,19.25
+13978,Ramin Rezaeian,Iran,IRN,RB,23,false,21.81,16.36,false,2,45,22.5,497.3,248.6,1.95,98.5,39.16,21.48
+96,César Azpilicueta,Spain,ESP,RB,2,true,18.93,14.2,false,2,45,22.5,428.8,214.4,1.96,99.9,45.0,18.9
+649,Francisco Calvo,Costa Rica,CRC,LCB,15,true,18.5,13.87,false,2,45,22.5,439.3,219.7,2.04,99.6,30.6,18.43
+1676,Eder Militao,Brazil,BRA,RCB,14,false,20.75,15.56,false,4,90,22.5,910.8,227.7,1.87,102.0,45.0,21.17
+4498,Amadou Onana,Belgium,BEL,CDM,18,false,18.48,13.86,false,2,45,22.5,349.4,174.7,1.64,97.4,35.88,18.01
+5195,Piero Hincapie,Ecuador,ECU,LCB,3,true,20.43,15.32,false,3,67,22.33,769.3,256.4,2.17,99.5,45.0,20.32
+12502,Min Jae Kim,South Korea,KOR,RCB,4,true,19.95,14.96,false,3,67,22.33,721.7,240.6,2.11,97.9,37.67,19.55
+3734,Félix Torres,Ecuador,ECU,RCB,2,true,18.65,13.98,false,3,67,22.33,707.1,235.7,2.23,98.8,45.0,18.43
+12576,Nikola Milenkovic,Serbia,SRB,RCB,4,true,20.75,15.56,false,3,67,22.33,706.4,235.5,1.96,101.7,45.0,21.11
+195,Richarlison,Brazil,BRA,CF,9,true,21.68,16.26,false,4,89,22.25,1004.7,251.2,2.08,93.9,32.0,20.36
+13858,Josip Juranovic,Croatia,CRO,RB,22,true,22.17,16.63,false,6,133,22.17,1483.4,247.2,1.97,98.0,37.83,21.72
+3870,Kylian Mbappé,France,FRA,LW,10,true,20.72,15.54,false,7,155,22.14,1642.0,234.6,1.99,99.3,42.77,20.57
+4717,Breel Embolo,Switzerland,SUI,CF,7,true,20.52,15.39,false,4,88,22.0,959.1,239.8,2.09,101.1,43.85,20.74
+13990,Yasser Al-Shahrani,Saudi Arabia,KSA,LB,13,true,20.6,15.45,false,1,22,22.0,231.5,231.5,2.0,98.3,35.6,20.25
+12154,Famara Diedhiou,Senegal,SEN,CF,19,false,16.83,12.63,false,2,44,22.0,377.8,188.9,2.06,94.0,19.68,15.82
+8402,Nicolas Ngamaleu,Cameroon,CMR,LW,6,false,21.15,15.86,false,1,22,22.0,260.8,260.8,2.2,101.0,27.55,21.35
+4926,Borna Sosa,Croatia,CRO,LB,19,true,20.15,15.11,false,5,110,22.0,1128.1,225.6,1.99,97.6,37.59,19.66
+3460,Romario Ibarra,Ecuador,ECU,LM,10,true,20.99,15.74,false,1,22,22.0,230.5,230.5,1.97,97.4,37.29,20.45
+13981,Ali Gholizadeh,Iran,IRN,RW,17,false,21.4,16.05,false,3,66,22.0,730.5,243.5,2.02,98.6,45.0,21.09
+11094,Cody Gakpo,Netherlands,NED,CAM,8,true,21.26,15.94,false,5,110,22.0,1177.1,235.4,1.98,95.7,30.11,20.33
+241,Leander Dendoncker,Belgium,BEL,RCB,19,true,20.33,15.25,false,2,44,22.0,487.6,243.8,2.2,93.1,29.23,18.92
+8134,Denzel Dumfries,Netherlands,NED,RWB,22,true,22.47,16.85,false,5,110,22.0,1209.6,241.9,1.87,100.9,45.0,22.68
+1531,Lionel Messi,Argentina,ARG,CF,10,true,21.28,15.96,false,7,154,22.0,1647.5,235.4,1.93,100.8,39.42,21.46
+13948,Bassam Al-Rawi,Qatar,QAT,RCB,15,true,19.46,14.6,false,1,22,22.0,225.0,225.0,2.1,92.4,22.69,17.98
+14006,Ali Al-Hassan,Saudi Arabia,KSA,CDM,15,false,20.03,15.02,false,1,22,22.0,212.6,212.6,2.02,89.2,21.9,17.86
+13922,Woo-young Jung,South Korea,KOR,CM,5,true,21.42,16.07,false,4,88,22.0,954.3,238.6,1.99,96.3,38.69,20.62
+6967,Riley McGree,Australia,AUS,CM,14,true,20.54,15.4,false,4,87,21.75,886.9,221.7,1.97,95.2,45.0,19.55
+13937,Angelo Preciado,Ecuador,ECU,RB,17,true,20.0,15.0,false,3,65,21.67,655.0,218.3,1.92,100.8,45.0,20.16
+5074,Bryan Mbeumo,Cameroon,CMR,RW,20,true,21.05,15.79,false,3,65,21.67,732.5,244.2,2.15,96.0,43.83,20.21
+13032,Pathe Ciss,Senegal,SEN,CM,11,false,18.67,14.0,false,3,65,21.67,486.6,162.2,1.63,94.6,29.41,17.67
+9824,Montassar Talbi,Tunisia,TUN,LCB,3,true,18.23,13.67,false,3,65,21.67,661.8,220.6,2.15,99.7,45.0,18.16
+123,Luke Shaw,England,ENG,LB,3,true,21.18,15.89,false,5,108,21.6,1085.2,217.0,1.83,99.2,45.0,21.01
+8136,Ivan Perisic,Croatia,CRO,LW,4,true,22.38,16.78,false,7,151,21.57,1715.5,245.1,1.97,99.5,39.01,22.27
+12586,Sofyan Amrabat,Morocco,MAR,CM,4,true,20.23,15.17,false,7,151,21.57,1552.3,221.8,1.97,98.4,45.0,19.9
+1696,Marco Asensio,Spain,ESP,CF,10,true,19.55,14.66,false,4,86,21.5,810.9,202.7,1.87,99.5,45.0,19.45
+1384,Hector Herrera,Mexico,MEX,CM,16,true,19.88,14.91,false,2,43,21.5,406.1,203.0,1.84,97.6,45.0,19.41
+1799,Nemanja Gudelj,Serbia,SRB,CM,8,true,19.61,14.71,false,2,43,21.5,423.9,212.0,2.01,92.9,27.18,18.22
+2106,Edson Alvarez,Mexico,MEX,CM,4,true,20.82,15.62,false,2,43,21.5,436.7,218.4,1.91,100.3,38.11,20.89
+1535,Luis Suarez,Uruguay,URU,CF,9,true,18.67,14.0,false,3,64,21.33,555.7,185.2,1.89,93.5,24.08,17.46
+9598,Ali Abdi,Tunisia,TUN,LWB,24,true,21.44,16.08,false,3,64,21.33,684.7,228.2,1.98,96.2,32.4,20.63
+13992,Ali Al-Bulayhi,Saudi Arabia,KSA,LCB,5,true,20.71,15.53,false,3,64,21.33,676.9,225.6,2.07,93.9,45.0,19.45
+4868,David Raum,Germany,GER,LB,3,true,22.78,17.08,false,3,64,21.33,736.8,245.6,1.94,98.8,45.0,22.5
+8025,Nicolas Tagliafico,Argentina,ARG,LB,3,true,19.36,14.52,false,6,128,21.33,1141.9,190.3,1.87,92.6,30.05,17.93
+1938,Hakim Ziyech,Morocco,MAR,RW,7,true,21.08,15.81,false,7,148,21.14,1539.9,220.0,1.92,98.9,37.91,20.85
+2088,Maya Yoshida,Japan,JPN,LCB,22,true,20.12,15.09,false,4,84,21.0,1000.8,250.2,2.19,106.5,45.0,21.43
+1926,Thiago Silva,Brazil,BRA,LCB,3,true,20.31,15.23,false,4,84,21.0,901.2,225.3,1.99,104.9,45.0,21.3
+13995,Abdulelah Al-Amri,Saudi Arabia,KSA,RCB,4,false,20.25,15.19,false,3,63,21.0,707.0,235.7,2.25,94.6,45.0,19.16
+44,Fabinho,Brazil,BRA,CDM,15,false,22.6,16.95,false,1,21,21.0,196.1,196.1,1.59,100.7,33.15,22.76
+3846,Marquinhos,Brazil,BRA,RCB,4,true,20.63,15.47,false,5,105,21.0,1130.1,226.0,2.04,98.4,45.0,20.3
+13951,Homam Ahmed,Qatar,QAT,LWB,14,true,21.56,16.17,false,3,63,21.0,751.9,250.6,2.12,99.9,45.0,21.54
+13848,Kamil Glik,Poland,POL,RCB,15,true,18.5,13.88,false,4,84,21.0,749.4,187.4,1.84,102.6,44.51,18.96
+1067,Brenden Aaronson,United States,USA,CAM,11,false,18.16,13.62,false,4,84,21.0,687.7,171.9,1.87,90.9,24.68,16.51
+13927,Guillermo Varela,Uruguay,URU,RB,13,false,20.65,15.49,false,3,63,21.0,660.5,220.2,2.04,94.0,39.1,19.41
+1789,Jules Kounde,France,FRA,RCB,5,false,20.05,15.03,false,6,125,20.83,1306.2,217.7,2.0,99.2,45.0,19.89
+3848,Abdou Diallo,Senegal,SEN,LB,22,true,20.81,15.61,false,4,83,20.75,852.5,213.1,1.89,102.1,41.43,21.24
+71,Ben Davies,Wales,WAL,LCB,4,true,19.75,14.81,false,3,62,20.67,668.4,222.8,2.09,99.8,43.86,19.71
+5029,Silvan Widmer,Switzerland,SUI,RB,3,true,22.06,16.55,false,3,62,20.67,727.6,242.5,2.04,100.4,45.0,22.14
+233,Romain Saïss,Morocco,MAR,LCB,6,true,19.13,14.35,false,6,124,20.67,1315.8,219.3,2.12,102.1,45.0,19.53
+589,Neco Williams,Wales,WAL,LWB,3,true,20.04,15.03,false,3,62,20.67,664.8,221.6,2.12,97.2,41.21,19.48
+14022,Aissa Laidouni,Tunisia,TUN,CM,14,true,22.21,16.66,false,3,62,20.67,703.0,234.3,1.98,98.1,37.67,21.8
+7419,Krystian Bielik,Poland,POL,CM,6,false,19.05,14.29,false,4,82,20.5,730.7,182.7,1.87,94.2,30.44,17.95
+6895,Rodrigo de Paul,Argentina,ARG,CM,7,true,21.95,16.46,false,7,143,20.43,1534.6,219.2,1.89,99.1,44.28,21.74
+4669,Thomas Meunier,Belgium,BEL,RB,15,false,19.89,14.92,false,3,61,20.33,558.1,186.0,1.83,96.4,40.3,19.17
+13962,Almoez Ali,Qatar,QAT,CF,19,true,20.12,15.09,false,3,61,20.33,615.2,205.1,1.96,97.6,45.0,19.64
+13820,Aziz Behich,Australia,AUS,LB,16,true,21.63,16.22,false,4,81,20.25,937.6,234.4,2.03,100.6,44.56,21.77
+21,Phil Foden,England,ENG,CM,20,false,20.27,15.2,false,4,81,20.25,741.2,185.3,1.79,96.0,40.94,19.45
+4404,Alidu Seidu,Ghana,GHA,RWB,26,true,19.02,14.26,false,2,40,20.0,354.2,177.1,1.81,102.2,45.0,19.43
+7605,Olivier Ntcham,Cameroon,CMR,CM,22,false,19.56,14.67,false,1,20,20.0,157.2,157.2,1.68,90.1,21.95,17.62
+802,Jesús Ferreira,United States,USA,CF,9,false,19.85,14.88,false,1,20,20.0,198.4,198.4,2.06,90.3,21.48,17.93
+4002,Nayef Aguerd,Morocco,MAR,RCB,5,true,20.39,15.3,false,4,80,20.0,852.6,213.1,1.96,104.5,45.0,21.32
+3455,Luis Chávez,Mexico,MEX,CM,24,true,21.67,16.26,false,3,60,20.0,687.8,229.3,2.06,100.6,42.58,21.8
+13918,Sang-ho Na,South Korea,KOR,RW,17,true,17.86,13.39,false,2,40,20.0,364.7,182.3,2.03,96.9,45.0,17.31
+4673,Thomas Delaney,Denmark,DEN,CM,8,true,21.91,16.43,false,1,20,20.0,172.0,172.0,1.61,92.9,29.99,20.35
+13784,Johan Venegas,Costa Rica,CRC,CF,11,false,20.81,15.6,false,1,20,20.0,273.6,273.6,2.61,95.0,37.14,19.77
+8583,Theo Hernandez,France,FRA,LB,22,false,21.79,16.34,false,6,119,19.83,1364.4,227.4,2.03,99.7,45.0,21.72
+13866,Selim Amallah,Morocco,MAR,CM,15,true,19.65,14.73,false,7,138,19.71,1253.0,179.0,1.85,94.4,35.76,18.54
+14010,Firas Al-Buraikan,Saudi Arabia,KSA,RM,9,true,21.02,15.76,false,3,59,19.67,650.6,216.9,2.07,96.5,35.5,20.27
+1545,Mathí­as Olivera,Uruguay,URU,LB,16,true,20.27,15.2,false,3,59,19.67,649.3,216.4,2.09,99.5,45.0,20.16
+47,Jordan Henderson,England,ENG,CM,8,false,22.01,16.51,false,4,78,19.5,777.4,194.4,1.78,96.9,35.79,21.33
+4666,Raphaël Guerreiro,Portugal,POR,LB,5,true,21.16,15.87,false,4,78,19.5,797.7,199.4,1.93,95.3,34.79,20.18
+13947,Ismaeel Mohammed,Qatar,QAT,RW,17,false,22.5,16.87,false,2,39,19.5,454.5,227.3,1.93,103.1,45.0,23.2
+8079,Matheus Nunes,Portugal,POR,CM,23,false,18.35,13.77,false,2,39,19.5,361.1,180.6,1.99,93.6,32.49,17.19
+9981,Ritsu Doan,Japan,JPN,RW,8,false,18.44,13.83,false,4,78,19.5,718.8,179.7,1.98,96.4,40.98,17.77
+4566,Rubén Vargas,Switzerland,SUI,LW,17,true,21.9,16.42,false,4,78,19.5,830.8,207.7,1.91,98.1,34.22,21.48
+401,Sofiane Boufal,Morocco,MAR,LW,17,true,19.78,14.84,false,7,136,19.43,1271.3,181.6,1.84,99.7,45.0,19.72
+8324,Joakim Maehle,Denmark,DEN,LWB,5,true,23.79,17.84,false,3,58,19.33,705.4,235.1,1.91,103.3,45.0,24.57
+5173,Ismael Kone,Canada,CAN,CM,15,false,19.89,14.92,false,3,58,19.33,524.6,174.9,1.86,92.4,26.51,18.37
+4053,Kasper Dolberg,Denmark,DEN,CF,12,true,18.64,13.98,false,3,58,19.33,507.5,169.2,1.91,93.7,29.75,17.48
+6018,Connor Roberts,Wales,WAL,RWB,14,true,20.83,15.62,false,3,58,19.33,615.7,205.2,1.99,98.6,39.97,20.54
+1368,Jose Gimenez,Uruguay,URU,LCB,2,true,20.91,15.68,false,3,58,19.33,659.3,219.8,2.04,103.8,45.0,21.69
+3303,Jesús Gallardo,Mexico,MEX,LB,23,true,22.78,17.09,false,3,58,19.33,777.2,259.1,2.25,103.3,45.0,23.54
+4661,Manuel Akanji,Switzerland,SUI,RCB,5,true,20.42,15.31,false,4,77,19.25,790.8,197.7,1.92,101.9,45.0,20.8
+13851,Michal Skoras,Poland,POL,RW,26,false,17.85,13.39,false,1,19,19.0,155.1,155.1,1.81,95.0,22.11,16.96
+13999,Salman Al-Faraj,Saudi Arabia,KSA,CM,7,true,17.33,13.0,false,1,19,19.0,141.9,141.9,1.81,89.8,19.45,15.57
+8071,Sebastian Coates,Uruguay,URU,RCB,19,false,19.28,14.46,false,2,38,19.0,400.9,200.5,2.14,100.7,45.0,19.41
+3849,Thilo Kehrer,Germany,GER,RCB,5,false,22.06,16.55,false,1,19,19.0,202.4,202.4,1.87,100.6,45.0,22.19
+1860,Takefusa Kubo,Japan,JPN,LW,11,true,18.99,14.24,false,2,38,19.0,319.0,159.5,1.76,96.2,25.56,18.26
+1393,Joao Felix,Portugal,POR,LW,11,true,21.69,16.27,false,4,76,19.0,801.1,200.3,1.91,97.5,30.38,21.14
+13856,Josip Sutalo,Croatia,CRO,RCB,24,false,19.96,14.97,false,1,19,19.0,187.1,187.1,1.89,103.6,30.19,20.69
+13982,Ahmad Nourollahi,Iran,IRN,CM,21,true,21.7,16.27,false,3,57,19.0,600.4,200.1,1.94,96.2,28.58,20.88
+1289,Mark-Anthony Kaye,Canada,CAN,CM,14,false,20.0,15.0,false,1,19,19.0,182.2,182.2,1.87,96.2,32.66,19.24
+14005,Sami Al-Najei,Saudi Arabia,KSA,CAM,16,false,20.02,15.02,false,1,19,19.0,223.8,223.8,2.39,92.0,24.3,18.41
+14017,Ali Maaloul,Tunisia,TUN,LB,12,false,19.92,14.94,false,1,19,19.0,214.6,214.6,2.18,106.1,41.43,21.14
+13796,Miki Yamane,Japan,JPN,RB,2,false,17.4,13.05,false,1,19,19.0,166.9,166.9,1.84,109.7,45.0,19.08
+6935,Joe Allen,Wales,WAL,CM,7,false,18.64,13.98,false,2,38,19.0,337.6,168.8,1.95,92.1,20.54,17.18
+1336,Timothy Weah,United States,USA,RW,21,true,20.47,15.35,false,4,75,18.75,857.6,214.4,2.15,98.8,45.0,20.22
+2066,Ruben Dias,Portugal,POR,RCB,4,true,20.97,15.73,false,4,75,18.75,757.8,189.5,1.84,100.0,39.66,20.97
+12820,Jakub Kiwior,Poland,POL,LCB,14,true,19.8,14.85,false,4,75,18.75,806.5,201.6,2.07,102.9,41.48,20.38
+13906,Andrija Zivkovic,Serbia,SRB,RWB,14,true,21.54,16.16,false,3,56,18.67,632.2,210.7,2.05,101.0,45.0,21.75
+3316,Joel Campbell,Costa Rica,CRC,CF,12,true,19.62,14.71,false,3,56,18.67,571.8,190.6,1.98,100.2,35.27,19.65
+453,Alexis Mac Allister,Argentina,ARG,CAM,20,false,20.99,15.74,false,6,112,18.67,1117.3,186.2,1.83,100.0,40.89,20.99
+1363,Inaki Williams,Ghana,GHA,CF,19,true,21.8,16.35,false,3,56,18.67,616.5,205.5,1.98,96.1,29.85,20.94
+5035,Edimilson Fernandes,Switzerland,SUI,CM,2,false,19.91,14.93,false,3,56,18.67,542.8,180.9,1.96,93.9,29.15,18.7
+8133,Matias Vecino,Uruguay,URU,CM,5,true,20.14,15.11,false,3,56,18.67,653.3,217.8,2.32,94.6,33.8,19.06
+4626,Eric Maxim Choupo-Moting,Cameroon,CMR,CF,13,true,20.9,15.68,false,3,55,18.33,547.6,182.5,1.83,102.1,42.36,21.34
+3903,Krépin Diatta,Senegal,SEN,RW,15,true,20.91,15.68,false,3,55,18.33,580.9,193.6,1.98,97.1,41.71,20.3
+3880,Strahinja Pavlovic,Serbia,SRB,LCB,2,true,21.22,15.91,false,3,55,18.33,593.8,197.9,1.97,100.4,41.78,21.31
+92,Andreas Christensen,Denmark,DEN,LCB,6,true,21.26,15.95,false,3,55,18.33,688.3,229.4,2.19,104.8,45.0,22.29
+13802,Daizen Maeda,Japan,JPN,CF,25,true,20.74,15.55,false,3,55,18.33,586.8,195.6,2.06,94.3,26.06,19.56
+127,Diogo Dalot,Portugal,POR,RB,2,false,23.42,17.57,false,3,55,18.33,645.2,215.1,1.96,96.9,35.33,22.69
+2074,Raphinha,Brazil,BRA,RW,11,true,22.53,16.9,false,4,73,18.25,880.4,220.1,2.07,99.0,45.0,22.3
+3895,Ismail Jakobs,Senegal,SEN,LB,14,false,20.53,15.4,false,4,72,18.0,758.1,189.5,1.99,99.8,45.0,20.5
+9089,Andreas Skov Olsen,Denmark,DEN,CF,11,true,24.13,18.1,false,2,36,18.0,454.8,227.4,2.0,101.0,45.0,24.36
+13797,Shogo Taniguchi,Japan,JPN,RCB,3,false,20.76,15.57,false,2,36,18.0,462.1,231.0,2.27,105.9,45.0,21.98
+13923,Gue-sung Cho,South Korea,KOR,CF,9,false,20.66,15.5,false,4,72,18.0,800.9,200.2,2.11,97.6,37.45,20.16
+286,Chris Mepham,Wales,WAL,RCB,5,true,21.71,16.28,false,3,54,18.0,658.3,219.4,2.02,104.9,41.36,22.78
+1665,Ante Budimir,Croatia,CRO,CF,17,false,22.71,17.03,false,1,18,18.0,189.9,189.9,1.86,95.2,26.41,21.62
+13944,Abdelkarim Hassan,Qatar,QAT,LCB,3,true,20.45,15.34,false,3,54,18.0,668.2,222.7,2.31,101.2,43.98,20.69
+1702,Luka Jovic,Serbia,SRB,CF,11,false,18.43,13.82,false,1,18,18.0,151.8,151.8,1.85,92.2,21.4,17.0
+158,Mattéo Guendouzi,France,FRA,CM,6,false,21.62,16.22,false,1,18,18.0,223.3,223.3,2.28,95.1,29.42,20.57
+1937,Kai Havertz,Germany,GER,CF,7,true,19.88,14.91,false,2,36,18.0,360.5,180.3,2.0,95.0,25.59,18.88
+4737,Jesper Lindström,Denmark,DEN,CAM,25,false,23.35,17.51,false,3,54,18.0,605.6,201.9,1.91,96.1,34.78,22.45
+5116,Cristian Romero,Argentina,ARG,RCB,13,true,19.26,14.45,false,7,125,17.86,1163.3,166.2,1.85,101.2,45.0,19.5
+4883,Andrej Kramaric,Croatia,CRO,CF,9,true,21.41,16.05,false,7,125,17.86,1309.7,187.1,1.92,97.0,34.21,20.77
+9178,Marcos Acuña,Argentina,ARG,LB,8,false,21.32,15.99,false,6,107,17.83,1106.1,184.3,1.86,100.6,45.0,21.44
+3856,Leandro Paredes,Argentina,ARG,CM,5,true,18.17,13.62,false,5,89,17.8,739.6,147.9,1.87,92.3,28.66,16.76
+8034,Steven Berghuis,Netherlands,NED,CM,11,true,18.97,14.23,false,4,71,17.75,650.9,162.7,1.94,93.4,34.33,17.73
+9939,Jakub Kaminski,Poland,POL,RM,13,true,20.26,15.19,false,4,71,17.75,707.3,176.8,1.94,95.7,36.31,19.38
+84,Steven Bergwijn,Netherlands,NED,CF,7,true,19.69,14.77,false,4,71,17.75,650.1,162.5,1.9,91.8,28.62,18.11
+83,Heung-min Son,South Korea,KOR,LW,7,true,23.26,17.44,false,4,71,17.75,933.9,233.5,2.17,98.5,34.17,22.9
+6916,Junior Hoilett,Canada,CAN,LW,10,true,19.52,14.64,false,3,53,17.67,510.9,170.3,1.96,95.5,28.96,18.64
+8627,Atiba Hutchinson,Canada,CAN,CM,13,true,21.43,16.07,false,3,53,17.67,514.6,171.5,1.79,96.3,43.63,20.63
+1675,Raphael Varane,France,FRA,RCB,4,false,20.09,15.07,false,6,106,17.67,1135.3,189.2,1.99,103.4,45.0,20.78
+2087,Takehiro Tomiyasu,Japan,JPN,RB,16,false,20.67,15.51,false,3,53,17.67,662.9,221.0,2.37,98.6,40.77,20.37
+37,Virgil van Dijk,Netherlands,NED,UNK,4,true,21.55,16.16,false,5,88,17.6,931.4,186.3,1.84,105.0,44.03,22.62
+1810,Youssef En-Nesyri,Morocco,MAR,CF,19,true,20.57,15.43,false,7,123,17.57,1258.6,179.8,1.89,100.9,37.53,20.75
+12766,Bartosz Bereszynski,Poland,POL,LB,18,true,20.75,15.56,false,4,70,17.5,819.8,205.0,2.17,101.7,41.47,21.1
+8033,Davy Klaassen,Netherlands,NED,CAM,14,false,19.57,14.67,false,4,70,17.5,641.0,160.3,1.87,94.5,28.76,18.48
+687,Kellyn Acosta,United States,USA,CDM,23,false,17.67,13.26,false,2,35,17.5,295.9,148.0,1.99,91.2,22.95,16.12
+11994,Dries Mertens,Belgium,BEL,CF,14,false,20.7,15.53,false,2,35,17.5,360.8,180.4,2.03,90.7,23.85,18.77
+754,Kendall Waston,Costa Rica,CRC,RCB,19,false,18.29,13.72,false,3,52,17.33,514.7,171.6,2.09,99.1,28.04,18.12
+13993,Sultan Al-Ghannam,Saudi Arabia,KSA,RB,2,false,21.13,15.85,false,3,52,17.33,551.5,183.8,2.02,95.0,34.82,20.07
+1513,Jordi Alba,Spain,ESP,LB,18,true,20.92,15.69,false,4,69,17.25,756.3,189.1,2.05,98.5,39.33,20.6
+1950,Ferran Torres,Spain,ESP,RW,11,true,20.54,15.4,false,4,69,17.25,707.4,176.9,1.94,100.4,42.42,20.63
+13798,Yuto Nagatomo,Japan,JPN,LB,5,true,18.47,13.85,false,4,69,17.25,618.4,154.6,1.88,99.7,37.38,18.41
+1,Harry Kane,England,ENG,CF,9,true,20.98,15.73,false,5,86,17.2,826.0,165.2,1.73,101.3,36.02,21.25
+4681,Giovanni Reyna,United States,USA,CAM,7,false,18.05,13.54,false,2,34,17.0,295.9,148.0,1.94,90.1,24.26,16.27
+1452,Nestor Araujo,Mexico,MEX,RCB,2,false,20.98,15.74,false,1,17,17.0,214.5,214.5,2.18,112.3,44.59,23.57
+13955,Ali Asad,Qatar,QAT,CAM,8,false,19.18,14.38,false,1,17,17.0,137.8,137.8,1.74,91.0,22.72,17.45
+3924,Bruno Guimarães,Brazil,BRA,CDM,17,false,19.8,14.85,false,2,34,17.0,275.9,138.0,1.7,90.3,23.07,17.89
+10756,Jordan Veretout,France,FRA,CM,15,false,21.45,16.08,false,1,17,17.0,182.1,182.1,2.0,94.2,23.71,20.2
+14027,Naim Sliti,Tunisia,TUN,LW,23,false,21.64,16.23,false,2,34,17.0,357.1,178.6,1.94,94.9,26.15,20.54
+13811,Nathaniel Atkinson,Australia,AUS,RB,3,true,21.89,16.42,false,1,17,17.0,193.2,193.2,1.97,100.6,45.0,22.03
+13800,Ayase Ueda,Japan,JPN,CF,21,false,17.39,13.04,false,1,17,17.0,140.4,140.4,1.85,98.4,21.19,17.12
+13917,Chang-hoon Kwon,South Korea,KOR,RW,22,false,20.96,15.72,false,1,17,17.0,179.5,179.5,2.04,93.8,32.46,19.66
+137,Daniel James,Wales,WAL,CF,20,true,20.55,15.41,false,3,51,17.0,529.2,176.4,2.0,95.0,33.55,19.52
+113,Olivier Giroud,France,FRA,CF,9,true,19.56,14.67,false,6,101,16.83,949.5,158.2,1.85,99.3,39.16,19.43
+8027,Noussair Mazraoui,Morocco,MAR,LB,3,true,21.01,15.76,false,5,84,16.8,983.9,196.8,2.12,104.1,45.0,21.86
+2073,Joachim Andersen,Denmark,DEN,RCB,2,true,22.49,16.87,false,3,50,16.67,647.8,215.9,2.16,104.5,45.0,23.5
+213,Daniel Amartey,Ghana,GHA,RCB,18,true,20.6,15.45,false,3,50,16.67,623.9,208.0,2.34,99.3,45.0,20.43
+4623,Serge Gnabry,Germany,GER,RW,10,true,21.76,16.32,false,3,50,16.67,661.8,220.6,2.35,98.9,33.0,21.53
+112,Michy Batshuayi,Belgium,BEL,CF,23,true,20.06,15.05,false,2,33,16.5,331.7,165.9,1.92,98.9,35.14,19.83
+1387,Yannick Carrasco,Belgium,BEL,LWB,11,true,21.15,15.86,false,2,33,16.5,335.0,167.5,1.9,94.6,31.21,20.02
+13864,Yahia Attiat-Allah,Morocco,MAR,LB,25,false,20.93,15.7,false,6,99,16.5,1053.6,175.6,2.03,95.6,37.13,20.01
+13871,Devis Epassy,Cameroon,CMR,GK,16,false,11.9,8.93,false,2,33,16.5,213.9,106.9,1.62,134.3,45.0,15.99
+668,Przemyslaw Frankowski,Poland,POL,LM,24,false,21.21,15.91,false,4,66,16.5,695.8,173.9,1.95,97.1,37.74,20.6
+8045,Matthijs De Ligt,Netherlands,NED,RCB,3,true,19.0,14.25,false,2,33,16.5,319.0,159.5,2.06,96.1,33.4,18.26
+1550,Nemanja Maksimovic,Serbia,SRB,CDM,6,false,21.97,16.48,false,3,49,16.33,555.0,185.0,2.1,91.9,29.14,20.19
+12235,Ali Karimi,Iran,IRN,CM,18,true,20.74,15.56,false,3,49,16.33,473.6,157.9,1.92,91.3,24.2,18.93
+916,Walker Zimmerman,United States,USA,RCB,3,true,19.48,14.61,false,4,65,16.25,769.3,192.3,2.31,102.6,45.0,19.98
+1695,Vinícius Junior,Brazil,BRA,LW,20,true,23.02,17.27,false,4,64,16.0,814.6,203.7,2.15,99.1,42.86,22.81
+169,Jordan Pickford,England,ENG,GK,1,true,11.98,8.99,false,5,80,16.0,508.6,101.7,1.68,127.5,45.0,15.28
+1880,Andres Guardado,Mexico,MEX,CM,18,false,17.21,12.91,false,1,16,16.0,126.5,126.5,1.89,90.0,18.36,15.48
+1536,Martin Braithwaite,Denmark,DEN,CF,9,false,21.57,16.18,false,2,32,16.0,317.9,159.0,1.84,94.7,28.84,20.43
+13813,Fran Karacic,Australia,AUS,RB,5,false,20.54,15.4,false,2,32,16.0,311.8,155.9,1.88,96.3,37.12,19.78
+320,Fabian Schär,Switzerland,SUI,RCB,22,false,19.62,14.71,false,2,32,16.0,347.1,173.6,2.14,99.8,40.29,19.58
+4928,Wataru Endo,Japan,JPN,CM,6,true,22.0,16.5,false,4,64,16.0,756.8,189.2,2.05,98.7,32.53,21.72
+17,João Cancelo,Portugal,POR,RB,20,true,23.12,17.34,false,4,64,16.0,747.9,187.0,1.91,100.0,36.3,23.13
+13972,Abolfazl Jalali,Iran,IRN,LB,25,false,17.59,13.2,false,1,16,16.0,120.5,120.5,1.78,89.5,20.65,15.75
+13831,Everton Ribeiro,Brazil,BRA,CM,22,false,21.37,16.03,false,1,16,16.0,156.5,156.5,1.88,91.2,22.68,19.49
+1267,Lucas Cavallini,Canada,CAN,CF,9,false,21.94,16.46,false,1,16,16.0,172.7,172.7,2.03,90.8,22.8,19.92
+7478,Milos Degenek,Australia,AUS,RCB,2,false,19.93,14.95,false,4,64,16.0,647.2,161.8,2.01,95.5,32.29,19.04
+4915,Hee-chan Hwang,South Korea,KOR,CF,11,false,21.63,16.22,false,2,32,16.0,396.3,198.1,2.18,103.6,41.3,22.41
+8009,Darwin Nunez,Uruguay,URU,LW,11,true,22.73,17.04,false,3,48,16.0,624.0,208.0,2.21,96.4,34.89,21.91
+14018,Nader Ghandri,Tunisia,TUN,RCB,5,false,18.27,13.7,false,1,16,16.0,187.4,187.4,2.44,103.5,25.1,18.92
+3857,Danilo Pereira,Portugal,POR,LCB,13,true,22.86,17.15,false,1,16,16.0,172.5,172.5,1.76,102.6,35.19,23.47
+240,Rúben Neves,Portugal,POR,CM,18,true,20.3,15.22,false,5,80,16.0,755.5,151.1,1.86,95.4,27.85,19.35
+8018,Andre Onana,Cameroon,CMR,GK,23,true,13.3,9.97,false,1,16,16.0,110.7,110.7,1.69,117.2,45.0,15.59
+1694,Eden Hazard,Belgium,BEL,LW,10,true,19.9,14.93,false,3,48,16.0,437.8,145.9,1.85,95.0,45.0,18.91
+13904,Filip Mladenovic,Serbia,SRB,LWB,25,true,23.25,17.44,false,1,16,16.0,167.5,167.5,1.76,97.6,38.65,22.68
+1532,Ousmane Dembele,France,FRA,RW,11,true,21.38,16.03,false,7,112,16.0,1220.8,174.4,1.97,99.5,45.0,21.28
+8023,Lisandro Martinez,Argentina,ARG,LCB,25,false,18.8,14.1,false,5,79,15.8,837.8,167.6,2.21,100.4,37.72,18.89
+428,Ismaïla Sarr,Senegal,SEN,LW,18,true,22.97,17.23,false,4,63,15.75,836.5,209.1,2.19,101.7,42.68,23.35
+2094,Junya Ito,Japan,JPN,RW,14,true,20.75,15.56,false,4,63,15.75,715.2,178.8,2.03,102.2,45.0,21.22
+9947,Milos Veljkovic,Serbia,SRB,UNK,5,true,19.44,14.58,false,3,47,15.67,493.4,164.5,2.08,102.5,40.99,19.92
+25,Raheem Sterling,England,ENG,LW,10,true,19.84,14.88,false,3,47,15.67,370.2,123.4,1.58,95.6,36.62,18.96
+13975,Milad Mohammadi,Iran,IRN,LWB,5,true,20.8,15.6,false,3,47,15.67,533.2,177.7,2.16,95.9,30.21,19.95
+14031,Milan Borjan,Canada,CAN,GK,18,true,12.38,9.28,false,3,47,15.67,313.4,104.5,1.59,142.7,45.0,17.66
+1991,Aleksandar Mitrovic,Serbia,SRB,CF,9,true,21.18,15.88,false,3,47,15.67,559.6,186.5,2.11,103.3,43.21,21.88
+462,Wayne Hennessey,Wales,WAL,GK,1,true,12.06,9.04,false,2,31,15.5,225.0,112.5,1.76,132.4,45.0,15.96
+10039,Joe Morrell,Wales,WAL,CM,16,false,16.37,12.27,false,2,31,15.5,216.5,108.3,1.78,88.9,17.08,14.55
+13823,Craig Goodwin,Australia,AUS,LM,23,true,19.81,14.86,false,4,62,15.5,689.3,172.3,2.2,97.5,38.78,19.31
+8050,Alex Sandro,Brazil,BRA,LB,6,true,21.1,15.83,false,2,31,15.5,349.7,174.8,1.96,108.1,45.0,22.81
+457,Alireza Jahanbakhsh,Iran,IRN,RW,7,true,20.93,15.7,false,2,31,15.5,336.0,168.0,2.13,91.5,26.63,19.16
+12945,Bremer,Brazil,BRA,RCB,24,false,19.1,14.32,false,2,31,15.5,305.9,153.0,2.05,97.1,27.41,18.53
+8000,Joao Mario,Portugal,POR,CM,17,false,19.68,14.76,false,2,31,15.5,333.5,166.8,2.2,92.3,32.5,18.17
+3414,Alexis Vega,Mexico,MEX,LW,10,true,19.9,14.92,false,3,46,15.33,411.1,137.0,1.77,97.2,31.06,19.34
+1910,Mohammed Salisu,Ghana,GHA,LCB,4,true,20.42,15.32,false,3,46,15.33,542.1,180.7,2.17,102.6,45.0,20.94
+8326,Teun Koopmeiners,Netherlands,NED,CDM,20,false,19.45,14.59,false,5,76,15.2,664.6,132.9,1.81,94.4,34.98,18.36
+11113,Sebastian Szymanski,Poland,POL,CM,19,true,22.39,16.79,false,2,30,15.0,342.0,171.0,1.96,98.8,32.16,22.13
+4703,Denis Zakaria,Switzerland,SUI,CDM,6,false,19.25,14.43,false,2,30,15.0,246.3,123.1,1.72,91.7,25.82,17.66
+13916,Chul Hong,South Korea,KOR,LB,14,false,21.27,15.95,false,1,15,15.0,158.6,158.6,1.98,94.8,25.16,20.16
+4560,Carlos Gruezo,Ecuador,ECU,CDM,8,false,19.92,14.94,false,1,15,15.0,133.1,133.1,1.84,91.2,24.59,18.16
+13910,Kyung-won Kwon,South Korea,KOR,LCB,20,false,22.24,16.68,false,1,15,15.0,167.2,167.2,1.7,116.0,44.23,25.81
+70,Cameron Carter-Vickers,United States,USA,RCB,20,false,21.08,15.81,false,1,15,15.0,196.7,196.7,2.18,116.6,38.69,24.57
+4656,Gregor Kobel,Switzerland,SUI,GK,21,false,12.82,9.61,false,1,15,15.0,109.6,109.6,1.63,145.7,45.0,18.68
+6020,Cristiano Ronaldo,Portugal,POR,CF,7,true,20.85,15.64,false,5,75,15.0,751.6,150.3,1.9,96.5,29.34,20.11
+13801,Yuki Soma,Japan,JPN,LW,24,false,20.44,15.33,false,1,15,15.0,165.9,165.9,2.06,107.8,34.27,22.03
+1341,Unai Simon,Spain,ESP,GK,23,true,12.43,9.32,false,4,60,15.0,466.4,116.6,1.72,144.3,45.0,17.93
+8400,Christian Fassnacht,Switzerland,SUI,RM,16,false,18.18,13.64,false,1,15,15.0,120.4,120.4,1.91,85.5,18.46,15.55
+3299,César Montes,Mexico,MEX,RCB,3,true,21.69,16.27,false,3,44,14.67,508.9,169.6,1.92,109.5,45.0,23.76
+13924,Sergio Rochet,Uruguay,URU,GK,23,true,10.79,8.09,false,3,44,14.67,262.9,87.6,1.79,135.8,45.0,14.65
+11488,Ricardo Horta,Portugal,POR,LW,21,false,20.63,15.47,false,3,44,14.67,513.9,171.3,2.26,96.7,44.02,19.94
+5097,Ibrahima Konaté,France,FRA,RCB,24,true,20.78,15.58,false,5,73,14.6,798.2,159.6,2.04,99.3,45.0,20.63
+940,Matt Turner,United States,USA,GK,1,true,11.83,8.88,false,4,58,14.5,448.6,112.1,1.95,134.6,45.0,15.92
+5063,Mathias Jensen,Denmark,DEN,CM,7,false,20.97,15.73,false,2,29,14.5,295.8,147.9,1.89,98.9,41.39,20.74
+10704,Kaoru Mitoma,Japan,JPN,LW,9,false,20.05,15.04,false,4,58,14.5,603.3,150.8,2.07,94.2,35.5,18.89
+1225,Richie Laryea,Canada,CAN,RWB,22,true,22.34,16.76,false,3,43,14.33,507.8,169.3,2.04,99.6,45.0,22.25
+215,Youri Tielemans,Belgium,BEL,CM,8,true,18.99,14.25,false,3,43,14.33,358.7,119.6,1.82,89.9,23.91,17.07
+8330,Mario Pasalic,Croatia,CRO,CAM,15,false,20.35,15.26,false,7,99,14.14,1022.1,146.0,2.03,95.0,25.44,19.34
+13563,Jewison Bennette,Costa Rica,CRC,LM,9,true,19.32,14.49,false,3,42,14.0,405.8,135.3,2.01,95.7,33.17,18.5
+200,Kasper Schmeichel,Denmark,DEN,GK,1,true,12.08,9.06,false,3,42,14.0,364.2,121.4,2.02,145.8,45.0,17.6
+14033,Liam Millar,Canada,CAN,LW,23,false,16.51,12.38,false,1,14,14.0,89.8,89.8,1.63,89.1,20.68,14.71
+2077,Edinson Cavani,Uruguay,URU,CF,21,false,19.22,14.41,false,3,42,14.0,419.0,139.7,2.08,93.9,23.99,18.04
+14008,Riad Sharahili,Saudi Arabia,KSA,CDM,26,false,21.78,16.34,false,1,14,14.0,174.4,174.4,2.3,92.0,29.46,20.03
+1785,Bono,Morocco,MAR,GK,1,true,12.09,9.07,false,6,84,14.0,598.9,99.8,1.61,146.6,45.0,17.73
+13216,Stefan Mitrović,Serbia,SRB,RCB,13,false,20.86,15.65,false,1,14,14.0,171.6,171.6,2.39,92.6,21.99,19.31
+13969,Hossein Hosseini,Iran,IRN,GK,24,false,11.05,8.29,false,2,28,14.0,177.4,88.7,1.72,133.7,45.0,14.77
+3968,Steve Mandanda,France,FRA,GK,16,false,12.61,9.45,false,1,14,14.0,79.2,79.2,1.31,144.9,45.0,18.27
+14013,Aymen Dahmen,Tunisia,TUN,GK,16,true,11.53,8.64,false,3,42,14.0,245.9,82.0,1.56,132.2,45.0,15.23
+13783,Bryan Ruiz,Costa Rica,CRC,CAM,10,false,17.22,12.92,false,1,14,14.0,117.0,117.0,1.92,92.3,19.89,15.9
+8327,Marten De Roon,Netherlands,NED,CDM,15,false,19.48,14.61,false,3,42,14.0,427.6,142.5,2.0,99.0,28.82,19.29
+1975,Denis Odoi,Ghana,GHA,RB,3,false,14.75,11.06,false,1,14,14.0,98.6,98.6,1.96,91.8,16.2,13.53
+483,Jordan Ayew,Ghana,GHA,CF,9,false,19.99,14.99,false,3,41,13.67,422.0,140.7,2.06,95.2,41.31,19.03
+2111,Hirving Lozano,Mexico,MEX,RW,22,true,22.59,16.94,false,3,41,13.67,508.0,169.3,2.09,100.7,35.64,22.74
+8008,Goncalo Ramos,Portugal,POR,CF,26,false,20.27,15.2,false,3,41,13.67,448.0,149.3,2.13,95.9,31.24,19.45
+3519,Michael Estrada,Ecuador,ECU,CF,11,true,19.82,14.86,false,3,41,13.67,458.1,152.7,2.09,106.1,37.48,21.02
+12653,Vanja Milinković-Savić,Serbia,SRB,GK,23,true,14.67,11.0,false,3,41,13.67,344.6,114.9,1.83,131.1,45.0,19.24
+4691,Yann Sommer,Switzerland,SUI,GK,1,true,13.01,9.75,false,3,41,13.67,307.2,102.4,1.75,136.3,45.0,17.73
+8342,Memphis Depay,Netherlands,NED,CF,10,false,21.75,16.31,false,5,68,13.6,803.6,160.7,2.09,100.4,37.49,21.84
+27,Bernardo Silva,Portugal,POR,CM,10,true,22.61,16.96,false,5,68,13.6,779.3,155.9,1.92,102.6,40.58,23.2
+1829,Carlos Soler,Spain,ESP,CM,19,false,19.57,14.68,false,2,27,13.5,242.1,121.0,1.83,95.4,26.68,18.67
+4231,Alexander Djiku,Ghana,GHA,UNK,23,true,17.86,13.4,false,2,27,13.5,250.7,125.4,2.09,95.1,33.95,17.0
+12777,Abdelhamid Sabiri,Morocco,MAR,CAM,11,false,19.14,14.35,false,5,67,13.4,635.1,127.0,2.0,94.6,32.79,18.1
+9820,Achraf Dari,Morocco,MAR,RCB,20,false,20.22,15.17,false,3,40,13.33,352.0,117.3,1.64,105.4,34.86,21.33
+3996,Bamba Dieng,Senegal,SEN,CF,20,false,18.39,13.79,false,4,53,13.25,475.2,118.8,2.01,91.3,22.85,16.79
+13821,Keanu Baccus,Australia,AUS,CDM,26,false,20.14,15.1,false,4,53,13.25,532.8,133.2,2.04,91.5,23.85,18.43
+12183,Haji Wright,United States,USA,CF,19,false,19.0,14.25,false,4,53,13.25,483.2,120.8,1.94,92.6,24.91,17.61
+308,Harry Wilson,Wales,WAL,CM,8,true,21.52,16.14,false,3,39,13.0,421.3,140.4,1.95,99.1,34.11,21.33
+9330,Dani Alves,Brazil,BRA,RB,13,false,20.71,15.54,false,2,26,13.0,240.1,120.0,1.74,95.6,28.86,19.8
+3309,Carlos Rodríguez,Mexico,MEX,CM,8,false,19.16,14.37,false,2,26,13.0,213.9,107.0,1.8,89.6,24.42,17.18
+2075,Facundo Pellistri,Uruguay,URU,RW,8,true,24.19,18.14,false,3,39,13.0,469.9,156.6,1.94,97.0,32.24,23.46
+3301,Héctor Moreno,Mexico,MEX,LCB,15,true,20.25,15.19,false,3,39,13.0,466.2,155.4,2.13,111.6,45.0,22.61
+4897,Lukas Klostermann,Germany,GER,RCB,16,false,20.35,15.26,false,2,26,13.0,274.7,137.4,2.14,88.7,24.27,18.04
+7757,Thiago Almada,Argentina,ARG,CAM,16,false,16.35,12.26,false,1,13,13.0,84.1,84.1,1.65,90.5,18.43,14.81
+3841,Keylor Navas,Costa Rica,CRC,GK,1,true,10.59,7.94,false,3,39,13.0,281.3,93.8,1.85,150.3,45.0,15.91
+13854,Dominik Livakovic,Croatia,CRO,GK,1,true,12.21,9.15,false,7,91,13.0,660.7,94.4,1.74,149.2,45.0,18.23
+4207,Christopher Wooh,Cameroon,CMR,RCB,4,false,22.13,16.6,false,1,13,13.0,151.5,151.5,1.89,108.2,37.83,23.95
+4316,Enzo Ebosse,Cameroon,CMR,LB,24,false,23.38,17.53,false,1,13,13.0,161.1,161.1,1.89,113.4,39.42,26.52
+12022,Andreas Cornelius,Denmark,DEN,CF,21,false,19.43,14.57,false,3,38,12.67,351.4,117.1,1.92,94.5,25.95,18.36
+9094,Cyle Larin,Canada,CAN,LW,17,false,21.26,15.94,false,3,38,12.67,452.8,150.9,2.26,94.1,25.13,19.99
+7441,Sardar Azmoun,Iran,IRN,CF,20,false,21.91,16.43,false,3,38,12.67,436.6,145.5,2.09,95.5,26.69,20.93
+11241,Andries Noppert,Netherlands,NED,GK,23,true,12.96,9.72,false,5,63,12.6,496.6,99.3,1.74,141.8,45.0,18.38
+8741,Gael Ondoua,Cameroon,CMR,CDM,5,false,19.21,14.41,false,2,25,12.5,218.1,109.0,1.83,94.8,22.77,18.22
+8420,Papu Gómez,Argentina,ARG,LM,17,true,19.67,14.75,false,2,25,12.5,233.5,116.7,1.88,97.4,27.93,19.16
+26,Leroy Sané,Germany,GER,LW,19,false,23.61,17.7,false,2,25,12.5,306.0,153.0,2.05,94.5,29.18,22.31
+9837,Jackson Porozo,Ecuador,ECU,RCB,25,false,19.57,14.67,false,2,25,12.5,241.8,120.9,1.95,98.8,27.41,19.34
+9918,Mario Götze,Germany,GER,CAM,11,false,19.06,14.3,false,2,25,12.5,218.4,109.2,1.89,90.6,21.16,17.26
+13907,Seun-gyu Kim,South Korea,KOR,GK,1,true,12.16,9.12,false,4,50,12.5,414.5,103.6,1.78,152.6,45.0,18.56
+8397,Fabian Rieder,Switzerland,SUI,CM,25,false,19.84,14.88,false,2,25,12.5,257.6,128.8,2.09,94.1,26.57,18.67
+13930,Giorgian De Arrascaeta,Uruguay,URU,CAM,10,false,21.06,15.79,false,2,25,12.5,258.7,129.4,1.89,100.5,34.49,21.16
+2144,Iliman Ndiaye,Senegal,SEN,CAM,13,false,20.23,15.17,false,3,37,12.33,430.5,143.5,2.29,94.8,30.43,19.17
+30,Gabriel Jesus,Brazil,BRA,CF,18,false,19.5,14.63,false,3,37,12.33,354.2,118.1,1.98,93.9,27.83,18.31
+12779,Mikkel Damsgaard,Denmark,DEN,LW,14,false,21.78,16.33,false,3,37,12.33,424.7,141.6,1.98,104.2,39.17,22.7
+8344,Alex Balde,Spain,ESP,LB,14,false,20.58,15.44,false,4,49,12.25,474.4,118.6,1.9,94.3,25.46,19.42
+8042,Wojciech Szczesny,Poland,POL,GK,1,true,12.72,9.54,false,4,49,12.25,364.6,91.2,1.65,143.5,45.0,18.25
+1830,Kang-in Lee,South Korea,KOR,CAM,18,false,18.79,14.09,false,4,49,12.25,455.2,113.8,1.99,94.8,27.53,17.82
+5968,Lovro Majer,Croatia,CRO,CAM,7,false,20.04,15.03,false,6,73,12.17,662.0,110.3,1.89,90.1,24.35,18.04
+2110,Roberto Alvarado,Mexico,MEX,RW,25,false,17.37,13.03,false,1,12,12.0,106.2,106.2,2.1,90.8,17.88,15.78
+1957,Marko Grujic,Serbia,SRB,CM,26,false,17.51,13.13,false,1,12,12.0,88.5,88.5,1.76,90.3,18.53,15.82
+13929,Nicolas De La Cruz,Uruguay,URU,CM,7,false,20.21,15.16,false,2,24,12.0,251.6,125.8,2.15,90.7,24.45,18.33
+2090,Hiroki Sakai,Japan,JPN,RB,19,true,22.58,16.94,false,2,24,12.0,293.7,146.8,2.07,100.3,38.54,22.65
+4882,Robert Skov,Denmark,DEN,RW,24,false,20.87,15.66,false,1,12,12.0,124.8,124.8,2.0,96.1,21.75,20.05
+13941,Saad Al-Sheeb,Qatar,QAT,GK,1,true,12.57,9.43,false,1,12,12.0,94.8,94.8,1.9,125.3,45.0,15.75
+162,Gabriel Martinelli,Brazil,BRA,LW,26,false,20.09,15.06,false,3,36,12.0,308.0,102.7,1.67,96.6,26.71,19.42
+1228,Jonathan Osorio,Canada,CAN,CM,21,false,20.76,15.57,false,3,36,12.0,412.9,137.6,2.18,97.8,38.65,20.3
+61,Hugo Lloris,France,FRA,GK,1,true,13.45,10.09,false,6,72,12.0,617.5,102.9,1.73,158.0,45.0,21.26
+13862,Munir,Morocco,MAR,GK,12,false,12.06,9.05,false,1,12,12.0,86.5,86.5,1.66,153.9,45.0,18.56
+7535,Karol Swiderski,Poland,POL,CF,16,false,20.98,15.74,false,1,12,12.0,132.1,132.1,2.1,94.5,25.42,19.83
+7571,Alan Franco,Ecuador,ECU,CM,21,false,19.89,14.92,false,2,24,12.0,195.8,97.9,1.71,91.4,24.81,18.18
+4265,Gideon Mensah,Ghana,GHA,LB,14,false,21.29,15.97,false,1,12,12.0,150.6,150.6,2.12,107.9,45.0,22.97
+3934,Karl Toko Ekambi,Cameroon,CMR,LW,12,true,22.16,16.62,false,3,36,12.0,427.6,142.5,2.06,98.5,36.47,21.82
+13462,Martín Cáceres,Uruguay,URU,RB,22,true,22.08,16.56,false,1,12,12.0,166.6,166.6,2.29,106.8,43.2,23.58
+13919,Seung-ho Paik,South Korea,KOR,CM,8,false,18.46,13.84,false,1,12,12.0,114.1,114.1,2.05,95.7,22.03,17.66
+13785,Gerson Torres,Costa Rica,CRC,RM,13,false,21.32,15.99,false,1,12,12.0,111.7,111.7,1.63,101.8,31.26,21.71
+6925,Ilias Chair,Morocco,MAR,CAM,13,false,21.66,16.24,false,1,12,12.0,163.8,163.8,2.47,96.8,32.49,20.97
+144,Emiliano Martínez,Argentina,ARG,GK,23,true,13.08,9.81,false,7,83,11.86,658.6,94.1,1.61,160.4,45.0,20.99
+16,Kyle Walker,England,ENG,RB,2,false,21.76,16.32,false,3,35,11.67,414.0,138.0,2.0,106.6,38.64,23.2
+4712,Marcus Thuram,France,FRA,LW,26,false,21.37,16.03,false,3,35,11.67,463.0,154.3,2.38,97.3,38.38,20.8
+3994,Arkadiusz Milik,Poland,POL,CF,7,false,20.12,15.09,false,3,35,11.67,361.7,120.6,2.07,95.4,28.57,19.2
+1672,Thibaut Courtois,Belgium,BEL,GK,1,true,12.44,9.33,false,3,35,11.67,260.9,87.0,1.7,153.5,45.0,19.1
+4020,Kamaldeen Sulemana,Ghana,GHA,LW,22,false,19.31,14.48,false,2,23,11.5,230.3,115.2,2.06,94.8,31.55,18.31
+14024,Ferjani Sassi,Tunisia,TUN,CM,13,false,19.9,14.92,false,2,23,11.5,198.7,99.3,1.76,92.4,26.96,18.39
+8631,Georges-Kevin N'Koudou,Cameroon,CMR,LW,7,false,18.67,14.0,false,2,23,11.5,196.2,98.1,1.88,90.7,20.39,16.94
+13970,Roozbeh Cheshmi,Iran,IRN,UNK,15,true,18.03,13.52,false,2,23,11.5,204.6,102.3,1.97,95.5,24.4,17.21
+3878,Axel Disasi,France,FRA,RCB,3,false,20.18,15.13,false,2,23,11.5,249.0,124.5,2.01,102.6,40.96,20.7
+13044,Jawad El Yamiq,Morocco,MAR,RCB,18,false,23.74,17.8,false,5,57,11.4,750.1,150.0,2.12,100.0,39.07,23.72
+13782,Anthony Contreras,Costa Rica,CRC,CF,7,true,20.75,15.56,false,3,34,11.33,362.1,120.7,1.98,97.7,29.82,20.27
+4602,Manuel Neuer,Germany,GER,GK,1,true,14.49,10.87,false,3,34,11.33,299.9,100.0,1.74,144.1,45.0,20.89
+435,Mathew Ryan,Australia,AUS,GK,1,true,15.11,11.33,false,4,45,11.25,432.9,108.2,1.95,131.9,45.0,19.93
+3890,Youssouf Fofana,France,FRA,CM,13,false,19.45,14.58,false,6,67,11.17,611.9,102.0,1.87,93.5,43.53,18.19
+42,Trent Alexander-Arnold,England,ENG,RB,18,false,22.53,16.9,false,1,11,11.0,122.7,122.7,1.91,98.6,31.39,22.22
+13973,Hossein Kanaani,Iran,IRN,RCB,13,false,19.56,14.67,false,1,11,11.0,123.6,123.6,2.28,97.3,22.89,19.03
+13151,Srdjan Babic,Serbia,SRB,LCB,15,false,17.43,13.07,false,1,11,11.0,101.4,101.4,2.19,90.5,18.28,15.77
+7955,Rubin Colwill,Wales,WAL,CAM,25,false,16.62,12.47,false,1,11,11.0,63.7,63.7,1.44,92.3,19.2,15.35
+13799,Shuichi Gonda,Japan,JPN,GK,12,true,12.9,9.68,false,4,44,11.0,380.4,95.1,1.74,158.4,45.0,20.44
+13822,Jason Cummings,Australia,AUS,CF,25,false,19.97,14.98,false,1,11,11.0,132.2,132.2,2.39,94.8,22.84,18.94
+13949,Tarek Salman,Qatar,QAT,RCB,5,false,16.1,12.08,false,1,11,11.0,78.3,78.3,1.82,90.3,16.28,14.54
+13876,Christian Bassogog,Cameroon,CMR,RW,11,false,20.29,15.22,false,1,11,11.0,105.7,105.7,1.92,90.0,21.71,18.26
+14021,Ghaylen Chaaleli,Tunisia,TUN,CM,18,false,17.44,13.08,false,1,11,11.0,100.3,100.3,2.15,89.3,18.96,15.57
+1394,Alvaro Morata,Spain,ESP,CF,7,false,21.32,15.99,false,4,43,10.75,496.6,124.2,2.14,96.9,41.24,20.66
+13021,Abde Ezzalzouli,Morocco,MAR,LW,16,false,19.85,14.88,false,3,32,10.67,315.6,105.2,1.94,97.4,40.12,19.34
+13865,Badr Benoun,Morocco,MAR,RCB,24,false,17.48,13.11,false,2,21,10.5,171.2,85.6,1.9,92.4,20.58,16.16
+11854,Alexander Bah,Denmark,DEN,RB,26,false,22.15,16.61,false,2,21,10.5,235.8,117.9,2.02,96.6,29.66,21.39
+4739,Ajdin Hrustic,Australia,AUS,CM,10,false,20.77,15.58,false,3,31,10.33,312.1,104.0,2.01,89.2,28.71,18.53
+8138,Lautaro Martinez,Argentina,ARG,CF,22,true,20.62,15.47,false,6,62,10.33,686.3,114.4,2.13,98.1,36.43,20.24
+4194,Randal Kolo Muani,France,FRA,CF,12,false,22.49,16.86,false,3,31,10.33,399.2,133.1,2.22,96.7,31.7,21.77
+13987,Mohammed Al-Owais,Saudi Arabia,KSA,GK,21,true,14.74,11.05,false,3,31,10.33,292.4,97.5,1.86,143.1,45.0,21.1
+8419,Gonzalo Montiel,Argentina,ARG,RB,4,false,19.81,14.86,false,3,30,10.0,315.3,105.1,2.12,94.4,26.09,18.71
+4912,André Silva,Portugal,POR,CF,9,false,22.7,17.02,false,1,10,10.0,109.4,109.4,1.98,90.6,26.22,20.57
+13873,Pierre Kunde,Cameroon,CMR,CM,15,false,23.36,17.52,false,2,20,10.0,282.2,141.1,2.26,103.8,34.96,24.25
+4021,Jérémy Doku,Belgium,BEL,RW,25,false,17.09,12.81,false,1,10,10.0,92.2,92.2,2.24,93.2,18.85,15.92
+14034,Lawrence Ati Zigi,Ghana,GHA,GK,1,true,13.97,10.48,false,3,30,10.0,252.7,84.2,1.73,147.2,45.0,20.56
+4713,Jonas Hofmann,Germany,GER,CAM,18,false,19.67,14.75,false,2,20,10.0,187.3,93.7,1.98,88.8,21.8,17.47
+13942,Meshaal Barsham,Qatar,QAT,GK,22,false,15.15,11.36,false,2,20,10.0,193.8,96.9,1.73,148.2,45.0,22.45
+444,Tariq Lamptey,Ghana,GHA,RB,2,false,23.07,17.31,false,2,20,10.0,264.6,132.3,2.16,105.3,42.54,24.31
+13560,Anass Zaroury,Morocco,MAR,LW,10,false,18.0,13.5,false,1,10,10.0,91.9,91.9,2.06,92.9,19.89,16.73
+2059,Edouard Mendy,Senegal,SEN,GK,16,true,14.31,10.73,false,4,39,9.75,406.9,101.7,2.05,142.0,45.0,20.32
+6019,Nikola Vlasic,Croatia,CRO,RW,13,true,20.36,15.27,false,6,58,9.67,558.9,93.1,1.91,93.7,34.03,19.08
+132,Fred,Brazil,BRA,CM,8,false,22.15,16.61,false,3,29,9.67,314.6,104.9,1.92,97.1,34.2,21.51
+13920,Jun-ho Son,South Korea,KOR,CDM,13,false,18.3,13.73,false,3,29,9.67,239.4,79.8,1.78,94.4,26.44,17.27
+4622,Kingsley Coman,France,FRA,RW,20,false,21.0,15.75,false,5,48,9.6,506.8,101.4,1.97,96.2,38.52,20.21
+14000,Nawaf Al-Abed,Saudi Arabia,KSA,CAM,18,false,20.49,15.37,false,2,19,9.5,181.4,90.7,1.84,95.8,26.29,19.64
+8059,Dušan Vlahović,Serbia,SRB,CF,18,false,20.14,15.11,false,2,19,9.5,220.2,110.1,2.3,94.5,22.73,19.04
+2099,Takuma Asano,Japan,JPN,RW,18,false,21.78,16.34,false,4,38,9.5,488.5,122.1,2.3,97.1,29.36,21.14
+13984,Karim Ansarifard,Iran,IRN,CF,10,false,18.05,13.54,false,2,19,9.5,179.6,89.8,2.04,96.0,34.27,17.33
+4779,Nico Schlotterbeck,Germany,GER,LCB,23,true,20.35,15.26,false,2,19,9.5,199.3,99.6,1.94,104.8,29.9,21.32
+13926,Diego Godin,Uruguay,URU,RCB,3,true,19.1,14.32,false,2,19,9.5,258.9,129.5,2.5,109.5,42.64,20.92
+1287,José Cifuentes,Ecuador,ECU,CM,5,false,19.42,14.57,false,2,19,9.5,226.2,113.1,2.48,93.2,22.53,18.1
+8538,Diogo Costa,Portugal,POR,GK,22,true,13.1,9.82,false,5,47,9.4,385.6,77.1,1.75,146.7,45.0,19.21
+12862,Wajdi Kechrida,Tunisia,TUN,RM,21,false,23.56,17.67,false,3,28,9.33,385.4,128.5,2.28,99.1,34.03,23.34
+13860,Marko Livaja,Croatia,CRO,CF,14,false,23.0,17.25,false,6,56,9.33,648.7,108.1,1.95,98.3,38.57,22.6
+12315,Sam Adekugbe,Canada,CAN,LB,3,false,21.51,16.14,false,3,28,9.33,304.9,101.6,2.0,97.9,33.31,21.03
+136,Marcus Rashford,England,ENG,LW,11,false,21.69,16.27,false,4,37,9.25,387.2,96.8,1.91,95.7,30.53,20.76
+4925,Hiroki Ito,Japan,JPN,LCB,26,false,19.31,14.48,false,1,9,9.0,106.2,106.2,2.36,99.3,23.64,19.18
+13968,Alireza Beiranvand,Iran,IRN,GK,1,true,11.07,8.3,false,2,18,9.0,124.2,62.1,1.69,147.1,45.0,16.28
+1383,Koke,Spain,ESP,CM,8,false,19.78,14.84,false,2,18,9.0,170.6,85.3,1.95,90.6,21.15,17.92
+12537,Nicola Zalewski,Poland,POL,LM,21,true,19.3,14.48,false,2,18,9.0,165.7,82.8,1.91,92.3,24.23,17.82
+455,Leandro Trossard,Belgium,BEL,LW,17,false,23.31,17.48,false,3,27,9.0,339.4,113.1,2.14,97.0,30.25,22.62
+6,Ederson,Brazil,BRA,GK,23,false,15.41,11.56,false,1,9,9.0,100.2,100.2,1.95,147.5,45.0,22.73
+13795,Alvaro Zamora,Costa Rica,CRC,LM,26,false,22.5,16.87,false,1,9,9.0,125.6,125.6,2.46,98.0,25.92,22.04
+74,Eric Dier,England,ENG,RCB,15,false,18.38,13.78,false,2,18,9.0,209.6,104.8,2.54,93.6,22.95,17.2
+13859,Mislav Orsic,Croatia,CRO,LW,18,false,20.86,15.64,false,4,35,8.75,428.7,107.2,2.27,94.7,31.42,19.77
+13963,Mohammed Muntari,Qatar,QAT,CF,9,false,17.36,13.02,false,3,26,8.67,212.4,70.8,1.92,92.7,20.32,16.08
+3989,Nemanja Radonjic,Serbia,SRB,LW,7,false,21.75,16.31,false,3,26,8.67,278.8,92.9,1.97,94.1,27.69,20.48
+1697,Rodrygo,Brazil,BRA,RW,21,false,21.24,15.93,false,5,43,8.6,445.9,89.2,1.91,97.2,37.48,20.65
+13178,Nico Williams,Spain,ESP,RW,12,false,22.5,16.88,false,4,34,8.5,403.3,100.8,2.05,98.3,38.17,22.12
+4851,Krzysztof Piatek,Poland,POL,CF,23,false,18.56,13.92,false,2,17,8.5,125.2,62.6,1.63,91.5,21.12,16.98
+32,Alisson,Brazil,BRA,GK,1,true,14.92,11.19,false,4,34,8.5,356.9,89.2,1.83,166.7,45.0,24.87
+371,Jack Grealish,England,ENG,LW,7,false,20.0,15.0,false,4,34,8.5,336.4,84.1,1.99,95.7,30.46,19.15
+13958,Mohammed Waad,Qatar,QAT,CDM,4,false,17.2,12.9,false,2,17,8.5,143.4,71.7,1.97,95.7,22.13,16.46
+14029,Taha Yassine Khenissi,Tunisia,TUN,CF,11,false,19.28,14.46,false,2,17,8.5,153.7,76.8,1.93,89.0,20.4,17.16
+13825,Garang Kuol,Australia,AUS,CF,21,false,20.42,15.32,false,2,17,8.5,194.6,97.3,2.28,92.6,23.58,18.91
+13869,Walid Cheddira,Morocco,MAR,CF,21,false,20.67,15.5,false,2,17,8.5,192.7,96.3,2.21,94.6,28.9,19.55
+13787,Youstin Salas,Costa Rica,CRC,CDM,14,false,20.59,15.44,false,2,17,8.5,186.3,93.1,2.12,93.4,25.91,19.22
+8113,Noah Okafor,Switzerland,SUI,CF,19,false,14.34,10.76,false,3,25,8.33,203.6,67.9,2.27,96.5,20.89,13.84
+3343,Guillermo Ochoa,Mexico,MEX,GK,13,true,14.39,10.79,false,3,25,8.33,303.5,101.2,2.02,175.6,45.0,25.28
+13790,Brandon Aguilera,Costa Rica,CRC,CAM,20,false,20.32,15.24,false,3,25,8.33,237.0,79.0,1.84,96.3,31.28,19.57
+8039,Antony,Brazil,BRA,RW,19,false,21.55,16.16,false,4,33,8.25,375.9,94.0,2.04,100.0,31.24,21.55
+975,Ronald Matarrita,Costa Rica,CRC,LB,22,false,18.17,13.63,false,2,16,8.0,142.0,71.0,2.0,93.5,23.33,16.99
+3315,Vincent Janssen,Netherlands,NED,CF,18,true,20.39,15.3,false,2,16,8.0,163.8,81.9,1.9,97.4,29.41,19.87
+2005,Kalvin Phillips,England,ENG,CDM,14,false,20.51,15.38,false,1,8,8.0,83.9,83.9,1.93,98.6,26.47,20.21
+9290,Bailey Wright,Australia,AUS,RCB,8,false,19.11,14.33,false,1,8,8.0,73.6,73.6,1.91,96.6,21.25,18.45
+1812,Luuk de Jong,Netherlands,NED,CF,9,false,20.09,15.07,false,1,8,8.0,98.6,98.6,2.47,93.3,21.58,18.74
+13991,Mohammed Al-Burayk,Saudi Arabia,KSA,RB,6,false,26.46,19.85,false,1,8,8.0,131.7,131.7,2.24,106.2,40.08,28.09
+8011,Haris Seferovic,Switzerland,SUI,CF,9,false,20.79,15.59,false,3,24,8.0,317.8,105.9,2.54,96.0,25.08,19.97
+5065,Christian Nörgaard,Denmark,DEN,CDM,15,false,19.64,14.73,false,1,8,8.0,112.5,112.5,2.89,93.1,20.26,18.29
+8058,Paulo Dybala,Argentina,ARG,CF,21,false,17.4,13.05,false,2,16,8.0,154.5,77.2,2.3,91.4,17.64,15.91
+6596,Jeremy Sarmiento,Ecuador,ECU,CAM,16,false,20.37,15.28,false,3,24,8.0,279.0,93.0,2.22,96.6,27.47,19.67
+13928,Agustin Canobbio,Uruguay,URU,RW,24,false,24.04,18.03,false,1,8,8.0,85.4,85.4,1.79,92.8,24.77,22.32
+13861,Bruno Petkovic,Croatia,CRO,CF,16,false,19.37,14.53,false,6,48,8.0,452.4,75.4,1.87,99.2,39.07,19.2
+14032,David Wotherspoon,Canada,CAN,CAM,24,false,14.41,10.81,false,1,8,8.0,61.1,61.1,2.18,89.7,14.67,12.92
+14012,Haitham Asiri,Saudi Arabia,KSA,CF,25,false,17.93,13.45,false,1,8,8.0,57.5,57.5,1.67,91.1,18.53,16.33
+13878,Jerome Mbekeli,Cameroon,CMR,LW,2,false,18.5,13.87,false,1,8,8.0,51.5,51.5,1.38,94.6,22.06,17.5
+9980,Daniel-Kofi Kyereh,Ghana,GHA,CAM,8,false,19.92,14.94,false,3,23,7.67,229.5,76.5,2.06,89.8,21.83,17.89
+7192,Antoine Semenyo,Ghana,GHA,CF,25,false,24.07,18.05,false,2,15,7.5,169.6,84.8,1.94,92.0,27.55,22.15
+12640,Martin Hongla,Cameroon,CMR,CM,18,true,25.09,18.82,false,2,15,7.5,247.5,123.7,2.37,102.2,43.57,25.64
+5178,Osman Bukari,Ghana,GHA,RW,11,false,21.38,16.04,false,2,15,7.5,213.8,106.9,2.66,96.2,25.64,20.56
+201,Danny Ward,Wales,WAL,GK,12,false,10.86,8.15,false,2,15,7.5,93.9,47.0,1.73,134.2,45.0,14.58
+13868,Yahya Jabrane,Morocco,MAR,CDM,26,false,16.15,12.11,false,2,15,7.5,107.9,53.9,1.87,88.0,18.74,14.21
+311,Callum Wilson,England,ENG,CF,24,false,23.21,17.41,false,2,15,7.5,146.2,73.1,1.63,97.7,27.39,22.68
+13880,Fabian Frei,Switzerland,SUI,CDM,20,false,19.8,14.85,false,2,15,7.5,152.3,76.1,2.11,90.6,21.86,17.94
+13817,Jamie Maclaren,Australia,AUS,CF,9,false,19.15,14.36,false,3,22,7.33,259.4,86.5,2.49,93.9,23.64,18.0
+7008,Brennan Johnson,Wales,WAL,CF,9,false,19.95,14.97,false,3,22,7.33,252.5,84.2,2.23,97.6,28.45,19.48
+8593,Rafael Leao,Portugal,POR,LW,15,false,19.85,14.89,false,4,29,7.25,291.8,72.9,2.01,94.7,25.02,18.79
+12529,Matias Vina,Uruguay,URU,LB,17,false,20.02,15.01,false,2,14,7.0,115.9,58.0,1.71,90.0,25.63,18.01
+12643,Darko Lazović,Serbia,SRB,LM,22,false,23.72,17.79,false,1,7,7.0,77.3,77.3,1.82,98.7,24.85,23.42
+2108,Uriel Antuna,Mexico,MEX,RW,21,false,21.77,16.33,false,3,21,7.0,270.1,90.0,2.35,94.5,30.07,20.57
+3867,Pablo Sarabia,Spain,ESP,RW,22,false,12.36,9.27,false,1,7,7.0,47.9,47.9,2.33,90.2,12.47,11.15
+9963,Niclas Fullkrug,Germany,GER,CF,9,false,19.08,14.31,false,3,21,7.0,196.1,65.4,1.92,95.5,27.2,18.23
+13875,Vincent Aboubakar,Cameroon,CMR,CF,10,false,23.69,17.77,false,3,21,7.0,275.5,91.8,2.07,101.9,36.77,24.13
+5139,Romelu Lukaku,Belgium,BEL,CF,9,false,18.34,13.76,false,2,14,7.0,137.5,68.8,2.08,93.3,23.37,17.12
+13791,Roan Wilson,Costa Rica,CRC,CM,24,false,18.13,13.6,false,1,7,7.0,54.5,54.5,1.79,92.3,18.79,16.73
+2042,Kamil Grosicki,Poland,POL,LW,11,false,16.73,12.55,false,1,7,7.0,52.3,52.3,1.8,91.0,16.87,15.23
+14009,Abdulrahman Al-Oboud,Saudi Arabia,KSA,RW,20,false,21.75,16.31,false,2,13,6.5,159.2,79.6,2.27,95.7,24.79,20.81
+328,DeAndre Yedlin,United States,USA,RB,22,false,22.1,16.57,false,2,13,6.5,160.1,80.0,2.22,94.2,24.69,20.82
+13118,Eray Comert,Switzerland,SUI,RCB,18,false,19.2,14.4,false,2,13,6.5,123.0,61.5,1.92,95.0,27.1,18.25
+13830,Pedro,Brazil,BRA,CF,25,false,21.9,16.42,false,2,13,6.5,131.6,65.8,1.84,93.2,23.6,20.42
+4105,Wahbi Khazri,Tunisia,TUN,CF,10,false,22.15,16.61,false,2,13,6.5,166.2,83.1,2.14,101.7,29.38,22.52
+13870,Abderrazak Hamdallah,Morocco,MAR,CF,9,false,20.04,15.03,false,4,25,6.25,254.2,63.6,2.02,96.9,27.02,19.41
+13935,Hernan Galindez,Ecuador,ECU,GK,1,true,14.76,11.07,false,3,18,6.0,247.8,82.6,1.98,189.7,45.0,28.0
+1877,Guido Rodríguez,Argentina,ARG,CDM,18,false,21.32,15.99,false,1,6,6.0,63.5,63.5,1.77,109.0,24.51,23.24
+11090,Erick Gutierrez,Mexico,MEX,CM,14,false,25.84,19.38,false,1,6,6.0,78.0,78.0,1.65,126.1,39.58,32.57
+9865,Zakaria Aboukhlal,Morocco,MAR,RW,14,false,20.54,15.41,false,4,24,6.0,258.6,64.6,2.06,97.4,29.61,20.01
+8416,Michel Aebischer,Switzerland,SUI,CM,14,false,25.51,19.14,false,1,6,6.0,100.0,100.0,2.6,92.1,25.82,23.5
+4689,Youssoufa Moukoko,Germany,GER,CF,26,false,18.01,13.51,false,1,6,6.0,48.8,48.8,1.87,87.5,18.84,15.76
+2071,Alex Telles,Brazil,BRA,LB,16,false,21.26,15.94,false,2,12,6.0,140.9,70.5,2.13,102.2,28.72,21.71
+1895,William Saliba,France,FRA,RCB,17,false,22.05,16.54,false,1,6,6.0,88.7,88.7,2.62,93.8,25.79,20.69
+13849,Artur Jedrzejczyk,Poland,POL,RCB,3,false,15.74,11.81,false,1,6,6.0,45.0,45.0,1.88,95.9,17.77,15.09
+13786,Carlos Martinez,Costa Rica,CRC,RB,16,true,20.87,15.65,false,1,6,6.0,85.2,85.2,2.56,100.7,23.64,21.02
+55,Takumi Minamino,Japan,JPN,LW,10,false,21.33,16.0,false,3,17,5.67,182.9,61.0,2.02,95.8,23.69,20.44
+252,Raúl Jiménez,Mexico,MEX,CF,9,false,20.38,15.28,false,3,17,5.67,172.2,57.4,1.97,93.4,25.76,19.04
+4280,Ui-jo Hwang,South Korea,KOR,CF,16,true,20.56,15.42,false,3,16,5.33,207.7,69.2,2.4,102.0,27.51,20.96
+9090,Charles De Ketelaere,Belgium,BEL,CAM,22,false,23.9,17.92,false,1,5,5.0,54.2,54.2,1.78,96.3,25.85,23.0
+13881,Ardon Jashari,Switzerland,SUI,CDM,26,false,18.83,14.12,false,1,5,5.0,43.5,43.5,1.92,89.6,18.92,16.88
+14007,Nasser Al-Dawsari,Saudi Arabia,KSA,LB,24,false,17.42,13.06,false,1,5,5.0,42.9,42.9,1.93,96.4,18.11,16.79
+3263,Hannibal Mejbri,Tunisia,TUN,CAM,8,false,23.56,17.67,false,1,5,5.0,82.6,82.6,2.85,93.8,23.96,22.1
+13983,Mehdi Torabi,Iran,IRN,LW,16,false,21.65,16.24,false,3,15,5.0,157.0,52.3,1.83,98.4,31.03,21.3
+8077,Joao Palhinha,Portugal,POR,CDM,6,false,18.59,13.94,false,3,14,4.67,144.2,48.1,2.22,94.9,25.3,17.64
+13226,German Pezzella,Argentina,ARG,RCB,6,false,17.59,13.2,false,3,14,4.67,151.5,50.5,2.45,94.9,20.61,16.7
+1836,Maxi Gomez,Uruguay,URU,CF,18,false,22.53,16.9,false,2,9,4.5,159.1,79.6,2.92,96.3,39.11,21.71
+3452,Kevin Álvarez,Mexico,MEX,RB,26,false,23.24,17.43,false,2,9,4.5,108.0,54.0,1.76,114.5,44.31,26.63
+1340,Shaq Moore,United States,USA,RB,18,false,20.65,15.48,false,2,9,4.5,94.0,47.0,2.02,97.9,26.97,20.21
+7175,Sorba Thomas,Wales,WAL,RW,22,false,17.4,13.05,false,1,4,4.0,41.2,41.2,2.44,90.5,18.33,15.75
+8584,Fode Ballo-Toure,Senegal,SEN,LB,12,false,17.15,12.86,false,1,4,4.0,34.2,34.2,2.03,91.8,17.97,15.75
+4607,Lucas Hernández,France,FRA,LB,21,true,20.77,15.58,false,1,4,4.0,38.7,38.7,1.83,100.9,28.53,20.97
+13950,Musab Khoder,Qatar,QAT,RB,13,false,18.44,13.83,false,1,4,4.0,60.5,60.5,3.33,90.6,18.61,16.71
+13109,Awer Mabil,Australia,AUS,LW,11,false,24.61,18.46,false,2,8,4.0,112.5,56.2,2.3,92.1,27.35,22.67
+4694,Matthias Ginter,Germany,GER,RCB,4,false,19.14,14.35,false,1,4,4.0,41.3,41.3,2.26,88.7,20.26,16.97
+3861,Xavi Simons,Netherlands,NED,CAM,25,false,18.35,13.77,false,1,4,4.0,41.9,41.9,2.34,93.2,22.55,17.11
+13055,Nicolas Jackson,Senegal,SEN,RW,7,false,23.23,17.42,false,1,4,4.0,68.3,68.3,2.98,90.6,24.47,21.04
+4590,Exequiel Palacios,Argentina,ARG,CM,14,false,19.53,14.65,false,3,11,3.67,122.4,40.8,2.25,96.5,22.23,18.84
+14002,Hattan Bahebri,Saudi Arabia,KSA,RW,19,false,20.1,15.08,false,2,7,3.5,74.3,37.1,2.17,92.3,20.37,18.56
+5009,Wout Weghorst,Netherlands,NED,CF,19,false,17.57,13.18,false,4,14,3.5,113.7,28.4,1.9,93.3,18.73,16.4
+6038,Nuno Mendes,Portugal,POR,LB,19,true,19.08,14.31,false,1,3,3.0,35.6,35.6,2.12,105.1,24.53,20.06
+11843,Issahaku Fatawu,Ghana,GHA,CAM,7,false,15.49,11.62,false,1,3,3.0,21.0,21.0,1.88,91.9,15.57,14.24
+3314,Rogelio Funes Mori,Mexico,MEX,CF,11,false,20.02,15.02,false,1,3,3.0,39.9,39.9,2.6,98.6,20.2,19.74
+13964,Ahmed Alaaeldin,Qatar,QAT,CF,7,false,19.29,14.47,false,1,3,3.0,39.0,39.0,2.73,95.0,19.79,18.33
+8032,Kenneth Taylor,Netherlands,NED,CM,24,false,19.71,14.78,false,1,3,3.0,29.9,29.9,2.11,95.7,20.01,18.87
+12776,Filip Djuricic,Serbia,SRB,CAM,21,false,22.6,16.95,false,2,6,3.0,77.8,38.9,2.25,96.2,23.02,21.75
+13829,Weverton,Brazil,BRA,GK,12,false,11.78,8.84,false,1,3,3.0,17.3,17.3,1.81,104.9,14.51,12.36
+1529,Ansu Fati,Spain,ESP,LW,25,false,22.24,16.68,false,2,6,3.0,71.8,35.9,1.97,104.6,30.84,23.25
+13939,Djorkaeff Reasco,Ecuador,ECU,CF,24,false,20.82,15.62,false,1,3,3.0,46.4,46.4,2.91,91.1,22.63,18.98
+1389,Angel Correa,Argentina,ARG,CF,15,false,20.59,15.45,false,1,3,3.0,22.5,22.5,1.43,94.3,20.92,19.41
+13940,Kevin Rodriguez,Ecuador,ECU,CF,26,false,17.71,13.28,false,2,5,2.5,31.0,15.5,1.44,93.3,19.17,16.53
+1184,Jordan Morris,United States,USA,LW,16,false,21.29,15.97,false,1,2,2.0,30.3,30.3,2.66,108.2,24.1,23.03
+13915,Yu-min Cho,South Korea,KOR,RCB,24,false,13.69,10.26,false,1,2,2.0,20.1,20.1,3.0,92.4,13.76,12.64
+6029,Kristijan Jakic,Croatia,CRO,CDM,26,false,8.99,6.74,false,1,2,2.0,6.4,6.4,1.58,84.7,7.61,7.61
+5006,Renato Steffen,Switzerland,SUI,LW,11,false,25.22,18.92,false,1,2,2.0,34.7,34.7,2.28,114.8,30.28,28.95
+9806,Lois Openda,Belgium,BEL,CF,24,false,21.55,16.16,false,1,2,2.0,21.5,21.5,1.92,95.3,23.64,20.53
+13778,Daniel Chacon,Costa Rica,CRC,CDM,2,false,10.44,7.83,false,1,2,2.0,9.0,9.0,1.7,92.5,10.48,9.65
+385,Jan Bednarek,Poland,POL,RCB,5,false,12.86,9.65,false,1,1,1.0,5.0,5.0,1.4,101.1,13.01,13.01
+68,Juan Foyth,Argentina,ARG,RB,2,false,18.45,13.84,false,1,1,1.0,7.5,7.5,1.4,114.6,21.15,21.15
