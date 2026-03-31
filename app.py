@@ -21,106 +21,161 @@ st.set_page_config(
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
+/* ── Global ── */
 html, body, [class*="css"] {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1a1a1a;
 }
 
-/* Main background */
 .stApp {
-    background-color: #0a0e1a;
-    color: #e8eaf0;
+    background-color: #f7f7f5;
 }
 
-/* Sidebar */
+/* ── Sidebar ── */
 section[data-testid="stSidebar"] {
-    background-color: #0f1525;
-    border-right: 1px solid #1e2a45;
+    background-color: #ffffff;
+    border-right: 1px solid #e5e5e3;
+}
+section[data-testid="stSidebar"] * {
+    color: #1a1a1a !important;
 }
 
-/* Metric cards */
+/* ── Headers ── */
+h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #111111;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+h2, h3, h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #111111;
+    letter-spacing: -0.01em;
+}
+h3 { font-size: 16px; }
+h4 { font-size: 14px; font-weight: 500; color: #444; }
+
+/* ── Metric cards ── */
 [data-testid="metric-container"] {
-    background-color: #111827;
-    border: 1px solid #1e2a45;
-    border-radius: 12px;
-    padding: 16px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e3;
+    border-radius: 4px;
+    padding: 16px 20px;
+    box-shadow: none;
+}
+[data-testid="metric-container"] label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #888 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Inter', sans-serif;
+}
+[data-testid="metric-container"] [data-testid="stMetricValue"] {
+    font-size: 26px;
+    font-weight: 600;
+    color: #111 !important;
+    font-family: 'Source Serif 4', serif;
 }
 
-/* Headers */
-h1, h2, h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-
-/* Dataframe */
-[data-testid="stDataFrame"] {
-    border: 1px solid #1e2a45;
-    border-radius: 8px;
-}
-
-/* Tabs */
+/* ── Tabs ── */
 .stTabs [data-baseweb="tab-list"] {
-    background-color: #111827;
-    border-radius: 8px;
-    gap: 4px;
+    background-color: transparent;
+    border-bottom: 2px solid #e5e5e3;
+    gap: 0;
+    padding-bottom: 0;
 }
-
 .stTabs [data-baseweb="tab"] {
     background-color: transparent;
-    color: #6b7897;
-    font-family: 'DM Mono', monospace;
+    color: #888;
+    font-family: 'Inter', sans-serif;
     font-size: 13px;
-    border-radius: 6px;
+    font-weight: 500;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 8px 16px;
 }
-
 .stTabs [aria-selected="true"] {
-    background-color: #1e2a45 !important;
-    color: #4fc3f7 !important;
+    background-color: transparent !important;
+    color: #111 !important;
+    border-bottom: 2px solid #111 !important;
 }
 
-/* Slider */
-[data-testid="stSlider"] > div {
-    padding-top: 8px;
+/* ── Divider ── */
+hr { border-color: #e5e5e3; }
+
+/* ── Dataframe ── */
+[data-testid="stDataFrame"] {
+    border: 1px solid #e5e5e3;
+    border-radius: 4px;
+    background: #fff;
 }
 
-/* Divider */
-hr {
-    border-color: #1e2a45;
+/* ── Slider label ── */
+[data-testid="stSlider"] label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-/* Selectbox */
-[data-testid="stSelectbox"] > div > div {
-    background-color: #111827;
-    border-color: #1e2a45;
+/* ── Multiselect ── */
+[data-testid="stMultiSelect"] label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-/* Caption text */
-.caption {
-    font-family: 'DM Mono', monospace;
+/* ── Caption / label utility classes ── */
+.eyebrow {
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
-    color: #4a5568;
+    font-weight: 600;
+    color: #888;
     text-transform: uppercase;
     letter-spacing: 0.08em;
 }
-
-.highlight {
-    color: #4fc3f7;
-    font-weight: 700;
+.stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
-
-.pill {
+.kicker {
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+}
+.threshold-badge {
     display: inline-block;
-    padding: 2px 10px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-family: 'DM Mono', monospace;
+    background: #111;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
 }
-
-.pill-gained { background-color: #0d3320; color: #4ade80; border: 1px solid #166534; }
-.pill-lost   { background-color: #3b0a0a; color: #f87171; border: 1px solid #7f1d1d; }
-.pill-unch   { background-color: #1a1f2e; color: #94a3b8; border: 1px solid #334155; }
+.gained-badge { display:inline-block; background:#e8f5e9; color:#2e7d32;
+                font-size:11px; font-weight:600; padding:2px 8px;
+                border-radius:3px; font-family:'Inter',sans-serif; }
+.lost-badge   { display:inline-block; background:#fce4e4; color:#c62828;
+                font-size:11px; font-weight:600; padding:2px 8px;
+                border-radius:3px; font-family:'Inter',sans-serif; }
+.unch-badge   { display:inline-block; background:#f5f5f5; color:#666;
+                font-size:11px; font-weight:600; padding:2px 8px;
+                border-radius:3px; font-family:'Inter',sans-serif; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -146,16 +201,23 @@ except FileNotFoundError:
 # Sidebar
 # ─────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## ⚡ HSR Metric")
     st.markdown(
-        '<p class="caption">FIFA World Cup 2022 · GradientSports tracking</p>',
+        '<p class="eyebrow" style="margin-bottom:2px;">HSR Metric</p>',
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        '<p style="font-family:Inter;font-size:12px;color:#666;margin:0 0 16px 0;">'
+        'FIFA World Cup 2022</p>',
         unsafe_allow_html=True
     )
     st.divider()
-
-    st.markdown("### Threshold")
     st.markdown(
-        '<p class="caption">% of personal v-max to qualify as high-speed run</p>',
+        '<p class="eyebrow" style="margin-bottom:8px;">Threshold</p>',
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        '<p style="font-family:Inter;font-size:12px;color:#666;margin:0 0 8px 0;">'
+        'Minimum % of personal v-max to count as a high-speed run</p>',
         unsafe_allow_html=True
     )
 
@@ -171,14 +233,12 @@ with st.sidebar:
     threshold_pct = threshold_int / 100.0
 
     st.markdown(f"""
-    <div style="background:#111827;border:1px solid #1e2a45;border-radius:8px;padding:12px;margin-top:8px;">
-        <p class="caption" style="margin:0 0 6px 0;">Current threshold</p>
-        <p style="font-size:28px;font-weight:800;color:#4fc3f7;margin:0;font-family:'Syne',sans-serif;">
-            {threshold_pct*100:.0f}%
-        </p>
-        <p style="font-size:12px;color:#6b7897;margin:4px 0 0 0;font-family:'DM Mono',monospace;">
-            of personal v-max
-        </p>
+    <div style="background:#f0f0ee;border-left:3px solid #111;padding:10px 14px;margin-top:8px;">
+        <p style="font-family:Inter;font-size:11px;font-weight:600;color:#888;
+                  text-transform:uppercase;letter-spacing:0.06em;margin:0 0 2px 0;">Active threshold</p>
+        <p style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:600;
+                  color:#111;margin:0;">{threshold_pct*100:.0f}%</p>
+        <p style="font-family:Inter;font-size:11px;color:#666;margin:2px 0 0 0;">of personal v-max</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -207,35 +267,28 @@ with st.sidebar:
 
     st.divider()
     st.markdown(
-        '<p class="caption">Definition: a run where a player reaches ≥ threshold% '
-        'of their personal v-max and maintains it for ≥ 1 second.</p>',
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        '<p class="caption">Industry standard: flat 20 km/h threshold.</p>',
+        '<p style="font-family:Inter;font-size:11px;color:#888;line-height:1.5;">'
+        '<strong>New definition</strong> — a run where a player reaches &ge; threshold% '
+        'of their personal v-max for &ge; 1 second.<br><br>'
+        '<strong>Industry standard</strong> — flat 20 km/h absolute threshold.</p>',
         unsafe_allow_html=True
     )
 
 # ─────────────────────────────────────────────
 # Header
 # ─────────────────────────────────────────────
-col_title, col_badge = st.columns([3, 1])
-with col_title:
-    st.markdown(
-        f'<h1 style="margin-bottom:4px;">Relative High-Speed Running</h1>'
-        f'<p style="color:#6b7897;font-family:\'DM Mono\',monospace;font-size:13px;margin:0;">'
-        f'FIFA Men\'s World Cup 2022 · GradientSports broadcast tracking · '
-        f'Threshold: <span style="color:#4fc3f7;">{threshold_pct*100:.0f}% of v-max</span></p>',
-        unsafe_allow_html=True
-    )
-with col_badge:
-    st.markdown(
-        '<div style="text-align:right;padding-top:12px;">'
-        '<span style="background:#0d2137;color:#4fc3f7;border:1px solid #1e4a6e;'
-        'padding:6px 14px;border-radius:6px;font-family:\'DM Mono\',monospace;font-size:12px;">'
-        '64 games · 32 teams</span></div>',
-        unsafe_allow_html=True
-    )
+st.markdown(
+    '<p class="eyebrow" style="margin-bottom:4px;">FIFA Men\'s World Cup 2022 · GradientSports Tracking</p>',
+    unsafe_allow_html=True
+)
+st.markdown(
+    '<h1 style="margin:0 0 4px 0;">Relative High-Speed Running</h1>',
+    unsafe_allow_html=True
+)
+st.markdown(
+    f"<p class='kicker'>Redefining high-speed running as &ge; <span class='threshold-badge'>{threshold_pct*100:.0f}%</span> of each player's personal v-max, sustained for &ge; 1 second. Industry standard shown for comparison.</p>",
+    unsafe_allow_html=True
+)
 
 st.divider()
 
@@ -381,19 +434,27 @@ k5.metric("Players below 20 km/h threshold", f"{n_below_20} ({pct_below:.0f}%)",
           help="Players whose relative threshold sits below 20 km/h — "
                "meaning the industry standard misses their high-effort runs")
 
-st.divider()
+st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
 # Plotly theme
 # ─────────────────────────────────────────────
-PLOT_BG    = "#0a0e1a"
-PAPER_BG   = "#0a0e1a"
-GRID_COLOR = "#1e2a45"
-TEXT_COLOR = "#94a3b8"
-ACCENT     = "#4fc3f7"
-GREEN      = "#4ade80"
-RED        = "#f87171"
-AMBER      = "#fbbf24"
+PLOT_BG    = "#ffffff"
+PAPER_BG   = "#f7f7f5"
+GRID_COLOR = "#eeeeec"
+TEXT_COLOR = "#666666"
+ACCENT     = "#1a6b3c"   # Athletic-style dark green
+BLUE       = "#1a4b8c"   # deep blue for second accent
+RED        = "#c0392b"   # muted red
+AMBER      = "#b7791f"   # warm amber
+GREEN      = "#1a6b3c"
+POS_COLORS = {
+    "GK":  "#f0a500",  # amber
+    "DEF": "#1a4b8c",  # blue
+    "MID": "#1a6b3c",  # green
+    "FWD": "#c0392b",  # red
+    "UNK": "#aaaaaa",
+}
 
 def base_layout(title="", height=400, xaxis=None, yaxis=None):
     default_axis = dict(gridcolor=GRID_COLOR, showline=False, zeroline=False)
@@ -414,11 +475,11 @@ def base_layout(title="", height=400, xaxis=None, yaxis=None):
 # Tabs
 # ─────────────────────────────────────────────
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "📊  Player ranking",
-    "🏟️  Team analysis",
-    "🎯  Position analysis",
-    "⚖️  Definition comparison",
-    "🗺️  Pitch zones",
+    "Players",
+    "Teams",
+    "Positions",
+    "Definition comparison",
+    "Pitch map",
 ])
 
 # ══════════════════════════════════════════════
@@ -438,18 +499,15 @@ with tab1:
         top_players = filtered_summary.nlargest(top_n, "runs_per_game_dynamic")
 
         fig_bar = go.Figure()
+        pos_color_map = top_players["pos"].map(POS_COLORS).fillna("#aaa")
         fig_bar.add_trace(go.Bar(
             x=top_players["runs_per_game_dynamic"],
             y=top_players["player_name"] + " (" + top_players["team_short"] + ")",
             orientation="h",
             marker=dict(
-                color=top_players["mean_pct_of_vmax_pct"],
-                colorscale=[[0, "#1e3a5f"], [0.5, "#2196f3"], [1.0, "#4fc3f7"]],
-                colorbar=dict(
-                    title=dict(text="Avg % of v-max", font=dict(size=10)),
-                    thickness=10, len=0.6,
-                ),
+                color=pos_color_map,
                 line=dict(width=0),
+                opacity=0.85,
             ),
             hovertemplate=(
                 "<b>%{y}</b><br>"
@@ -473,6 +531,7 @@ with tab1:
             x="vmax_kmh",
             y="runs_per_game_dynamic",
             color="pos",
+            color_discrete_map=POS_COLORS,
             size="games_appeared",
             hover_data=["player_name", "team_name", "pos_detail", "tournament_peak_speed_kmh"],
             labels={
@@ -594,7 +653,7 @@ with tab2:
             text="team_short",
             size="n_players",
             color="avg_intensity",
-            color_continuous_scale=[[0, "#1e3a5f"], [1, "#4fc3f7"]],
+            color_continuous_scale=[[0, "#ddeeff"], [1, "#1a4b8c"]],
             labels={
                 "avg_vmax": "Avg v-max (km/h)",
                 "avg_runs_per_game": "Avg HSR runs per game",
@@ -660,7 +719,7 @@ with tab3:
             x="position",
             y="avg_runs_per_game",
             color="avg_intensity",
-            color_continuous_scale=[[0, "#1e3a5f"], [0.5, "#2196f3"], [1, "#4fc3f7"]],
+            color_continuous_scale=[[0, "#ddeeff"], [0.5, "#5588cc"], [1, "#1a4b8c"]],
             text=pos_agg["avg_runs_per_game"].round(1),
             labels={
                 "pos": "Position group",
@@ -683,8 +742,7 @@ with tab3:
         labels     = ["Runs/game", "v-max", "HSR dist", "Intensity", "Peak speed"]
 
         fig_radar = go.Figure()
-        colors    = ["#4fc3f7", "#4ade80", "#fbbf24", "#f87171",
-                     "#a78bfa", "#fb923c", "#34d399"]
+        colors    = ["#f0a500", "#1a4b8c", "#1a6b3c", "#c0392b", "#888888"]
 
         for i, row in pos_agg.iterrows():
             vals = []
@@ -707,7 +765,7 @@ with tab3:
 
         fig_radar.update_layout(
             polar=dict(
-                bgcolor=PLOT_BG,
+                bgcolor="#ffffff",
                 radialaxis=dict(visible=True, range=[0, 100],
                                 gridcolor=GRID_COLOR, tickfont=dict(size=8)),
                 angularaxis=dict(gridcolor=GRID_COLOR),
@@ -765,7 +823,7 @@ with tab4:
             color_discrete_map={
                 "gained":    GREEN,
                 "lost":      RED,
-                "unchanged": "#475569",
+                "unchanged": "#cccccc",
             },
             labels={"run_delta": "Run delta (relative − absolute)", "count": "Players"},
             nbins=30,
@@ -785,7 +843,7 @@ with tab4:
             color_discrete_map={
                 "gained":    GREEN,
                 "lost":      RED,
-                "unchanged": "#475569",
+                "unchanged": "#cccccc",
             },
             hover_data=["player_name", "team_name", "run_delta"],
             labels={
@@ -826,9 +884,8 @@ with tab4:
         y=team_comp["team_short"],
         orientation="h",
         marker=dict(
-            color=team_comp["pct_outperformance"],
-            colorscale=[[0, RED], [0.5, "#475569"], [1.0, GREEN]],
-            cmid=0,
+            color=[GREEN if v >= 0 else RED for v in team_comp["pct_outperformance"]],
+            opacity=0.8,
             line=dict(width=0),
         ),
         hovertemplate=(
@@ -911,7 +968,7 @@ with tab5:
                 x="pitch_zone",
                 y="n_runs",
                 color="avg_pct_of_vmax",
-                color_continuous_scale=[[0, "#1e3a5f"], [1, "#4fc3f7"]],
+                color_continuous_scale=[[0, "#ddeeff"], [1, "#1a4b8c"]],
                 text=zone_agg["n_runs"].apply(lambda x: f"{x:,}"),
                 labels={
                     "pitch_zone": "Pitch zone",
@@ -961,17 +1018,18 @@ with tab5:
         fig_pitch = go.Figure()
 
         # Pitch outline
+        PITCH_LINE = "#cccccc"
         for shape in [
             dict(type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34,
-                 line=dict(color="#2a3f5f", width=2)),
+                 line=dict(color=PITCH_LINE, width=1.5), fillcolor="#f5f5f0"),
             dict(type="line", x0=0, x1=0, y0=-34, y1=34,
-                 line=dict(color="#2a3f5f", width=1)),
+                 line=dict(color=PITCH_LINE, width=1)),
             dict(type="circle", x0=-9.15, x1=9.15, y0=-9.15, y1=9.15,
-                 line=dict(color="#2a3f5f", width=1)),
+                 line=dict(color=PITCH_LINE, width=1)),
             dict(type="rect", x0=-52.5, x1=-36, y0=-20.16, y1=20.16,
-                 line=dict(color="#2a3f5f", width=1)),
+                 line=dict(color=PITCH_LINE, width=1)),
             dict(type="rect", x0=36, x1=52.5, y0=-20.16, y1=20.16,
-                 line=dict(color="#2a3f5f", width=1)),
+                 line=dict(color=PITCH_LINE, width=1)),
         ]:
             fig_pitch.add_shape(**shape)
 
@@ -982,7 +1040,7 @@ with tab5:
             marker=dict(
                 size=4,
                 color=sample["peak_speed_kmh"],
-                colorscale=[[0, "#1e3a5f"], [0.5, "#2196f3"], [1.0, "#4fc3f7"]],
+                colorscale=[[0, "#e8f0ff"], [0.5, "#5588cc"], [1.0, "#c0392b"]],
                 colorbar=dict(title="Peak speed (km/h)", thickness=10),
                 opacity=0.6,
                 line=dict(width=0),
@@ -991,7 +1049,7 @@ with tab5:
         ))
 
         fig_pitch.update_layout(
-            plot_bgcolor="#0a1628",
+            plot_bgcolor="#f5f5f0",
             paper_bgcolor=PAPER_BG,
             height=450,
             margin=dict(l=20, r=20, t=20, b=20),
@@ -1012,8 +1070,8 @@ with tab5:
 # ─────────────────────────────────────────────
 st.divider()
 st.markdown(
-    '<p style="text-align:center;font-family:\'DM Mono\',monospace;font-size:11px;'
-    'color:#2d3748;">GradientSports FIFA World Cup 2022 · fast-forward-football · '
-    'Databricks Delta · Built for USSF Data Scientist portfolio</p>',
+    '<p style="text-align:center;font-family:Inter,sans-serif;font-size:11px;color:#aaa;">'
+    'GradientSports FIFA World Cup 2022 · fast-forward-football · Azure Databricks Delta Lake · '
+    'Built for USSF Data Scientist application</p>',
     unsafe_allow_html=True
 )
