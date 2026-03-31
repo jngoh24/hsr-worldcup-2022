@@ -461,7 +461,7 @@ def base_layout(title="", height=400, xaxis=None, yaxis=None):
     x = {**default_axis, **(xaxis or {})}
     y = {**default_axis, **(yaxis or {})}
     return dict(
-        title=dict(text=title, font=dict(family="Syne", size=14, color="#e8eaf0")),
+        title=dict(text=title, font=dict(family="Inter", size=13, color="#111111")),
         plot_bgcolor=PLOT_BG,
         paper_bgcolor=PAPER_BG,
         font=dict(family="DM Mono", color=TEXT_COLOR, size=11),
