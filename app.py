@@ -1030,75 +1030,203 @@ with tab5:
                 fig_zone_pos.update_traces(marker=dict(line=dict(width=0)))
                 st.plotly_chart(fig_zone_pos, use_container_width=True)
 
-        # Pitch map — scatter of run start positions
-        st.markdown("#### Run start positions — pitch map")
-        # Filter runs to match sidebar filters and current threshold
+        # ── 9-Zone HSR Heatmap ────────────────────────────────────────────
+        st.markdown("#### HSR heatmap — run start positions")
+
+        # Filter to current threshold + sidebar filters
         pitch_runs = qualifying_runs.copy()
         if "team_short" in pitch_runs.columns:
             pitch_runs = pitch_runs[pitch_runs["team_short"].isin(selected_teams)]
         if "pos" in pitch_runs.columns:
             pitch_runs = pitch_runs[pitch_runs["pos"].isin(selected_positions)]
-
         if pitch_runs.empty:
-            st.info("No runs match the current filters.")
-            pitch_runs = qualifying_runs.copy()  # fallback to unfiltered
+            pitch_runs = qualifying_runs.copy()
 
-        sample = pitch_runs.sample(min(3000, len(pitch_runs)), random_state=42)
-        st.caption(f"{len(pitch_runs):,} qualifying runs at {threshold_pct*100:.0f}% threshold · showing sample of {min(3000, len(pitch_runs)):,}")
+        st.caption(
+            f"{len(pitch_runs):,} HSR runs at {threshold_pct*100:.0f}% threshold "
+            f"· home team attacks right"
+        )
 
+        # Pitch dimensions (CDF metres, origin at centre)
+        # x: -52.5 to 52.5  (length 105m)
+        # y: -34 to 34       (width 68m)
+        # 9 zones: 3 columns (thirds) × 3 rows (left/centre/right channel)
+        x_edges = [-52.5, -17.5,  17.5,  52.5]   # 3 thirds
+        y_edges = [-34.0,  -11.33, 11.33, 34.0]   # 3 channels
+
+        x_labels = ["Defensive third", "Middle third", "Attacking third"]
+        y_labels = ["Left channel", "Central channel", "Right channel"]
+
+        # Count runs in each zone
+        import numpy as np
+        zone_counts = np.zeros((3, 3), dtype=int)
+        zone_avg_speed = np.zeros((3, 3))
+        zone_speed_sum = np.zeros((3, 3))
+
+        if "start_x" in pitch_runs.columns and "start_y" in pitch_runs.columns:
+            for _, row in pitch_runs.iterrows():
+                xi = np.searchsorted(x_edges[1:], row["start_x"])
+                yi = np.searchsorted(y_edges[1:], row["start_y"])
+                xi = min(xi, 2)
+                yi = min(yi, 2)
+                zone_counts[yi, xi] += 1
+                if "peak_speed_kmh" in pitch_runs.columns:
+                    zone_speed_sum[yi, xi] += row["peak_speed_kmh"]
+
+        # Avg speed per zone
+        with np.errstate(divide="ignore", invalid="ignore"):
+            zone_avg_speed = np.where(
+                zone_counts > 0, zone_speed_sum / zone_counts, 0
+            )
+
+        total_runs = zone_counts.sum()
+        zone_pct = np.where(
+            total_runs > 0, zone_counts / total_runs * 100, 0
+        )
+
+        # ── Build pitch figure ────────────────────────────────────────────
         fig_pitch = go.Figure()
 
-        # Pitch outline
-        PITCH_LINE = "#cccccc"
-        for shape in [
-            dict(type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34,
-                 line=dict(color=PITCH_LINE, width=1.5), fillcolor="#f5f5f0"),
-            dict(type="line", x0=0, x1=0, y0=-34, y1=34,
-                 line=dict(color=PITCH_LINE, width=1)),
-            dict(type="circle", x0=-9.15, x1=9.15, y0=-9.15, y1=9.15,
-                 line=dict(color=PITCH_LINE, width=1)),
-            dict(type="rect", x0=-52.5, x1=-36, y0=-20.16, y1=20.16,
-                 line=dict(color=PITCH_LINE, width=1)),
-            dict(type="rect", x0=36, x1=52.5, y0=-20.16, y1=20.16,
-                 line=dict(color=PITCH_LINE, width=1)),
-        ]:
-            fig_pitch.add_shape(**shape)
+        PITCH_BG   = "#f8f8f5"
+        PITCH_LINE = "#c8c8c4"
+        HEAT_LOW   = "#ffffff"
+        HEAT_HIGH  = "#1a4b8c"
 
-        fig_pitch.add_trace(go.Scatter(
-            x=sample["start_x"],
-            y=sample["start_y"],
-            mode="markers",
-            marker=dict(
-                size=4,
-                color=sample["peak_speed_kmh"],
-                colorscale=[[0, "#e8f0ff"], [0.5, "#5588cc"], [1.0, "#c0392b"]],
-                colorbar=dict(title="Peak speed (km/h)", thickness=10),
-                opacity=0.6,
-                line=dict(width=0),
-            ),
-            hovertemplate=(
-                "<b>%{customdata[0]}</b> (%{customdata[1]})<br>"
-                "Peak speed: %{customdata[2]:.1f} km/h<br>"
-                "Duration: %{customdata[3]:.1f}s<br>"
-                "x: %{x:.1f}m  y: %{y:.1f}m"
-                "<extra></extra>"
-            ),
-            customdata=sample[["player_name", "team_short", "peak_speed_kmh", "duration_sec"]].values
-            if all(c in sample.columns for c in ["player_name","team_short","peak_speed_kmh","duration_sec"])
-            else None,
-        ))
+        # Background
+        fig_pitch.add_shape(
+            type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34,
+            fillcolor=PITCH_BG, line=dict(color=PITCH_LINE, width=1.5), layer="below"
+        )
+
+        # Draw zone rectangles — coloured by run count
+        max_count = zone_counts.max() if zone_counts.max() > 0 else 1
+
+        for row_i in range(3):
+            for col_i in range(3):
+                x0 = x_edges[col_i]
+                x1 = x_edges[col_i + 1]
+                y0 = y_edges[row_i]
+                y1 = y_edges[row_i + 1]
+                count = int(zone_counts[row_i, col_i])
+                pct   = zone_pct[row_i, col_i]
+                speed = zone_avg_speed[row_i, col_i]
+                intensity = count / max_count
+
+                # Interpolate fill colour: white → dark blue
+                r = int(255 + (26  - 255) * intensity)
+                g = int(255 + (75  - 255) * intensity)
+                b = int(255 + (140 - 255) * intensity)
+                fill = f"rgba({r},{g},{b},0.75)"
+                text_col = "#ffffff" if intensity > 0.4 else "#333333"
+
+                fig_pitch.add_shape(
+                    type="rect", x0=x0, x1=x1, y0=y0, y1=y1,
+                    fillcolor=fill,
+                    line=dict(color=PITCH_LINE, width=0.8),
+                    layer="below"
+                )
+
+                # Zone label: count + % on two lines
+                cx = (x0 + x1) / 2
+                cy = (y0 + y1) / 2
+
+                fig_pitch.add_annotation(
+                    x=cx, y=cy + 3,
+                    text=f"<b>{count:,}</b>",
+                    showarrow=False,
+                    font=dict(family="Inter", size=14, color=text_col),
+                    xanchor="center", yanchor="middle",
+                )
+                fig_pitch.add_annotation(
+                    x=cx, y=cy - 3,
+                    text=f"{pct:.1f}%",
+                    showarrow=False,
+                    font=dict(family="Inter", size=10, color=text_col),
+                    xanchor="center", yanchor="middle",
+                )
+                if speed > 0:
+                    fig_pitch.add_annotation(
+                        x=cx, y=cy - 7.5,
+                        text=f"avg {speed:.1f} km/h",
+                        showarrow=False,
+                        font=dict(family="Inter", size=9,
+                                  color=text_col if intensity > 0.4 else "#666"),
+                        xanchor="center", yanchor="middle",
+                    )
+
+        # Pitch markings on top of zones
+        PITCH_LINE_TOP = "#aaaaaa"
+        # Halfway line
+        fig_pitch.add_shape(type="line", x0=0, x1=0, y0=-34, y1=34,
+                            line=dict(color=PITCH_LINE_TOP, width=1.2))
+        # Third boundaries (already zone edges but draw explicitly)
+        for xb in [-17.5, 17.5]:
+            fig_pitch.add_shape(type="line", x0=xb, x1=xb, y0=-34, y1=34,
+                                line=dict(color=PITCH_LINE_TOP, width=0.8, dash="dot"))
+        # Centre circle
+        fig_pitch.add_shape(type="circle", x0=-9.15, x1=9.15, y0=-9.15, y1=9.15,
+                            line=dict(color=PITCH_LINE_TOP, width=1))
+        # Penalty areas
+        fig_pitch.add_shape(type="rect", x0=-52.5, x1=-36, y0=-20.16, y1=20.16,
+                            line=dict(color=PITCH_LINE_TOP, width=1))
+        fig_pitch.add_shape(type="rect", x0=36, x1=52.5, y0=-20.16, y1=20.16,
+                            line=dict(color=PITCH_LINE_TOP, width=1))
+        # Outer boundary on top
+        fig_pitch.add_shape(type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34,
+                            line=dict(color=PITCH_LINE_TOP, width=1.5))
+
+        # Third labels above pitch
+        for i, label in enumerate(x_labels):
+            cx = (x_edges[i] + x_edges[i+1]) / 2
+            fig_pitch.add_annotation(
+                x=cx, y=36.5,
+                text=label.upper(),
+                showarrow=False,
+                font=dict(family="Inter", size=10, color="#888"),
+                xanchor="center",
+            )
+
+        # Channel labels left of pitch
+        for i, label in enumerate(y_labels):
+            cy = (y_edges[i] + y_edges[i+1]) / 2
+            fig_pitch.add_annotation(
+                x=-55, y=cy,
+                text=label,
+                showarrow=False,
+                font=dict(family="Inter", size=9, color="#888"),
+                xanchor="right",
+            )
+
+        # Attack direction arrow
+        fig_pitch.add_annotation(
+            x=50, y=-36.5,
+            ax=38, ay=-36.5,
+            xref="x", yref="y", axref="x", ayref="y",
+            showarrow=True,
+            arrowhead=2, arrowsize=1, arrowwidth=1.5,
+            arrowcolor="#888",
+            text="Attack",
+            font=dict(family="Inter", size=9, color="#888"),
+            xanchor="right",
+        )
 
         fig_pitch.update_layout(
-            plot_bgcolor="#f5f5f0",
+            plot_bgcolor=PITCH_BG,
             paper_bgcolor=PAPER_BG,
-            height=450,
-            margin=dict(l=20, r=20, t=20, b=20),
-            xaxis=dict(range=[-55, 55], showgrid=False, zeroline=False,
-                       title="metres", tickfont=dict(color=TEXT_COLOR, size=9)),
-            yaxis=dict(range=[-37, 37], showgrid=False, zeroline=False,
-                       scaleanchor="x", scaleratio=1,
-                       tickfont=dict(color=TEXT_COLOR, size=9)),
+            height=480,
+            margin=dict(l=80, r=20, t=30, b=20),
+            xaxis=dict(
+                range=[-58, 56], showgrid=False, zeroline=False,
+                showticklabels=False, showline=False,
+            ),
+            yaxis=dict(
+                range=[-40, 40], showgrid=False, zeroline=False,
+                showticklabels=False, showline=False,
+                scaleanchor="x", scaleratio=1,
+            ),
+            showlegend=False,
         )
+
         st.plotly_chart(fig_pitch, use_container_width=True)
 
 
