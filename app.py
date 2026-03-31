@@ -330,8 +330,12 @@ def add_pos_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 summary_df   = add_pos_columns(summary_df)
 comparison_df= add_pos_columns(comparison_df)
+# Always add pos columns to runs_df — position col may be named differently
 if "position" in runs_df.columns:
     runs_df = add_pos_columns(runs_df)
+elif "pos_detail" not in runs_df.columns:
+    runs_df["pos_detail"] = "UNK"
+    runs_df["pos"] = "UNK"
 
 # ─────────────────────────────────────────────
 # Recompute metric at selected threshold
@@ -341,6 +345,20 @@ if "position" in runs_df.columns:
 # qualify at the current threshold and recount per player per game
 
 qualifying_runs = runs_df[runs_df["pct_of_vmax"] >= threshold_pct].copy()
+
+# Ensure qualifying_runs has team_short and pos for pitch map filtering
+# Merge from player_lookup if columns are missing
+_player_meta = summary_df[["player_id", "team_short", "pos", "pos_detail",
+                             "player_name"]].drop_duplicates("player_id")     if "player_id" in summary_df.columns else None
+
+if _player_meta is not None and "player_id" in qualifying_runs.columns:
+    _missing = [c for c in ["team_short", "pos", "player_name"]
+                if c not in qualifying_runs.columns]
+    if _missing:
+        qualifying_runs = qualifying_runs.merge(
+            _player_meta[["player_id"] + _missing],
+            on="player_id", how="left"
+        )
 
 dynamic_counts = (
     qualifying_runs
@@ -1014,7 +1032,19 @@ with tab5:
 
         # Pitch map — scatter of run start positions
         st.markdown("#### Run start positions — pitch map")
-        sample = runs_df.sample(min(3000, len(runs_df)), random_state=42)
+        # Filter runs to match sidebar filters and current threshold
+        pitch_runs = qualifying_runs.copy()
+        if "team_short" in pitch_runs.columns:
+            pitch_runs = pitch_runs[pitch_runs["team_short"].isin(selected_teams)]
+        if "pos" in pitch_runs.columns:
+            pitch_runs = pitch_runs[pitch_runs["pos"].isin(selected_positions)]
+
+        if pitch_runs.empty:
+            st.info("No runs match the current filters.")
+            pitch_runs = qualifying_runs.copy()  # fallback to unfiltered
+
+        sample = pitch_runs.sample(min(3000, len(pitch_runs)), random_state=42)
+        st.caption(f"{len(pitch_runs):,} qualifying runs at {threshold_pct*100:.0f}% threshold · showing sample of {min(3000, len(pitch_runs)):,}")
 
         fig_pitch = go.Figure()
 
@@ -1046,7 +1076,16 @@ with tab5:
                 opacity=0.6,
                 line=dict(width=0),
             ),
-            hovertemplate="x: %{x:.1f}m<br>y: %{y:.1f}m<extra></extra>",
+            hovertemplate=(
+                "<b>%{customdata[0]}</b> (%{customdata[1]})<br>"
+                "Peak speed: %{customdata[2]:.1f} km/h<br>"
+                "Duration: %{customdata[3]:.1f}s<br>"
+                "x: %{x:.1f}m  y: %{y:.1f}m"
+                "<extra></extra>"
+            ),
+            customdata=sample[["player_name", "team_short", "peak_speed_kmh", "duration_sec"]].values
+            if all(c in sample.columns for c in ["player_name","team_short","peak_speed_kmh","duration_sec"])
+            else None,
         ))
 
         fig_pitch.update_layout(
@@ -1061,7 +1100,7 @@ with tab5:
                        tickfont=dict(color=TEXT_COLOR, size=9)),
         )
         st.plotly_chart(fig_pitch, use_container_width=True)
-        st.caption("Sample of 3,000 HSR run start positions. Colour = peak speed.")
+
 
     else:
         st.info("Pitch zone analysis requires start_x/start_y columns in hsr_runs.csv")
