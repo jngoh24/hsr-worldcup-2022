@@ -228,10 +228,10 @@ with st.sidebar:
         label="Relative threshold",
         min_value=60,
         max_value=95,
-        value=75,
+        value=80,
         step=5,
         format="%d%%",
-        help="75% = industry-comparable. Raise to see only near-maximum efforts."
+        help="80% = project default. Raise to see only near-maximum efforts."
     )
     threshold_pct = threshold_int / 100.0
 
