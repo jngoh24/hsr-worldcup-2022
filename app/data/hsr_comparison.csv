@@ -1,0 +1,680 @@
+player_id,player_name,team_name,team_short,position,jersey_number,vmax_kmh,threshold_kmh,n_games,runs_absolute,runs_relative,run_delta,pct_change,category,runs_per_game_absolute,runs_per_game_relative
+265,Declan Rice,England,ENG,CM,4,21.0,16.8,5,9,65,56,622.2,gained,1.8,13.0
+8136,Ivan Perisic,Croatia,CRO,LW,4,28.86,23.09,7,68,26,-42,-61.8,lost,9.71,3.71
+12514,Piotr Zielinski,Poland,POL,CM,20,21.31,17.05,4,10,46,36,360.0,gained,2.5,11.5
+3856,Leandro Paredes,Argentina,ARG,CM,5,19.99,15.99,5,2,37,35,1750.0,gained,0.4,7.4
+8324,Joakim Maehle,Denmark,DEN,LWB,5,36.3,29.04,3,39,6,-33,-84.6,lost,13.0,2.0
+3978,Pape Gueye,Senegal,SEN,CDM,26,20.47,16.38,3,3,32,29,966.7,gained,1.0,10.67
+5135,Josh Sargent,United States,USA,CF,24,19.76,15.81,3,2,31,29,1450.0,gained,0.67,10.33
+8134,Denzel Dumfries,Netherlands,NED,RWB,22,29.32,23.46,4,51,22,-29,-56.9,lost,12.75,5.5
+8025,Nicolas Tagliafico,Argentina,ARG,LB,3,22.37,17.9,6,11,38,27,245.5,gained,1.83,6.33
+2443,Moon-hwan Kim,South Korea,KOR,RB,15,29.78,23.82,4,37,13,-24,-64.9,lost,9.25,3.25
+4674,Axel Witsel,Belgium,BEL,CM,6,21.17,16.94,3,4,27,23,575.0,gained,1.33,9.0
+1532,Ousmane Dembele,France,FRA,RW,11,27.64,22.12,6,40,17,-23,-57.5,lost,6.67,2.83
+8330,Mario Pasalic,Croatia,CRO,CAM,15,23.55,18.84,6,11,33,22,200.0,gained,1.83,5.5
+12561,Sergej Milinković-Savić,Serbia,SRB,LW,20,21.86,17.48,3,5,26,21,420.0,gained,1.67,8.67
+2074,Raphinha,Brazil,BRA,RW,11,32.15,25.72,4,30,9,-21,-70.0,lost,7.5,2.25
+13858,Josip Juranovic,Croatia,CRO,RB,22,26.97,21.57,6,57,36,-21,-36.8,lost,9.5,6.0
+1531,Lionel Messi,Argentina,ARG,CF,10,28.52,22.82,6,49,28,-21,-42.9,lost,8.17,4.67
+10715,Julian Alvarez,Argentina,ARG,CF,9,27.87,22.29,7,38,17,-21,-55.3,lost,5.43,2.43
+6895,Rodrigo de Paul,Argentina,ARG,CM,7,27.35,21.88,6,51,30,-21,-41.2,lost,8.5,5.0
+12154,Famara Diedhiou,Senegal,SEN,CF,19,18.68,14.94,2,0,20,20,,gained,0.0,10.0
+17,João Cancelo,Portugal,POR,RB,20,30.96,24.77,3,32,12,-20,-62.5,lost,10.67,4.0
+4868,David Raum,Germany,GER,LB,3,29.72,23.77,3,30,10,-20,-66.7,lost,10.0,3.33
+4883,Andrej Kramaric,Croatia,CRO,CF,9,27.76,22.21,7,39,19,-20,-51.3,lost,5.57,2.71
+9178,Marcos Acuña,Argentina,ARG,LB,8,30.48,24.38,5,31,11,-20,-64.5,lost,6.2,2.2
+1067,Brenden Aaronson,United States,USA,CAM,11,20.5,16.4,4,2,22,20,1000.0,gained,0.5,5.5
+83,Heung-min Son,South Korea,KOR,LW,7,28.52,22.81,3,38,18,-20,-52.6,lost,12.67,6.0
+6935,Joe Allen,Wales,WAL,CM,7,19.64,15.71,2,0,20,20,,gained,0.0,10.0
+926,Alistair Johnston,Canada,CAN,RCB,2,31.76,25.41,3,27,8,-19,-70.4,lost,9.0,2.67
+4624,Thomas Müller,Germany,GER,CAM,13,22.53,18.02,3,8,27,19,237.5,gained,2.67,9.0
+4677,Jude Bellingham,England,ENG,CM,22,22.81,18.24,5,16,35,19,118.8,gained,3.2,7.0
+428,Ismaïla Sarr,Senegal,SEN,LW,18,29.48,23.58,4,33,15,-18,-54.5,lost,8.25,3.75
+13994,Saud Abdulhamid,Saudi Arabia,KSA,RB,12,27.93,22.34,3,27,9,-18,-66.7,lost,9.0,3.0
+1841,Pau Torres,Spain,ESP,LCB,4,19.26,15.41,1,1,19,18,1800.0,gained,1.0,19.0
+27,Bernardo Silva,Portugal,POR,CM,10,28.66,22.93,4,39,21,-18,-46.2,lost,9.75,5.25
+3868,Ángel Di María,Argentina,ARG,RM,11,22.22,17.77,4,6,24,18,300.0,gained,1.5,6.0
+3303,Jesús Gallardo,Mexico,MEX,LB,23,32.14,25.71,3,27,9,-18,-66.7,lost,9.0,3.0
+8583,Theo Hernandez,France,FRA,LB,22,26.46,21.17,6,51,34,-17,-33.3,lost,8.5,5.67
+9089,Andreas Skov Olsen,Denmark,DEN,CF,11,32.57,26.06,2,23,6,-17,-73.9,lost,11.5,3.0
+13981,Ali Gholizadeh,Iran,IRN,RW,17,29.05,23.24,3,24,7,-17,-70.8,lost,8.0,2.33
+2134,Moises Caicedo,Ecuador,ECU,CM,23,21.12,16.9,3,7,24,17,242.9,gained,2.33,8.0
+8027,Noussair Mazraoui,Morocco,MAR,LB,3,29.49,23.6,4,28,11,-17,-60.7,lost,7.0,2.75
+687,Kellyn Acosta,United States,USA,CDM,23,18.53,14.83,2,0,17,17,,gained,0.0,8.5
+3387,Orbelín Pineda,Mexico,MEX,CM,17,20.41,16.33,1,2,19,17,850.0,gained,2.0,19.0
+13906,Andrija Zivkovic,Serbia,SRB,RWB,14,29.79,23.83,3,21,5,-16,-76.2,lost,7.0,1.67
+1695,Vinícius Junior,Brazil,BRA,LW,20,27.74,22.19,4,34,18,-16,-47.1,lost,8.5,4.5
+10039,Joe Morrell,Wales,WAL,CM,16,16.94,13.55,2,0,16,16,,gained,0.0,8.0
+5029,Silvan Widmer,Switzerland,SUI,RB,3,28.11,22.49,3,29,13,-16,-55.2,lost,9.67,4.33
+1676,Eder Militao,Brazil,BRA,RCB,14,28.1,22.48,4,27,11,-16,-59.3,lost,6.75,2.75
+3930,Lucas Paquetá,Brazil,BRA,CM,7,22.56,18.05,4,14,30,16,114.3,gained,3.5,7.5
+12642,Ivan Ilić,Serbia,SRB,CM,24,20.12,16.09,1,0,16,16,,gained,0.0,16.0
+1907,Vitinha,Portugal,POR,CM,16,19.96,15.97,2,2,18,16,800.0,gained,1.0,9.0
+67,Jan Vertonghen,Belgium,BEL,LCB,5,22.83,18.27,3,13,29,16,123.1,gained,4.33,9.67
+1534,Antoine Griezmann,France,FRA,CAM,7,23.49,18.79,6,20,36,16,80.0,gained,3.33,6.0
+37,Virgil van Dijk,Netherlands,NED,UNK,4,27.93,22.34,5,38,22,-16,-42.1,lost,7.6,4.4
+11,Nicolás Otamendi,Argentina,ARG,LCB,19,23.77,19.01,7,28,43,15,53.6,gained,4.0,6.14
+12766,Bartosz Bereszynski,Poland,POL,LB,18,28.59,22.87,3,25,10,-15,-60.0,lost,8.33,3.33
+13860,Marko Livaja,Croatia,CRO,CF,14,29.21,23.37,4,26,11,-15,-57.7,lost,6.5,2.75
+13044,Jawad El Yamiq,Morocco,MAR,RCB,18,29.52,23.62,5,32,17,-15,-46.9,lost,6.4,3.4
+8342,Memphis Depay,Netherlands,NED,CF,10,27.48,21.98,4,31,16,-15,-48.4,lost,7.75,4.0
+7966,Kieffer Moore,Wales,WAL,CF,13,21.88,17.51,3,7,22,15,214.3,gained,2.33,7.33
+13954,Abdulaziz Hatem,Qatar,QAT,CM,6,21.86,17.48,3,8,23,15,187.5,gained,2.67,7.67
+40,Dejan Lovren,Croatia,CRO,RCB,6,23.76,19.01,6,24,39,15,62.5,gained,4.0,6.5
+4732,Djibril Sow,Switzerland,SUI,CAM,15,23.06,18.45,3,5,20,15,300.0,gained,1.67,6.67
+13788,Yeltsin Tejeda,Costa Rica,CRC,CM,17,21.79,17.43,3,5,20,15,300.0,gained,1.67,6.67
+8037,Dusan Tadić,Serbia,SRB,RW,10,22.85,18.28,3,14,29,15,107.1,gained,4.67,9.67
+2088,Maya Yoshida,Japan,JPN,LCB,22,30.77,24.61,4,25,11,-14,-56.0,lost,6.25,2.75
+8257,Harry Souttar,Australia,AUS,RCB,19,27.52,22.02,4,23,9,-14,-60.9,lost,5.75,2.25
+7584,Rodrigo Bentancur,Uruguay,URU,CM,6,22.86,18.29,3,7,21,14,200.0,gained,2.33,7.0
+3352,Jorge Sánchez,Mexico,MEX,RB,19,31.69,25.35,2,19,5,-14,-73.7,lost,9.5,2.5
+13997,Abdullah Madu,Saudi Arabia,KSA,LCB,3,18.99,15.19,1,0,14,14,,gained,0.0,14.0
+2075,Facundo Pellistri,Uruguay,URU,RW,8,29.49,23.59,3,23,9,-14,-60.9,lost,7.67,3.0
+8033,Davy Klaassen,Netherlands,NED,CAM,14,22.3,17.84,4,9,23,14,155.6,gained,2.25,5.75
+1368,Jose Gimenez,Uruguay,URU,LCB,2,31.72,25.38,2,19,5,-14,-73.7,lost,9.5,2.5
+2095,Daichi Kamada,Japan,JPN,CAM,15,27.11,21.69,3,20,6,-14,-70.0,lost,6.67,2.0
+8564,Pepe,Portugal,POR,RCB,3,22.86,18.29,4,9,23,14,155.6,gained,2.25,5.75
+3848,Abdou Diallo,Senegal,SEN,LB,22,30.13,24.1,4,24,11,-13,-54.2,lost,6.0,2.75
+3996,Bamba Dieng,Senegal,SEN,CF,20,20.27,16.22,4,1,14,13,1300.0,gained,0.25,3.5
+1926,Thiago Silva,Brazil,BRA,LCB,3,32.78,26.23,4,20,7,-13,-65.0,lost,5.0,1.75
+286,Chris Mepham,Wales,WAL,RCB,5,34.24,27.39,3,21,8,-13,-61.9,lost,7.0,2.67
+1257,In-beom Hwang,South Korea,KOR,CM,6,26.8,21.44,3,26,13,-13,-50.0,lost,8.67,4.33
+14040,Andre Ayew,Ghana,GHA,CF,10,22.03,17.63,3,4,17,13,325.0,gained,1.33,5.67
+4915,Hee-chan Hwang,South Korea,KOR,CF,11,33.66,26.93,1,16,3,-13,-81.3,lost,16.0,3.0
+14004,Abdulelah Al-Malki,Saudi Arabia,KSA,CDM,8,21.35,17.08,2,6,19,13,216.7,gained,3.0,9.5
+8009,Darwin Nunez,Uruguay,URU,LW,11,30.05,24.04,3,19,6,-13,-68.4,lost,6.33,2.0
+20,Ilkay Gündogan,Germany,GER,CM,21,21.51,17.21,3,5,18,13,260.0,gained,1.67,6.0
+1810,Youssef En-Nesyri,Morocco,MAR,CF,19,26.43,21.14,7,38,25,-13,-34.2,lost,5.43,3.57
+1694,Eden Hazard,Belgium,BEL,LW,10,21.93,17.54,3,5,18,13,260.0,gained,1.67,6.0
+3299,César Montes,Mexico,MEX,RCB,3,31.65,25.32,2,20,8,-12,-60.0,lost,10.0,4.0
+13178,Nico Williams,Spain,ESP,RW,12,29.68,23.75,3,16,4,-12,-75.0,lost,5.33,1.33
+12960,Ricardo Rodriguez,Switzerland,SUI,LB,13,29.24,23.39,3,24,12,-12,-50.0,lost,8.0,4.0
+1971,Tim Ream,United States,USA,LCB,13,27.62,22.1,4,25,13,-12,-48.0,lost,6.25,3.25
+8344,Alex Balde,Spain,ESP,LB,14,22.35,17.88,4,13,25,12,92.3,gained,3.25,6.25
+4928,Wataru Endo,Japan,JPN,CM,6,28.52,22.82,3,25,13,-12,-48.0,lost,8.33,4.33
+3301,Héctor Moreno,Mexico,MEX,LCB,15,28.96,23.17,2,17,5,-12,-70.6,lost,8.5,2.5
+754,Kendall Waston,Costa Rica,CRC,RCB,19,21.67,17.33,3,7,19,12,171.4,gained,2.33,6.33
+1789,Jules Kounde,France,FRA,RCB,5,28.18,22.54,5,24,12,-12,-50.0,lost,4.8,2.4
+84,Steven Bergwijn,Netherlands,NED,CF,7,22.7,18.16,3,6,18,12,200.0,gained,2.0,6.0
+11790,Steven Vitoria,Canada,CAN,UNK,5,30.69,24.55,3,22,10,-12,-54.5,lost,7.33,3.33
+1,Harry Kane,England,ENG,CF,9,29.85,23.88,4,25,13,-12,-48.0,lost,6.25,3.25
+4908,Dani Olmo,Spain,ESP,LW,21,28.84,23.07,4,24,12,-12,-50.0,lost,6.0,3.0
+14022,Aissa Laidouni,Tunisia,TUN,CM,14,27.64,22.11,3,24,12,-12,-50.0,lost,8.0,4.0
+4734,Filip Kostic,Serbia,SRB,LM,17,35.51,28.41,2,16,4,-12,-75.0,lost,8.0,2.0
+1876,William Carvalho,Portugal,POR,CDM,14,21.69,17.35,4,5,17,12,240.0,gained,1.25,4.25
+8133,Matias Vecino,Uruguay,URU,CM,5,22.63,18.11,3,11,23,12,109.1,gained,3.67,7.67
+483,Jordan Ayew,Ghana,GHA,CF,9,22.2,17.76,3,5,16,11,220.0,gained,1.67,5.33
+1535,Luis Suarez,Uruguay,URU,CF,9,21.24,16.99,2,4,15,11,275.0,gained,2.0,7.5
+12640,Martin Hongla,Cameroon,CMR,CM,18,36.89,29.51,1,13,2,-11,-84.6,lost,13.0,2.0
+8927,Ao Tanaka,Japan,JPN,CM,17,22.42,17.94,3,7,18,11,157.1,gained,2.33,6.0
+13996,Hassan Tambakti,Saudi Arabia,KSA,RCB,17,22.31,17.85,2,9,20,11,122.2,gained,4.5,10.0
+284,Nathan Aké,Netherlands,NED,LCB,5,22.99,18.39,5,23,34,11,47.8,gained,4.6,6.8
+13963,Mohammed Muntari,Qatar,QAT,CF,9,19.46,15.56,3,0,11,11,,gained,0.0,3.67
+13980,Saeid Ezatolahi,Iran,IRN,CDM,6,22.43,17.94,3,7,18,11,157.1,gained,2.33,6.0
+1973,Antonee Robinson,United States,USA,LB,5,28.04,22.43,4,25,14,-11,-44.0,lost,6.25,3.5
+4002,Nayef Aguerd,Morocco,MAR,RCB,5,30.64,24.51,4,20,9,-11,-55.0,lost,5.0,2.25
+13951,Homam Ahmed,Qatar,QAT,LWB,14,29.88,23.9,3,19,8,-11,-57.9,lost,6.33,2.67
+14023,Mohamed Ali Ben Romdhane,Tunisia,TUN,CM,15,20.18,16.14,1,0,11,11,,gained,0.0,11.0
+2083,Joe Rodon,Wales,WAL,UNK,6,22.66,18.13,3,10,21,11,110.0,gained,3.33,7.0
+589,Neco Williams,Wales,WAL,LWB,3,23.15,18.52,2,10,21,11,110.0,gained,5.0,10.5
+105,Mason Mount,England,ENG,CAM,19,22.98,18.39,3,9,20,11,122.2,gained,3.0,6.67
+127,Diogo Dalot,Portugal,POR,RB,2,28.63,22.91,3,25,14,-11,-44.0,lost,8.33,4.67
+3890,Youssouf Fofana,France,FRA,CM,13,21.65,17.32,5,9,20,11,122.2,gained,1.8,4.0
+1681,Achraf Hakimi,Morocco,MAR,RB,2,26.67,21.34,7,43,32,-11,-25.6,lost,6.14,4.57
+74,Eric Dier,England,ENG,RCB,15,19.7,15.76,2,1,12,11,1100.0,gained,0.5,6.0
+8061,Danilo,Brazil,BRA,RB,2,26.72,21.37,3,33,22,-11,-33.3,lost,11.0,7.33
+13922,Woo-young Jung,South Korea,KOR,CM,5,27.95,22.36,4,26,15,-11,-42.3,lost,6.5,3.75
+12222,Majid Hosseini,Iran,IRN,LCB,19,22.05,17.64,3,12,22,10,83.3,gained,4.0,7.33
+4892,Josko Gvardiol,Croatia,CRO,LCB,20,24.12,19.29,7,32,42,10,31.3,gained,4.57,6.0
+8343,Sergiño Dest,United States,USA,RB,2,30.18,24.14,4,19,9,-10,-52.6,lost,4.75,2.25
+8631,Georges-Kevin N'Koudou,Cameroon,CMR,LW,7,20.13,16.1,2,0,10,10,,gained,0.0,5.0
+118,Harry Maguire,England,ENG,LCB,6,22.97,18.38,5,14,24,10,71.4,gained,2.8,4.8
+2073,Joachim Andersen,Denmark,DEN,RCB,2,28.32,22.66,3,25,15,-10,-40.0,lost,8.33,5.0
+8050,Alex Sandro,Brazil,BRA,LB,6,32.71,26.17,2,13,3,-10,-76.9,lost,6.5,1.5
+1225,Richie Laryea,Canada,CAN,RWB,22,33.57,26.86,3,14,4,-10,-71.4,lost,4.67,1.33
+12576,Nikola Milenkovic,Serbia,SRB,RCB,4,28.7,22.96,3,18,8,-10,-55.6,lost,6.0,2.67
+13802,Daizen Maeda,Japan,JPN,CF,25,22.99,18.39,3,14,24,10,71.4,gained,4.67,8.0
+1896,Matty Cash,Poland,POL,RB,2,27.72,22.18,4,21,11,-10,-47.6,lost,5.25,2.75
+13872,Collins Fai,Cameroon,CMR,RB,19,30.54,24.43,2,20,10,-10,-50.0,lost,10.0,5.0
+4152,Pape Sarr,Senegal,SEN,CM,17,19.42,15.54,1,0,10,10,,gained,0.0,10.0
+11853,Antonio Silva,Portugal,POR,RCB,24,21.83,17.47,1,4,14,10,250.0,gained,4.0,14.0
+4566,Rubén Vargas,Switzerland,SUI,LW,17,27.25,21.8,4,25,15,-10,-40.0,lost,6.25,3.75
+8054,Adrien Rabiot,France,FRA,CM,14,24.23,19.39,6,31,41,10,32.3,gained,5.17,6.83
+3895,Ismail Jakobs,Senegal,SEN,LB,14,26.67,21.33,4,19,10,-9,-47.4,lost,4.75,2.5
+5085,Abdul Rahman Baba,Ghana,GHA,LWB,17,22.98,18.38,3,7,16,9,128.6,gained,2.33,5.33
+13563,Jewison Bennette,Costa Rica,CRC,LM,9,21.87,17.5,3,3,12,9,300.0,gained,1.0,4.0
+12862,Wajdi Kechrida,Tunisia,TUN,RM,21,27.91,22.33,2,18,9,-9,-50.0,lost,9.0,4.5
+13820,Aziz Behich,Australia,AUS,LB,16,28.5,22.8,4,29,20,-9,-31.0,lost,7.25,5.0
+12022,Andreas Cornelius,Denmark,DEN,CF,21,23.07,18.46,2,3,12,9,300.0,gained,1.5,6.0
+4882,Robert Skov,Denmark,DEN,RW,24,21.51,17.21,1,1,10,9,900.0,gained,1.0,10.0
+5195,Piero Hincapie,Ecuador,ECU,LCB,3,29.46,23.57,3,14,5,-9,-64.3,lost,4.67,1.67
+5173,Ismael Kone,Canada,CAN,CM,15,22.97,18.38,3,6,15,9,150.0,gained,2.0,5.0
+107,Christian Pulisic,United States,USA,LW,10,23.44,18.76,4,14,23,9,64.3,gained,3.5,5.75
+4621,Jamal Musiala,Germany,GER,LW,14,23.47,18.77,3,13,22,9,69.2,gained,4.33,7.33
+1698,Gareth Bale,Wales,WAL,CF,11,23.16,18.53,3,9,18,9,100.0,gained,3.0,6.0
+1381,Marcos Llorente,Spain,ESP,CM,6,30.45,24.36,1,12,3,-9,-75.0,lost,12.0,3.0
+4231,Alexander Djiku,Ghana,GHA,UNK,23,19.84,15.87,1,1,10,9,900.0,gained,1.0,10.0
+5968,Lovro Majer,Croatia,CRO,CAM,7,22.32,17.86,5,5,14,9,180.0,gained,1.0,2.8
+8627,Atiba Hutchinson,Canada,CAN,CM,13,31.18,24.94,3,14,5,-9,-64.3,lost,4.67,1.67
+1683,Casemiro,Brazil,BRA,CM,5,23.02,18.42,4,10,19,9,90.0,gained,2.5,4.75
+13779,Juan Pablo Vargas,Costa Rica,CRC,LCB,3,21.71,17.37,1,2,11,9,450.0,gained,2.0,11.0
+233,Romain Saïss,Morocco,MAR,LCB,6,28.59,22.87,5,20,11,-9,-45.0,lost,4.0,2.2
+8138,Lautaro Martinez,Argentina,ARG,CF,22,24.05,19.24,5,14,23,9,64.3,gained,2.8,4.6
+9918,Mario Götze,Germany,GER,CAM,11,20.88,16.7,2,2,11,9,450.0,gained,1.0,5.5
+6967,Riley McGree,Australia,AUS,CM,14,27.65,22.12,3,17,8,-9,-52.9,lost,5.67,2.67
+13970,Roozbeh Cheshmi,Iran,IRN,UNK,15,20.05,16.04,2,1,10,9,900.0,gained,0.5,5.0
+8578,Simon Kjaer,Denmark,DEN,UNK,4,21.28,17.02,1,2,11,9,450.0,gained,2.0,11.0
+1034,Jhegson Méndez,Ecuador,ECU,CM,20,21.61,17.29,2,5,14,9,180.0,gained,2.5,7.0
+444,Tariq Lamptey,Ghana,GHA,RB,2,32.94,26.35,2,12,3,-9,-75.0,lost,6.0,1.5
+13947,Ismaeel Mohammed,Qatar,QAT,RW,17,33.65,26.92,2,15,6,-9,-60.0,lost,7.5,3.0
+10,John Stones,England,ENG,RCB,5,23.75,19.0,5,14,23,9,64.3,gained,2.8,4.6
+1287,José Cifuentes,Ecuador,ECU,CM,5,21.11,16.89,2,2,11,9,450.0,gained,1.0,5.5
+12779,Mikkel Damsgaard,Denmark,DEN,LW,14,31.17,24.93,2,15,6,-9,-60.0,lost,7.5,3.0
+1687,Luka Modric,Croatia,CRO,CM,10,26.77,21.42,6,34,25,-9,-26.5,lost,5.67,4.17
+1025,Kamal Miller,Canada,CAN,LCB,4,27.76,22.21,3,18,9,-9,-50.0,lost,6.0,3.0
+5097,Ibrahima Konaté,France,FRA,RCB,24,27.27,21.81,3,20,11,-9,-45.0,lost,6.67,3.67
+4795,Woo-yeong Jeong,South Korea,KOR,CF,25,18.46,14.76,1,0,9,9,,gained,0.0,9.0
+8022,Jurrien Timber,Netherlands,NED,RCB,2,25.63,20.51,4,34,25,-9,-26.5,lost,8.5,6.25
+2110,Roberto Alvarado,Mexico,MEX,RW,25,17.75,14.2,1,0,8,8,,gained,0.0,8.0
+1931,Ethan Ampadu,Wales,WAL,CM,15,22.63,18.11,3,10,18,8,80.0,gained,3.33,6.0
+47,Jordan Henderson,England,ENG,CM,8,26.74,21.4,4,28,20,-8,-28.6,lost,7.0,5.0
+8741,Gael Ondoua,Cameroon,CMR,CDM,5,21.58,17.26,2,1,9,8,800.0,gained,0.5,4.5
+453,Alexis Mac Allister,Argentina,ARG,CAM,20,26.11,20.89,6,35,27,-8,-22.9,lost,5.83,4.5
+2106,Edson Alvarez,Mexico,MEX,CM,4,26.29,21.03,1,16,8,-8,-50.0,lost,16.0,8.0
+90,Antonio Rüdiger,Germany,GER,RCB,2,26.36,21.09,3,23,15,-8,-34.8,lost,7.67,5.0
+11841,Hidemasa Morita,Japan,JPN,CDM,13,27.9,22.32,2,18,10,-8,-44.4,lost,9.0,5.0
+13977,Morteza Pouraliganji,Iran,IRN,RCB,8,24.32,19.45,3,25,33,8,32.0,gained,8.33,11.0
+7988,Boulaye Dia,Senegal,SEN,CF,9,26.19,20.95,4,22,14,-8,-36.4,lost,5.5,3.5
+457,Alireza Jahanbakhsh,Iran,IRN,RW,7,23.17,18.53,2,6,14,8,133.3,gained,3.0,7.0
+14005,Sami Al-Najei,Saudi Arabia,KSA,CAM,16,21.71,17.37,1,3,11,8,266.7,gained,3.0,11.0
+4623,Serge Gnabry,Germany,GER,RW,10,26.21,20.97,3,23,15,-8,-34.8,lost,7.67,5.0
+21,Phil Foden,England,ENG,CM,20,23.79,19.03,4,14,22,8,57.1,gained,3.5,5.5
+8327,Marten De Roon,Netherlands,NED,CDM,15,23.82,19.06,3,6,14,8,133.3,gained,2.0,4.67
+13919,Seung-ho Paik,South Korea,KOR,CM,8,20.5,16.4,1,0,8,8,,gained,0.0,8.0
+1380,Thomas Partey,Ghana,GHA,CM,5,23.37,18.7,3,12,20,8,66.7,gained,4.0,6.67
+1880,Andres Guardado,Mexico,MEX,CM,18,18.27,14.62,1,0,7,7,,gained,0.0,7.0
+2144,Iliman Ndiaye,Senegal,SEN,CAM,13,23.12,18.5,2,8,15,7,87.5,gained,4.0,7.5
+13782,Anthony Contreras,Costa Rica,CRC,CF,7,27.38,21.91,2,10,3,-7,-70.0,lost,5.0,1.5
+1530,Pedri,Spain,ESP,CM,26,23.58,18.86,4,14,21,7,50.0,gained,3.5,5.25
+4613,Benjamin Pavard,France,FRA,RB,2,21.87,17.5,1,4,11,7,175.0,gained,4.0,11.0
+13371,Bryan Oviedo,Costa Rica,CRC,LB,8,24.31,19.45,3,11,18,7,63.6,gained,3.67,6.0
+1696,Marco Asensio,Spain,ESP,CF,10,27.69,22.16,2,13,6,-7,-53.8,lost,6.5,3.0
+13151,Srdjan Babic,Serbia,SRB,LCB,15,18.15,14.52,1,0,7,7,,gained,0.0,7.0
+13992,Ali Al-Bulayhi,Saudi Arabia,KSA,LCB,5,23.03,18.42,3,17,24,7,41.2,gained,5.67,8.0
+18,Rodri,Spain,ESP,RCB,16,26.78,21.42,4,26,19,-7,-26.9,lost,6.5,4.75
+649,Francisco Calvo,Costa Rica,CRC,LCB,15,22.33,17.86,2,6,13,7,116.7,gained,3.0,6.5
+1267,Lucas Cavallini,Canada,CAN,CF,9,22.67,18.14,1,4,11,7,175.0,gained,4.0,11.0
+13222,Nahuel Molina,Argentina,ARG,RB,26,26.91,21.53,6,31,24,-7,-22.6,lost,5.17,4.0
+9837,Jackson Porozo,Ecuador,ECU,RCB,25,22.02,17.62,2,5,12,7,140.0,gained,2.5,6.0
+13944,Abdelkarim Hassan,Qatar,QAT,LCB,3,27.18,21.74,3,19,12,-7,-36.8,lost,6.33,4.0
+13121,Yunus Musah,United States,USA,CM,6,24.3,19.44,4,20,27,7,35.0,gained,5.0,6.75
+3880,Strahinja Pavlovic,Serbia,SRB,LCB,2,30.83,24.67,3,15,8,-7,-46.7,lost,5.0,2.67
+25,Raheem Sterling,England,ENG,LW,10,22.44,17.95,2,9,16,7,77.8,gained,4.5,8.0
+3734,Félix Torres,Ecuador,ECU,RCB,2,22.78,18.23,3,9,16,7,77.8,gained,3.0,5.33
+144,Emiliano Martínez,Argentina,ARG,GK,23,34.47,27.58,7,18,11,-7,-38.9,lost,2.57,1.57
+3870,Kylian Mbappé,France,FRA,LW,10,25.78,20.62,6,41,34,-7,-17.1,lost,6.83,5.67
+92,Andreas Christensen,Denmark,DEN,LCB,6,29.82,23.85,3,18,11,-7,-38.9,lost,6.0,3.67
+4194,Randal Kolo Muani,France,FRA,CF,12,27.17,21.74,3,15,8,-7,-46.7,lost,5.0,2.67
+13975,Milad Mohammadi,Iran,IRN,LWB,5,23.4,18.72,3,13,20,7,53.8,gained,4.33,6.67
+13993,Sultan Al-Ghannam,Saudi Arabia,KSA,RB,2,29.34,23.47,2,11,4,-7,-63.6,lost,5.5,2.0
+3965,Jonathan David,Canada,CAN,CF,20,23.13,18.5,3,11,18,7,63.6,gained,3.67,6.0
+9,Aymeric Laporte,Spain,ESP,LCB,24,23.57,18.86,3,17,24,7,41.2,gained,5.67,8.0
+13560,Anass Zaroury,Morocco,MAR,LW,10,19.08,15.26,1,0,7,7,,gained,0.0,7.0
+1937,Kai Havertz,Germany,GER,CF,7,23.75,19.0,2,4,11,7,175.0,gained,2.0,5.5
+13953,Karim Boudiaf,Qatar,QAT,CM,12,23.22,18.58,3,8,15,7,87.5,gained,2.67,5.0
+12664,Saša Lukić,Serbia,SRB,CM,16,23.34,18.67,3,10,17,7,70.0,gained,3.33,5.67
+13800,Ayase Ueda,Japan,JPN,CF,21,19.87,15.9,1,0,7,7,,gained,0.0,7.0
+3934,Karl Toko Ekambi,Cameroon,CMR,LW,12,29.03,23.22,2,15,8,-7,-46.7,lost,7.5,4.0
+14029,Taha Yassine Khenissi,Tunisia,TUN,CF,11,20.19,16.15,2,1,8,7,700.0,gained,0.5,4.0
+13998,Salem Al-Dawsari,Saudi Arabia,KSA,LM,10,25.63,20.51,3,23,16,-7,-30.4,lost,7.67,5.33
+1545,Mathí­as Olivera,Uruguay,URU,LB,16,27.76,22.21,3,14,7,-7,-50.0,lost,4.67,2.33
+14032,David Wotherspoon,Canada,CAN,CAM,24,14.59,11.67,1,0,7,7,,gained,0.0,7.0
+6020,Cristiano Ronaldo,Portugal,POR,CF,7,23.36,18.69,5,24,31,7,29.2,gained,4.8,6.2
+12777,Abdelhamid Sabiri,Morocco,MAR,CAM,11,22.52,18.01,4,7,14,7,100.0,gained,1.75,3.5
+14006,Ali Al-Hassan,Saudi Arabia,KSA,CDM,15,21.13,16.91,1,2,9,7,350.0,gained,2.0,9.0
+12235,Ali Karimi,Iran,IRN,CM,18,22.8,18.24,3,9,16,7,77.8,gained,3.0,5.33
+4758,Ellyes Skhiri,Tunisia,TUN,CM,17,23.98,19.19,3,15,22,7,46.7,gained,5.0,7.33
+13866,Selim Amallah,Morocco,MAR,CM,15,24.02,19.22,6,18,24,6,33.3,gained,3.0,4.0
+1957,Marko Grujic,Serbia,SRB,CM,26,17.69,14.15,1,0,6,6,,gained,0.0,6.0
+9980,Daniel-Kofi Kyereh,Ghana,GHA,CAM,8,21.61,17.28,3,2,8,6,300.0,gained,0.67,2.67
+13937,Angelo Preciado,Ecuador,ECU,RB,17,29.84,23.87,3,12,6,-6,-50.0,lost,4.0,2.0
+13821,Keanu Baccus,Australia,AUS,CDM,26,22.9,18.32,4,9,15,6,66.7,gained,2.25,3.75
+4626,Eric Maxim Choupo-Moting,Cameroon,CMR,CF,13,26.15,20.92,3,18,12,-6,-33.3,lost,6.0,4.0
+11113,Sebastian Szymanski,Poland,POL,CM,19,26.21,20.97,2,15,9,-6,-40.0,lost,7.5,4.5
+8328,Remo Freuler,Switzerland,SUI,CM,8,23.71,18.97,4,15,21,6,40.0,gained,3.75,5.25
+113,Olivier Giroud,France,FRA,CF,9,24.75,19.8,6,17,23,6,35.3,gained,2.83,3.83
+1977,André Zambo Anguissa,Cameroon,CMR,CM,8,27.5,22.0,3,9,3,-6,-66.7,lost,3.0,1.0
+1452,Nestor Araujo,Mexico,MEX,RCB,2,37.08,29.66,1,8,2,-6,-75.0,lost,8.0,2.0
+16,Kyle Walker,England,ENG,RB,2,28.83,23.06,3,16,10,-6,-37.5,lost,5.33,3.33
+13873,Pierre Kunde,Cameroon,CMR,CM,15,31.34,25.07,2,11,5,-6,-54.5,lost,5.5,2.5
+13935,Hernan Galindez,Ecuador,ECU,GK,1,44.75,35.8,3,11,5,-6,-54.5,lost,3.67,1.67
+7649,Mohamed Drager,Tunisia,TUN,RWB,20,22.83,18.26,2,8,14,6,75.0,gained,4.0,7.0
+1519,Sergio Busquets,Spain,ESP,CM,5,23.5,18.8,4,9,15,6,66.7,gained,2.25,3.75
+214,Nampalys Mendy,Senegal,SEN,CM,6,27.68,22.14,3,15,9,-6,-40.0,lost,5.0,3.0
+1593,Óscar Duarte,Costa Rica,CRC,RCB,6,23.0,18.4,3,12,18,6,50.0,gained,4.0,6.0
+3867,Pablo Sarabia,Spain,ESP,RW,22,12.41,9.93,1,0,6,6,,gained,0.0,6.0
+320,Fabian Schär,Switzerland,SUI,RCB,22,22.61,18.09,2,6,12,6,100.0,gained,3.0,6.0
+13797,Shogo Taniguchi,Japan,JPN,RCB,3,30.55,24.44,2,13,7,-6,-46.2,lost,6.5,3.5
+2077,Edinson Cavani,Uruguay,URU,CF,21,22.5,18.0,3,5,11,6,120.0,gained,1.67,3.67
+5063,Mathias Jensen,Denmark,DEN,CM,7,30.39,24.32,1,8,2,-6,-75.0,lost,8.0,2.0
+13874,Samuel Oum Gouet,Cameroon,CMR,CM,14,22.07,17.65,2,2,8,6,300.0,gained,1.0,4.0
+4053,Kasper Dolberg,Denmark,DEN,CF,12,21.98,17.58,2,4,10,6,150.0,gained,2.0,5.0
+13228,Youssouf Sabaly,Senegal,SEN,RB,21,25.4,20.32,4,21,15,-6,-28.6,lost,5.25,3.75
+455,Leandro Trossard,Belgium,BEL,LW,17,27.43,21.94,3,14,8,-6,-42.9,lost,4.67,2.67
+8551,Stephen Eustaquio,Canada,CAN,CM,7,23.63,18.9,2,8,14,6,75.0,gained,4.0,7.0
+1339,Tyler Adams,United States,USA,CM,4,24.22,19.37,4,17,23,6,35.3,gained,4.25,5.75
+5065,Christian Nörgaard,Denmark,DEN,CDM,15,20.05,16.04,1,0,6,6,,gained,0.0,6.0
+13216,Stefan Mitrović,Serbia,SRB,RCB,13,21.86,17.49,1,3,9,6,200.0,gained,3.0,9.0
+474,Cheikhou Kouyaté,Senegal,SEN,CM,8,23.37,18.69,1,3,9,6,200.0,gained,3.0,9.0
+12820,Jakub Kiwior,Poland,POL,LCB,14,27.83,22.27,4,17,11,-6,-35.3,lost,4.25,2.75
+963,Tajon Buchanan,Canada,CAN,RW,11,25.99,20.79,3,19,13,-6,-31.6,lost,6.33,4.33
+1830,Kang-in Lee,South Korea,KOR,CAM,18,22.52,18.02,4,6,12,6,100.0,gained,1.5,3.0
+1393,Joao Felix,Portugal,POR,LW,11,26.88,21.51,4,25,19,-6,-24.0,lost,6.25,4.75
+3519,Michael Estrada,Ecuador,ECU,CF,11,30.25,24.2,3,11,5,-6,-54.5,lost,3.67,1.67
+8326,Teun Koopmeiners,Netherlands,NED,CDM,20,23.38,18.7,5,10,16,6,60.0,gained,2.0,3.2
+13949,Tarek Salman,Qatar,QAT,RCB,5,16.23,12.98,1,0,6,6,,gained,0.0,6.0
+1702,Luka Jovic,Serbia,SRB,CF,11,21.06,16.85,1,1,7,6,600.0,gained,1.0,7.0
+8062,Aaron Ramsey,Wales,WAL,CM,10,23.95,19.16,3,13,19,6,46.2,gained,4.33,6.33
+3455,Luis Chávez,Mexico,MEX,CM,24,27.73,22.18,3,19,13,-6,-31.6,lost,6.33,4.33
+4324,Azzedine Ounahi,Morocco,MAR,CM,8,26.04,20.83,7,28,22,-6,-21.4,lost,4.0,3.14
+13780,Keysher Fuller,Costa Rica,CRC,RM,4,26.32,21.06,3,23,17,-6,-26.1,lost,7.67,5.67
+1168,Nouhou Tolo,Cameroon,CMR,LB,25,24.5,19.6,3,22,28,6,27.3,gained,7.33,9.33
+8555,Otavio,Portugal,POR,CM,25,24.04,19.23,3,8,14,6,75.0,gained,2.67,4.67
+13948,Bassam Al-Rawi,Qatar,QAT,RCB,15,22.21,17.77,1,3,9,6,200.0,gained,3.0,9.0
+395,Pierre-Emile Höjbjerg,Denmark,DEN,CM,23,24.11,19.29,3,18,24,6,33.3,gained,6.0,8.0
+4207,Christopher Wooh,Cameroon,CMR,RCB,4,30.65,24.52,1,8,2,-6,-75.0,lost,8.0,2.0
+1975,Denis Odoi,Ghana,GHA,RB,3,15.9,12.72,1,0,6,6,,gained,0.0,6.0
+4316,Enzo Ebosse,Cameroon,CMR,LB,24,34.65,27.72,1,8,2,-6,-75.0,lost,8.0,2.0
+11488,Ricardo Horta,Portugal,POR,LW,21,28.43,22.74,1,8,2,-6,-75.0,lost,8.0,2.0
+3858,Idrissa Gueye,Senegal,SEN,CAM,5,26.04,20.83,3,16,11,-5,-31.3,lost,5.33,3.67
+4408,Salis Abdul Samed,Ghana,GHA,CM,21,23.21,18.57,3,8,13,5,62.5,gained,2.67,4.33
+13852,Damian Szymanski,Poland,POL,CM,8,18.05,14.44,1,0,5,5,,gained,0.0,5.0
+162,Gabriel Martinelli,Brazil,BRA,LW,26,24.43,19.54,3,5,10,5,100.0,gained,1.67,3.33
+14028,Issam Jebali,Tunisia,TUN,CF,9,22.58,18.07,3,5,10,5,100.0,gained,1.67,3.33
+9598,Ali Abdi,Tunisia,TUN,LWB,24,24.68,19.74,3,19,24,5,26.3,gained,6.33,8.0
+12183,Haji Wright,United States,USA,CF,19,22.09,17.67,4,7,12,5,71.4,gained,1.75,3.0
+1387,Yannick Carrasco,Belgium,BEL,LWB,11,29.44,23.55,2,8,3,-5,-62.5,lost,4.0,1.5
+13910,Kyung-won Kwon,South Korea,KOR,LCB,20,36.98,29.58,1,8,3,-5,-62.5,lost,8.0,3.0
+3309,Carlos Rodríguez,Mexico,MEX,CM,8,22.29,17.83,2,1,6,5,500.0,gained,0.5,3.0
+70,Cameron Carter-Vickers,United States,USA,RCB,20,32.37,25.9,1,8,3,-5,-62.5,lost,8.0,3.0
+14010,Firas Al-Buraikan,Saudi Arabia,KSA,RM,9,27.34,21.87,3,14,9,-5,-35.7,lost,4.67,3.0
+26,Leroy Sané,Germany,GER,LW,19,27.63,22.11,2,12,7,-5,-41.7,lost,6.0,3.5
+7605,Olivier Ntcham,Cameroon,CMR,CM,22,21.61,17.29,1,1,6,5,500.0,gained,1.0,6.0
+8099,Rasmus Kristensen,Denmark,DEN,RWB,13,27.0,21.6,3,16,11,-5,-31.3,lost,5.33,3.67
+13991,Mohammed Al-Burayk,Saudi Arabia,KSA,RB,6,37.09,29.67,1,7,2,-5,-71.4,lost,7.0,2.0
+8129,Marcelo Brozovic,Croatia,CRO,CM,11,25.87,20.69,5,30,25,-5,-16.7,lost,6.0,5.0
+14002,Hattan Bahebri,Saudi Arabia,KSA,RW,19,20.33,16.26,1,1,6,5,500.0,gained,1.0,6.0
+44,Fabinho,Brazil,BRA,CDM,15,28.72,22.97,1,9,4,-5,-55.6,lost,9.0,4.0
+13875,Vincent Aboubakar,Cameroon,CMR,CF,10,30.97,24.77,2,11,6,-5,-45.5,lost,5.5,3.0
+1363,Inaki Williams,Ghana,GHA,CF,19,27.24,21.79,3,17,12,-5,-29.4,lost,5.67,4.0
+3857,Danilo Pereira,Portugal,POR,LCB,13,31.19,24.95,1,8,3,-5,-62.5,lost,8.0,3.0
+11994,Dries Mertens,Belgium,BEL,CF,14,22.35,17.88,2,9,14,5,55.6,gained,4.5,7.0
+4618,Leon Goretzka,Germany,GER,CM,8,27.68,22.14,2,8,3,-5,-62.5,lost,4.0,1.5
+4851,Krzysztof Piatek,Poland,POL,CF,23,21.01,16.81,1,0,5,5,,gained,0.0,5.0
+3878,Axel Disasi,France,FRA,RCB,3,27.03,21.62,1,7,2,-5,-71.4,lost,7.0,2.0
+13226,German Pezzella,Argentina,ARG,RCB,6,20.36,16.29,2,1,6,5,500.0,gained,0.5,3.0
+13791,Roan Wilson,Costa Rica,CRC,CM,24,18.61,14.89,1,0,5,5,,gained,0.0,5.0
+1675,Raphael Varane,France,FRA,RCB,4,27.37,21.9,6,27,22,-5,-18.5,lost,4.5,3.67
+11856,Enzo Fernandez,Argentina,ARG,CM,24,25.59,20.47,6,24,19,-5,-20.8,lost,4.0,3.17
+4012,Eduardo Camavinga,France,FRA,CM,25,23.97,19.17,2,7,12,5,71.4,gained,3.5,6.0
+5038,Jae-sung Lee,South Korea,KOR,CAM,10,26.52,21.22,3,17,12,-5,-29.4,lost,5.67,4.0
+13904,Filip Mladenovic,Serbia,SRB,LWB,25,32.94,26.35,1,6,1,-5,-83.3,lost,6.0,1.0
+13869,Walid Cheddira,Morocco,MAR,CF,21,21.97,17.57,2,5,10,5,100.0,gained,2.5,5.0
+8039,Antony,Brazil,BRA,RW,19,27.4,21.92,3,15,10,-5,-33.3,lost,5.0,3.33
+8400,Christian Fassnacht,Switzerland,SUI,RM,16,18.37,14.69,1,0,5,5,,gained,0.0,5.0
+13865,Badr Benoun,Morocco,MAR,RCB,24,20.19,16.16,2,1,5,4,400.0,gained,0.5,2.5
+3414,Alexis Vega,Mexico,MEX,LW,10,23.46,18.77,3,10,14,4,40.0,gained,3.33,4.67
+9993,Kalidou Koulibaly,Senegal,SEN,RCB,3,26.28,21.02,4,23,19,-4,-17.4,lost,5.75,4.75
+975,Ronald Matarrita,Costa Rica,CRC,LB,22,20.88,16.71,1,0,4,4,,gained,0.0,4.0
+132,Fred,Brazil,BRA,CM,8,29.04,23.23,2,8,4,-4,-50.0,lost,4.0,2.0
+13960,Hasan Al-Haydos,Qatar,QAT,CM,10,26.7,21.36,3,11,7,-4,-36.4,lost,3.67,2.33
+2108,Uriel Antuna,Mexico,MEX,RW,21,27.22,21.77,2,8,4,-4,-50.0,lost,4.0,2.0
+133,Bruno Fernandes,Portugal,POR,RW,8,25.68,20.55,4,24,20,-4,-16.7,lost,6.0,5.0
+1336,Timothy Weah,United States,USA,RW,21,26.05,20.84,4,17,13,-4,-23.5,lost,4.25,3.25
+7192,Antoine Semenyo,Ghana,GHA,CF,25,27.17,21.74,1,8,4,-4,-50.0,lost,8.0,4.0
+13973,Hossein Kanaani,Iran,IRN,RCB,13,21.38,17.1,1,3,7,4,133.3,gained,3.0,7.0
+6655,Nicolas N'Koulou,Cameroon,CMR,LCB,3,22.52,18.01,2,9,13,4,44.4,gained,4.5,6.5
+2094,Junya Ito,Japan,JPN,RW,14,27.62,22.09,3,19,15,-4,-21.1,lost,6.33,5.0
+3849,Thilo Kehrer,Germany,GER,RCB,5,31.99,25.59,1,5,1,-4,-80.0,lost,5.0,1.0
+8059,Dušan Vlahović,Serbia,SRB,CF,18,22.17,17.74,2,4,8,4,100.0,gained,2.0,4.0
+13859,Mislav Orsic,Croatia,CRO,LW,18,27.15,21.72,2,9,5,-4,-44.4,lost,4.5,2.5
+163,Bukayo Saka,England,ENG,RW,17,24.62,19.7,4,14,18,4,28.6,gained,3.5,4.5
+8420,Papu Gómez,Argentina,ARG,LM,17,23.09,18.47,2,6,10,4,66.7,gained,3.0,5.0
+13864,Yahia Attiat-Allah,Morocco,MAR,LB,25,26.04,20.83,5,22,18,-4,-18.2,lost,4.4,3.6
+61,Hugo Lloris,France,FRA,GK,1,32.18,25.74,6,15,11,-4,-26.7,lost,2.5,1.83
+4021,Jérémy Doku,Belgium,BEL,RW,25,18.08,14.47,1,0,4,4,,gained,0.0,4.0
+14030,Anis Slimane,Tunisia,TUN,RW,25,24.17,19.34,2,10,14,4,40.0,gained,5.0,7.0
+802,Jesús Ferreira,United States,USA,CF,9,21.23,16.99,1,2,6,4,200.0,gained,2.0,6.0
+3343,Guillermo Ochoa,Mexico,MEX,GK,13,45.0,36.0,3,10,6,-4,-40.0,lost,3.33,2.0
+328,DeAndre Yedlin,United States,USA,RB,22,23.66,18.93,2,6,10,4,66.7,gained,3.0,5.0
+3865,Neymar,Brazil,BRA,CAM,10,26.35,21.08,3,13,9,-4,-30.8,lost,4.33,3.0
+8011,Haris Seferovic,Switzerland,SUI,CF,9,23.62,18.89,3,10,14,4,40.0,gained,3.33,4.67
+9865,Zakaria Aboukhlal,Morocco,MAR,RW,14,28.03,22.42,2,7,3,-4,-57.1,lost,3.5,1.5
+9939,Jakub Kaminski,Poland,POL,RM,13,26.56,21.25,1,12,8,-4,-33.3,lost,12.0,8.0
+13969,Hossein Hosseini,Iran,IRN,GK,24,16.8,13.44,2,2,6,4,200.0,gained,1.0,3.0
+2066,Ruben Dias,Portugal,POR,RCB,4,26.77,21.41,4,23,19,-4,-17.4,lost,5.75,4.75
+4622,Kingsley Coman,France,FRA,RW,20,26.83,21.46,4,12,8,-4,-33.3,lost,3.0,2.0
+9820,Achraf Dari,Morocco,MAR,RCB,20,28.01,22.41,2,12,8,-4,-33.3,lost,6.0,4.0
+14007,Nasser Al-Dawsari,Saudi Arabia,KSA,LB,24,18.05,14.44,1,0,4,4,,gained,0.0,4.0
+13946,Pedro Miguel,Qatar,QAT,RWB,2,24.23,19.38,3,10,14,4,40.0,gained,3.33,4.67
+13823,Craig Goodwin,Australia,AUS,LM,23,24.23,19.39,4,10,14,4,40.0,gained,2.5,3.5
+1950,Ferran Torres,Spain,ESP,RW,11,26.04,20.83,4,16,12,-4,-25.0,lost,4.0,3.0
+5009,Wout Weghorst,Netherlands,NED,CF,19,19.29,15.43,2,0,4,4,,gained,0.0,2.0
+1960,Timothy Castagne,Belgium,BEL,RWB,21,24.37,19.5,3,18,22,4,22.2,gained,6.0,7.33
+13868,Yahya Jabrane,Morocco,MAR,CDM,26,18.56,14.85,1,0,4,4,,gained,0.0,4.0
+4265,Gideon Mensah,Ghana,GHA,LB,14,33.67,26.93,1,5,1,-4,-80.0,lost,5.0,1.0
+7443,Christian Eriksen,Denmark,DEN,CM,10,25.94,20.75,3,16,12,-4,-25.0,lost,5.33,4.0
+668,Przemyslaw Frankowski,Poland,POL,LM,24,25.8,20.64,4,16,12,-4,-25.0,lost,4.0,3.0
+8341,Gavi,Spain,ESP,CM,9,24.05,19.24,4,14,18,4,28.6,gained,3.5,4.5
+9981,Ritsu Doan,Japan,JPN,RW,8,26.98,21.59,2,9,5,-4,-44.4,lost,4.5,2.5
+13783,Bryan Ruiz,Costa Rica,CRC,CAM,10,19.66,15.73,1,0,4,4,,gained,0.0,4.0
+13907,Seun-gyu Kim,South Korea,KOR,GK,1,38.79,31.04,4,10,6,-4,-40.0,lost,2.5,1.5
+2042,Kamil Grosicki,Poland,POL,LW,11,16.84,13.47,1,0,4,4,,gained,0.0,4.0
+8397,Fabian Rieder,Switzerland,SUI,CM,25,22.59,18.07,2,3,7,4,133.3,gained,1.5,3.5
+137,Daniel James,Wales,WAL,CF,20,27.77,22.22,1,8,4,-4,-50.0,lost,8.0,4.0
+14021,Ghaylen Chaaleli,Tunisia,TUN,CM,18,18.8,15.04,1,0,4,4,,gained,0.0,4.0
+1341,Unai Simon,Spain,ESP,GK,23,37.09,29.68,4,10,6,-4,-40.0,lost,2.5,1.5
+13930,Giorgian De Arrascaeta,Uruguay,URU,CAM,10,29.66,23.72,1,7,3,-4,-57.1,lost,7.0,3.0
+1522,Frenkie de Jong,Netherlands,NED,CM,21,26.26,21.01,5,27,23,-4,-14.8,lost,5.4,4.6
+13880,Fabian Frei,Switzerland,SUI,CDM,20,21.42,17.13,2,2,6,4,200.0,gained,1.0,3.0
+14012,Haitham Asiri,Saudi Arabia,KSA,CF,25,18.45,14.76,1,0,4,4,,gained,0.0,4.0
+13999,Salman Al-Faraj,Saudi Arabia,KSA,CM,7,19.11,15.29,1,0,3,3,,gained,0.0,3.0
+42,Trent Alexander-Arnold,England,ENG,RB,18,30.87,24.7,1,4,1,-3,-75.0,lost,4.0,1.0
+2111,Hirving Lozano,Mexico,MEX,RW,22,26.96,21.57,3,17,14,-3,-17.6,lost,5.67,4.67
+1836,Maxi Gomez,Uruguay,URU,CF,18,38.47,30.77,1,4,1,-3,-75.0,lost,4.0,1.0
+13955,Ali Asad,Qatar,QAT,CAM,8,21.98,17.59,1,1,4,3,300.0,gained,1.0,4.0
+3315,Vincent Janssen,Netherlands,NED,CF,18,27.02,21.61,1,5,2,-3,-60.0,lost,5.0,2.0
+11843,Issahaku Fatawu,Ghana,GHA,CAM,7,15.57,12.46,1,0,3,3,,gained,0.0,3.0
+5116,Cristian Romero,Argentina,ARG,RCB,13,24.49,19.59,6,27,30,3,11.1,gained,4.5,5.0
+13978,Ramin Rezaeian,Iran,IRN,RB,23,27.85,22.28,2,14,11,-3,-21.4,lost,7.0,5.5
+3314,Rogelio Funes Mori,Mexico,MEX,CF,11,20.14,16.11,1,0,3,3,,gained,0.0,3.0
+11967,Victor Nelsson,Denmark,DEN,RCB,3,33.04,26.44,1,5,2,-3,-60.0,lost,5.0,2.0
+13950,Musab Khoder,Qatar,QAT,RB,13,18.67,14.94,1,0,3,3,,gained,0.0,3.0
+13815,Mathew Leckie,Australia,AUS,RM,7,25.89,20.71,3,22,19,-3,-13.6,lost,7.33,6.33
+1697,Rodrygo,Brazil,BRA,RW,21,24.48,19.59,5,15,18,3,20.0,gained,3.0,3.6
+1383,Koke,Spain,ESP,CM,8,20.73,16.59,2,4,7,3,75.0,gained,2.0,3.5
+9330,Dani Alves,Brazil,BRA,RB,13,25.8,20.64,2,8,5,-3,-37.5,lost,4.0,2.5
+4590,Exequiel Palacios,Argentina,ARG,CM,14,21.59,17.27,2,2,5,3,150.0,gained,1.0,2.5
+1812,Luuk de Jong,Netherlands,NED,CF,9,21.39,17.11,1,2,5,3,150.0,gained,2.0,5.0
+11090,Erick Gutierrez,Mexico,MEX,CM,14,35.61,28.48,1,6,3,-3,-50.0,lost,6.0,3.0
+4404,Alidu Seidu,Ghana,GHA,RWB,26,23.37,18.69,2,5,8,3,60.0,gained,2.5,4.0
+4712,Marcus Thuram,France,FRA,LW,26,25.88,20.7,2,13,10,-3,-23.1,lost,6.5,5.0
+13964,Ahmed Alaaeldin,Qatar,QAT,CF,7,19.7,15.76,1,0,3,3,,gained,0.0,3.0
+8031,Mohammed Kudus,Ghana,GHA,CM,20,24.36,19.49,3,12,15,3,25.0,gained,4.0,5.0
+14009,Abdulrahman Al-Oboud,Saudi Arabia,KSA,RW,20,24.13,19.31,2,4,7,3,75.0,gained,2.0,3.5
+4498,Amadou Onana,Belgium,BEL,CDM,18,29.39,23.51,1,5,2,-3,-60.0,lost,5.0,2.0
+13824,Kye Rowles,Australia,AUS,LCB,4,25.75,20.6,4,25,22,-3,-12.0,lost,6.25,5.5
+9947,Milos Veljkovic,Serbia,SRB,UNK,5,24.31,19.45,3,9,12,3,33.3,gained,3.0,4.0
+4926,Borna Sosa,Croatia,CRO,LB,19,25.46,20.36,5,21,18,-3,-14.3,lost,4.2,3.6
+4713,Jonas Hofmann,Germany,GER,CAM,18,21.67,17.34,1,1,4,3,300.0,gained,1.0,4.0
+4666,Raphaël Guerreiro,Portugal,POR,LB,5,25.73,20.58,4,22,19,-3,-13.6,lost,5.5,4.75
+4779,Nico Schlotterbeck,Germany,GER,LCB,23,26.24,21.0,2,7,4,-3,-42.9,lost,3.5,2.0
+55,Takumi Minamino,Japan,JPN,LW,10,23.5,18.8,3,5,8,3,60.0,gained,1.67,2.67
+4689,Youssoufa Moukoko,Germany,GER,CF,26,18.66,14.93,1,0,3,3,,gained,0.0,3.0
+6596,Jeremy Sarmiento,Ecuador,ECU,CAM,16,26.51,21.21,1,5,2,-3,-60.0,lost,5.0,2.0
+10756,Jordan Veretout,France,FRA,CM,15,23.16,18.53,1,6,9,3,50.0,gained,6.0,9.0
+13822,Jason Cummings,Australia,AUS,CF,25,22.45,17.96,1,2,5,3,150.0,gained,2.0,5.0
+241,Leander Dendoncker,Belgium,BEL,RCB,19,23.77,19.01,2,8,11,3,37.5,gained,4.0,5.5
+3846,Marquinhos,Brazil,BRA,RCB,4,25.76,20.61,5,27,24,-3,-11.1,lost,5.4,4.8
+13811,Nathaniel Atkinson,Australia,AUS,RB,3,24.75,19.8,1,5,8,3,60.0,gained,5.0,8.0
+7757,Thiago Almada,Argentina,ARG,CAM,16,17.94,14.35,1,0,3,3,,gained,0.0,3.0
+13987,Mohammed Al-Owais,Saudi Arabia,KSA,GK,21,29.88,23.91,3,7,4,-3,-42.9,lost,2.33,1.33
+4625,Robert Lewandowski,Poland,POL,CF,9,25.51,20.41,4,20,17,-3,-15.0,lost,5.0,4.25
+5098,Ko Itakura,Japan,JPN,RCB,4,29.2,23.36,2,10,7,-3,-30.0,lost,5.0,3.5
+4684,Thorgan Hazard,Belgium,BEL,LW,16,22.74,18.19,2,3,6,3,100.0,gained,1.5,3.0
+13918,Sang-ho Na,South Korea,KOR,RW,17,21.81,17.45,2,4,7,3,75.0,gained,2.0,3.5
+1684,Federico Valverde,Uruguay,URU,CM,15,24.36,19.49,3,14,17,3,21.4,gained,4.67,5.67
+32,Alisson,Brazil,BRA,GK,1,43.84,35.07,4,9,6,-3,-33.3,lost,2.25,1.5
+4611,Alphonso Davies,Canada,CAN,LWB,19,25.56,20.44,3,38,35,-3,-7.9,lost,12.67,11.67
+14025,Youssef Msakni,Tunisia,TUN,LW,7,24.22,19.37,2,12,15,3,25.0,gained,6.0,7.5
+14017,Ali Maaloul,Tunisia,TUN,LB,12,28.28,22.63,1,6,3,-3,-50.0,lost,6.0,3.0
+11854,Alexander Bah,Denmark,DEN,RB,26,27.77,22.21,1,8,5,-3,-37.5,lost,8.0,5.0
+371,Jack Grealish,England,ENG,LW,7,27.29,21.83,1,6,3,-3,-50.0,lost,6.0,3.0
+13958,Mohammed Waad,Qatar,QAT,CDM,4,20.13,16.1,1,0,3,3,,gained,0.0,3.0
+13032,Pathe Ciss,Senegal,SEN,CM,11,22.7,18.16,3,5,8,3,60.0,gained,1.67,2.67
+13876,Christian Bassogog,Cameroon,CMR,RW,11,21.52,17.22,1,2,5,3,150.0,gained,2.0,5.0
+13849,Artur Jedrzejczyk,Poland,POL,RCB,3,17.38,13.91,1,0,3,3,,gained,0.0,3.0
+5070,Saman Ghoddos,Iran,IRN,CAM,14,23.04,18.43,1,4,7,3,75.0,gained,4.0,7.0
+157,Granit Xhaka,Switzerland,SUI,CM,10,24.52,19.61,4,21,24,3,14.3,gained,5.25,6.0
+13798,Yuto Nagatomo,Japan,JPN,LB,5,23.12,18.5,4,11,14,3,27.3,gained,2.75,3.5
+13801,Yuki Soma,Japan,JPN,LW,24,28.25,22.6,1,5,2,-3,-60.0,lost,5.0,2.0
+4737,Jesper Lindström,Denmark,DEN,CAM,25,26.64,21.31,2,23,20,-3,-13.0,lost,11.5,10.0
+6925,Ilias Chair,Morocco,MAR,CAM,13,28.31,22.65,1,4,1,-3,-75.0,lost,4.0,1.0
+13983,Mehdi Torabi,Iran,IRN,LW,16,28.01,22.41,2,6,3,-3,-50.0,lost,3.0,1.5
+14000,Nawaf Al-Abed,Saudi Arabia,KSA,CAM,18,23.4,18.72,2,4,6,2,50.0,gained,2.0,3.0
+13851,Michal Skoras,Poland,POL,RW,26,21.72,17.38,1,1,3,2,200.0,gained,1.0,3.0
+1377,Kieran Trippier,England,ENG,RB,12,24.35,19.48,3,14,16,2,14.3,gained,4.67,5.33
+7175,Sorba Thomas,Wales,WAL,RW,22,18.25,14.6,1,0,2,2,,gained,0.0,2.0
+3316,Joel Campbell,Costa Rica,CRC,CF,12,27.19,21.75,3,13,11,-2,-15.4,lost,4.33,3.67
+13941,Saad Al-Sheeb,Qatar,QAT,GK,1,17.88,14.3,1,1,3,2,200.0,gained,1.0,3.0
+13990,Yasser Al-Shahrani,Saudi Arabia,KSA,LB,13,27.21,21.77,1,5,3,-2,-40.0,lost,5.0,3.0
+3452,Kevin Álvarez,Mexico,MEX,RB,26,39.05,31.24,1,4,2,-2,-50.0,lost,4.0,2.0
+13956,Assim Madibo,Qatar,QAT,CDM,23,27.73,22.18,2,6,4,-2,-33.3,lost,3.0,2.0
+8584,Fode Ballo-Toure,Senegal,SEN,LB,12,17.84,14.27,1,0,2,2,,gained,0.0,2.0
+12315,Sam Adekugbe,Canada,CAN,LB,3,25.2,20.16,3,10,8,-2,-20.0,lost,3.33,2.67
+9094,Cyle Larin,Canada,CAN,LW,17,23.89,19.11,3,11,13,2,18.2,gained,3.67,4.33
+8071,Sebastian Coates,Uruguay,URU,RCB,19,23.52,18.82,2,8,10,2,25.0,gained,4.0,5.0
+9290,Bailey Wright,Australia,AUS,RCB,8,20.81,16.65,1,1,3,2,200.0,gained,1.0,3.0
+13813,Fran Karacic,Australia,AUS,RB,5,24.31,19.45,2,5,7,2,40.0,gained,2.5,3.5
+14003,Mohamed Kanno,Saudi Arabia,KSA,CM,23,24.6,19.68,3,17,19,2,11.8,gained,5.67,6.33
+401,Sofiane Boufal,Morocco,MAR,LW,17,24.95,19.96,6,27,25,-2,-7.4,lost,4.5,4.17
+7955,Rubin Colwill,Wales,WAL,CAM,25,18.88,15.1,1,0,2,2,,gained,0.0,2.0
+12502,Min Jae Kim,South Korea,KOR,RCB,4,24.15,19.32,3,14,16,2,14.3,gained,4.67,5.33
+4606,Dayot Upamecano,France,FRA,LCB,18,24.85,19.88,5,30,32,2,6.7,gained,6.0,6.4
+14024,Ferjani Sassi,Tunisia,TUN,CM,13,22.9,18.32,2,4,6,2,50.0,gained,2.0,3.0
+13831,Everton Ribeiro,Brazil,BRA,CM,22,22.44,17.95,1,5,7,2,40.0,gained,5.0,7.0
+13972,Abolfazl Jalali,Iran,IRN,LB,25,20.33,16.26,1,1,3,2,200.0,gained,1.0,3.0
+7478,Milos Degenek,Australia,AUS,RCB,2,25.94,20.75,2,12,10,-2,-16.7,lost,6.0,5.0
+5178,Osman Bukari,Ghana,GHA,RW,11,23.51,18.81,1,6,8,2,33.3,gained,6.0,8.0
+13850,Grzegorz Krychowiak,Poland,POL,CDM,10,24.3,19.44,4,12,14,2,16.7,gained,3.0,3.5
+3460,Romario Ibarra,Ecuador,ECU,LM,10,24.18,19.34,1,5,7,2,40.0,gained,5.0,7.0
+4694,Matthias Ginter,Germany,GER,RCB,4,20.01,16.01,1,0,2,2,,gained,0.0,2.0
+13881,Ardon Jashari,Switzerland,SUI,CDM,26,18.88,15.11,1,0,2,2,,gained,0.0,2.0
+201,Danny Ward,Wales,WAL,GK,12,17.93,14.35,1,1,3,2,200.0,gained,1.0,3.0
+13795,Alvaro Zamora,Costa Rica,CRC,LM,26,23.6,18.88,1,6,8,2,33.3,gained,6.0,8.0
+1785,Bono,Morocco,MAR,GK,1,38.63,30.9,6,12,10,-2,-16.7,lost,2.0,1.67
+8593,Rafael Leao,Portugal,POR,LW,15,23.69,18.95,3,5,7,2,40.0,gained,1.67,2.33
+4739,Ajdin Hrustic,Australia,AUS,CM,10,23.54,18.83,3,4,6,2,50.0,gained,1.33,2.0
+8023,Lisandro Martinez,Argentina,ARG,LCB,25,26.15,20.92,4,10,8,-2,-20.0,lost,2.5,2.0
+3924,Bruno Guimarães,Brazil,BRA,CDM,17,22.91,18.33,2,4,6,2,50.0,gained,2.0,3.0
+1682,Daniel Carvajal,Spain,ESP,RB,20,23.74,18.99,2,8,10,2,25.0,gained,4.0,5.0
+11094,Cody Gakpo,Netherlands,NED,CAM,8,25.42,20.33,5,35,33,-2,-5.7,lost,7.0,6.6
+13940,Kevin Rodriguez,Ecuador,ECU,CF,26,19.08,15.26,2,0,2,2,,gained,0.0,1.0
+916,Walker Zimmerman,United States,USA,RCB,3,26.67,21.33,3,13,11,-2,-15.4,lost,4.33,3.67
+6018,Connor Roberts,Wales,WAL,RWB,14,24.49,19.59,3,18,20,2,11.1,gained,6.0,6.67
+7535,Karol Swiderski,Poland,POL,CF,16,22.14,17.71,1,5,7,2,40.0,gained,5.0,7.0
+13912,Jin-su Kim,South Korea,KOR,LB,3,27.18,21.74,4,15,13,-2,-13.3,lost,3.75,3.25
+8032,Kenneth Taylor,Netherlands,NED,CM,24,20.69,16.55,1,0,2,2,,gained,0.0,2.0
+7571,Alan Franco,Ecuador,ECU,CM,21,24.32,19.46,1,1,3,2,200.0,gained,1.0,3.0
+13915,Yu-min Cho,South Korea,KOR,RCB,24,13.75,11.0,1,0,2,2,,gained,0.0,2.0
+13945,Boualem Khoukhi,Qatar,QAT,UNK,16,26.1,20.88,3,9,7,-2,-22.2,lost,3.0,2.33
+4105,Wahbi Khazri,Tunisia,TUN,CF,10,27.97,22.38,2,6,4,-2,-33.3,lost,3.0,2.0
+12945,Bremer,Brazil,BRA,RCB,24,24.08,19.26,2,4,6,2,50.0,gained,2.0,3.0
+14013,Aymen Dahmen,Tunisia,TUN,GK,16,19.12,15.29,3,3,5,2,66.7,gained,1.0,1.67
+13867,Bilal El Khannouss,Morocco,MAR,CAM,23,20.98,16.78,1,1,3,2,200.0,gained,1.0,3.0
+3888,Aurélien Tchouaméni,France,FRA,CM,8,25.45,20.36,5,30,28,-2,-6.7,lost,6.0,5.6
+4691,Yann Sommer,Switzerland,SUI,GK,1,30.52,24.42,3,6,4,-2,-33.3,lost,2.0,1.33
+13784,Johan Venegas,Costa Rica,CRC,CF,11,26.83,21.46,1,6,4,-2,-33.3,lost,6.0,4.0
+2087,Takehiro Tomiyasu,Japan,JPN,RB,16,25.75,20.6,2,13,11,-2,-15.4,lost,6.5,5.5
+8000,Joao Mario,Portugal,POR,CM,17,27.46,21.97,1,3,1,-2,-66.7,lost,3.0,1.0
+215,Youri Tielemans,Belgium,BEL,CM,8,23.53,18.83,3,4,6,2,50.0,gained,1.33,2.0
+13462,Martín Cáceres,Uruguay,URU,RB,22,27.6,22.08,1,6,4,-2,-33.3,lost,6.0,4.0
+13911,Young-gwon Kim,South Korea,KOR,LCB,19,25.84,20.67,4,14,12,-2,-14.3,lost,3.5,3.0
+13785,Gerson Torres,Costa Rica,CRC,RM,13,27.45,21.96,1,5,3,-2,-40.0,lost,5.0,3.0
+13778,Daniel Chacon,Costa Rica,CRC,CDM,2,10.48,8.38,1,0,2,2,,gained,0.0,2.0
+10704,Kaoru Mitoma,Japan,JPN,LW,9,24.43,19.54,4,10,12,2,20.0,gained,2.5,3.0
+311,Callum Wilson,England,ENG,CF,24,26.69,21.35,2,8,6,-2,-25.0,lost,4.0,3.0
+435,Mathew Ryan,Australia,AUS,GK,1,27.46,21.96,4,8,6,-2,-25.0,lost,2.0,1.5
+57,Xherdan Shaqiri,Switzerland,SUI,RW,23,24.16,19.33,3,10,12,2,20.0,gained,3.33,4.0
+2059,Edouard Mendy,Senegal,SEN,GK,16,37.18,29.74,4,8,6,-2,-25.0,lost,2.0,1.5
+12529,Matias Vina,Uruguay,URU,LB,17,25.43,20.35,1,2,1,-1,-50.0,lost,2.0,1.0
+13929,Nicolas De La Cruz,Uruguay,URU,CM,7,23.87,19.09,2,3,4,1,33.3,gained,1.5,2.0
+200,Kasper Schmeichel,Denmark,DEN,GK,1,45.0,36.0,3,6,5,-1,-16.7,lost,2.0,1.67
+1910,Mohammed Salisu,Ghana,GHA,LCB,4,26.56,21.25,3,13,12,-1,-7.7,lost,4.33,4.0
+2090,Hiroki Sakai,Japan,JPN,RB,19,26.02,20.82,2,11,10,-1,-9.1,lost,5.5,5.0
+4717,Breel Embolo,Switzerland,SUI,CF,7,24.77,19.81,4,19,20,1,5.3,gained,4.75,5.0
+1938,Hakim Ziyech,Morocco,MAR,RW,7,25.47,20.38,7,47,46,-1,-2.1,lost,6.71,6.57
+13021,Abde Ezzalzouli,Morocco,MAR,LW,16,24.35,19.48,2,4,5,1,25.0,gained,2.0,2.5
+4020,Kamaldeen Sulemana,Ghana,GHA,LW,22,29.12,23.3,1,2,1,-1,-50.0,lost,2.0,1.0
+4703,Denis Zakaria,Switzerland,SUI,CDM,6,23.76,19.01,2,3,4,1,33.3,gained,1.5,2.0
+4912,André Silva,Portugal,POR,CF,9,25.7,20.56,1,3,2,-1,-33.3,lost,3.0,2.0
+4925,Hiroki Ito,Japan,JPN,LCB,26,23.15,18.52,1,2,3,1,50.0,gained,2.0,3.0
+2005,Kalvin Phillips,England,ENG,CDM,14,26.24,20.99,1,3,2,-1,-33.3,lost,3.0,2.0
+71,Ben Davies,Wales,WAL,LCB,4,26.04,20.83,3,9,8,-1,-11.1,lost,3.0,2.67
+8854,Jackson Irvine,Australia,AUS,CM,22,24.66,19.73,4,24,25,1,4.2,gained,6.0,6.25
+195,Richarlison,Brazil,BRA,CF,9,24.83,19.86,4,25,26,1,4.0,gained,6.25,6.5
+4607,Lucas Hernández,France,FRA,LB,21,27.07,21.65,1,2,1,-1,-50.0,lost,2.0,1.0
+13968,Alireza Beiranvand,Iran,IRN,GK,1,43.92,35.14,1,3,2,-1,-33.3,lost,3.0,2.0
+9090,Charles De Ketelaere,Belgium,BEL,CAM,22,25.68,20.54,1,4,3,-1,-25.0,lost,4.0,3.0
+14033,Liam Millar,Canada,CAN,LW,23,20.59,16.47,1,0,1,1,,gained,0.0,1.0
+4661,Manuel Akanji,Switzerland,SUI,RCB,5,25.43,20.34,3,18,17,-1,-5.6,lost,6.0,5.67
+96,César Azpilicueta,Spain,ESP,RB,2,26.53,21.23,1,5,4,-1,-20.0,lost,5.0,4.0
+100,Mateo Kovacic,Croatia,CRO,CM,8,25.74,20.59,7,25,24,-1,-4.0,lost,3.57,3.43
+1829,Carlos Soler,Spain,ESP,CM,19,23.39,18.71,1,5,6,1,20.0,gained,5.0,6.0
+13923,Gue-sung Cho,South Korea,KOR,CF,9,25.49,20.39,4,17,16,-1,-5.9,lost,4.25,4.0
+8034,Steven Berghuis,Netherlands,NED,CM,11,23.9,19.12,3,7,8,1,14.3,gained,2.33,2.67
+13817,Jamie Maclaren,Australia,AUS,CF,9,23.17,18.53,2,3,4,1,33.3,gained,1.5,2.0
+449,Aaron Mooy,Australia,AUS,CDM,13,24.37,19.5,4,18,19,1,5.6,gained,4.5,4.75
+1550,Nemanja Maksimovic,Serbia,SRB,CDM,6,24.78,19.83,3,16,17,1,6.3,gained,5.33,5.67
+1860,Takefusa Kubo,Japan,JPN,LW,11,23.82,19.06,2,4,5,1,25.0,gained,2.0,2.5
+1384,Hector Herrera,Mexico,MEX,CM,16,24.39,19.51,2,10,11,1,10.0,gained,5.0,5.5
+1665,Ante Budimir,Croatia,CRO,CF,17,25.59,20.47,1,8,7,-1,-12.5,lost,8.0,7.0
+1799,Nemanja Gudelj,Serbia,SRB,CM,8,24.01,19.21,2,5,6,1,20.0,gained,2.5,3.0
+13799,Shuichi Gonda,Japan,JPN,GK,12,45.0,36.0,4,7,6,-1,-14.3,lost,1.75,1.5
+13109,Awer Mabil,Australia,AUS,LW,11,26.6,21.28,2,4,3,-1,-25.0,lost,2.0,1.5
+13901,Pape Abou Cissé,Senegal,SEN,LCB,4,24.68,19.75,1,7,8,1,14.3,gained,7.0,8.0
+136,Marcus Rashford,England,ENG,LW,11,24.8,19.84,4,14,15,1,7.1,gained,3.5,3.75
+14008,Riad Sharahili,Saudi Arabia,KSA,CDM,26,28.05,22.44,1,3,2,-1,-33.3,lost,3.0,2.0
+385,Jan Bednarek,Poland,POL,RCB,5,12.98,10.38,1,0,1,1,,gained,0.0,1.0
+68,Juan Foyth,Argentina,ARG,RB,2,20.88,16.7,1,0,1,1,,gained,0.0,1.0
+12586,Sofyan Amrabat,Morocco,MAR,CM,4,25.18,20.15,7,40,39,-1,-2.5,lost,5.71,5.57
+13924,Sergio Rochet,Uruguay,URU,GK,23,17.38,13.91,3,4,5,1,25.0,gained,1.33,1.67
+8058,Paulo Dybala,Argentina,ARG,CF,21,21.7,17.36,1,0,1,1,,gained,0.0,1.0
+13926,Diego Godin,Uruguay,URU,RCB,3,29.72,23.78,1,4,3,-1,-25.0,lost,4.0,3.0
+14019,Yassine Meriah,Tunisia,TUN,UNK,4,24.39,19.51,3,10,11,1,10.0,gained,3.33,3.67
+13961,Akram Afif,Qatar,QAT,CF,11,24.46,19.57,3,19,20,1,5.3,gained,6.33,6.67
+13942,Meshaal Barsham,Qatar,QAT,GK,22,32.05,25.64,2,4,3,-1,-25.0,lost,2.0,1.5
+8077,Joao Palhinha,Portugal,POR,CDM,6,22.55,18.04,1,1,2,1,100.0,gained,1.0,2.0
+14018,Nader Ghandri,Tunisia,TUN,RCB,5,22.95,18.36,1,3,4,1,33.3,gained,3.0,4.0
+1513,Jordi Alba,Spain,ESP,LB,18,24.91,19.93,3,19,20,1,5.3,gained,6.33,6.67
+4669,Thomas Meunier,Belgium,BEL,RB,15,24.56,19.65,3,12,13,1,8.3,gained,4.0,4.33
+13856,Josip Sutalo,Croatia,CRO,RCB,24,24.26,19.41,1,6,7,1,16.7,gained,6.0,7.0
+13928,Agustin Canobbio,Uruguay,URU,RW,24,24.65,19.72,1,6,7,1,16.7,gained,6.0,7.0
+14027,Naim Sliti,Tunisia,TUN,LW,23,24.44,19.55,1,13,14,1,7.7,gained,13.0,14.0
+4897,Lukas Klostermann,Germany,GER,RCB,16,23.34,18.68,2,3,4,1,33.3,gained,1.5,2.0
+213,Daniel Amartey,Ghana,GHA,RCB,18,25.95,20.76,3,15,14,-1,-6.7,lost,5.0,4.67
+8561,Mehdi Taremi,Iran,IRN,CF,9,24.7,19.76,3,26,27,1,3.8,gained,8.67,9.0
+3367,Henry Martín,Mexico,MEX,CF,20,25.39,20.31,2,4,3,-1,-25.0,lost,2.0,1.5
+13049,Gonzalo Plata,Ecuador,ECU,RM,19,24.75,19.8,3,14,15,1,7.1,gained,4.67,5.0
+3968,Steve Mandanda,France,FRA,GK,16,18.73,14.99,1,1,2,1,100.0,gained,1.0,2.0
+158,Mattéo Guendouzi,France,FRA,CM,6,26.71,21.36,1,5,4,-1,-20.0,lost,5.0,4.0
+12776,Filip Djuricic,Serbia,SRB,CAM,21,22.93,18.34,2,4,5,1,25.0,gained,2.0,2.5
+1289,Mark-Anthony Kaye,Canada,CAN,CM,14,30.78,24.62,1,2,1,-1,-50.0,lost,2.0,1.0
+1406,Pervis Estupinan,Ecuador,ECU,LB,7,25.58,20.47,3,19,18,-1,-5.3,lost,6.33,6.0
+13781,Celso Borges,Costa Rica,CRC,CM,5,24.33,19.46,3,8,9,1,12.5,gained,2.67,3.0
+3841,Keylor Navas,Costa Rica,CRC,GK,1,35.93,28.74,3,5,4,-1,-20.0,lost,1.67,1.33
+11960,Enner Valencia,Ecuador,ECU,CF,13,24.18,19.35,3,13,14,1,7.7,gained,4.33,4.67
+13848,Kamil Glik,Poland,POL,RCB,15,24.8,19.84,4,14,15,1,7.1,gained,3.5,3.75
+13829,Weverton,Brazil,BRA,GK,12,14.23,11.39,1,0,1,1,,gained,0.0,1.0
+13830,Pedro,Brazil,BRA,CF,25,23.41,18.73,1,4,5,1,25.0,gained,4.0,5.0
+2071,Alex Telles,Brazil,BRA,LB,16,25.62,20.49,2,5,4,-1,-20.0,lost,2.5,2.0
+7008,Brennan Johnson,Wales,WAL,CF,9,26.13,20.91,2,4,3,-1,-25.0,lost,2.0,1.5
+11241,Andries Noppert,Netherlands,NED,GK,23,26.12,20.9,5,8,7,-1,-12.5,lost,1.6,1.4
+13790,Brandon Aguilera,Costa Rica,CRC,CAM,20,23.91,19.13,3,6,7,1,16.7,gained,2.0,2.33
+13796,Miki Yamane,Japan,JPN,RB,2,41.86,33.49,1,2,1,-1,-50.0,lost,2.0,1.0
+4174,Jean-Charles Castelletto,Cameroon,CMR,RCB,21,24.75,19.8,2,8,9,1,12.5,gained,4.0,4.5
+12653,Vanja Milinković-Savić,Serbia,SRB,GK,23,26.76,21.41,3,6,5,-1,-16.7,lost,2.0,1.67
+8026,Daley Blind,Netherlands,NED,LWB,17,25.68,20.54,4,18,17,-1,-5.6,lost,4.5,4.25
+8538,Diogo Costa,Portugal,POR,GK,22,26.19,20.95,5,7,6,-1,-14.3,lost,1.4,1.2
+13854,Dominik Livakovic,Croatia,CRO,GK,1,28.05,22.44,6,11,10,-1,-9.1,lost,1.83,1.67
+8045,Matthijs De Ligt,Netherlands,NED,RCB,3,23.71,18.97,1,3,4,1,33.3,gained,3.0,4.0
+4673,Thomas Delaney,Denmark,DEN,CM,8,26.29,21.03,1,4,3,-1,-25.0,lost,4.0,3.0
+13825,Garang Kuol,Australia,AUS,CF,21,22.94,18.35,2,4,5,1,25.0,gained,2.0,2.5
+4142,Dylan Bronn,Tunisia,TUN,RCB,6,26.26,21.01,2,5,4,-1,-20.0,lost,2.5,2.0
+13927,Guillermo Varela,Uruguay,URU,RB,13,25.56,20.45,3,9,8,-1,-11.1,lost,3.0,2.67
+13976,Sadegh Moharrami,Iran,IRN,RWB,2,25.37,20.29,1,7,6,-1,-14.3,lost,7.0,6.0
+14031,Milan Borjan,Canada,CAN,GK,18,29.86,23.89,3,6,5,-1,-16.7,lost,2.0,1.67
+13787,Youstin Salas,Costa Rica,CRC,CDM,14,25.45,20.36,1,5,4,-1,-20.0,lost,5.0,4.0
+13786,Carlos Martinez,Costa Rica,CRC,RB,16,23.06,18.45,1,4,5,1,25.0,gained,4.0,5.0
+13962,Almoez Ali,Qatar,QAT,CF,19,25.05,20.04,3,13,12,-1,-7.7,lost,4.33,4.0
+3989,Nemanja Radonjic,Serbia,SRB,LW,7,25.76,20.61,3,7,6,-1,-14.3,lost,2.33,2.0
+9824,Montassar Talbi,Tunisia,TUN,LCB,3,23.92,19.13,3,9,10,1,11.1,gained,3.0,3.33
+1991,Aleksandar Mitrovic,Serbia,SRB,CF,9,26.3,21.04,3,17,16,-1,-5.9,lost,5.67,5.33
+1389,Angel Correa,Argentina,ARG,CF,15,20.9,16.72,1,1,2,1,100.0,gained,1.0,2.0
+13878,Jerome Mbekeli,Cameroon,CMR,LW,2,21.67,17.34,1,1,2,1,100.0,gained,1.0,2.0
+1394,Alvaro Morata,Spain,ESP,CF,7,25.79,20.63,4,14,14,0,0.0,unchanged,3.5,3.5
+169,Jordan Pickford,England,ENG,GK,1,19.22,15.38,5,7,7,0,0.0,unchanged,1.4,1.4
+12643,Darko Lazović,Serbia,SRB,LM,22,24.52,19.61,1,6,6,0,0.0,unchanged,6.0,6.0
+462,Wayne Hennessey,Wales,WAL,GK,1,34.86,27.88,2,3,3,0,0.0,unchanged,1.5,1.5
+940,Matt Turner,United States,USA,GK,1,40.95,32.76,4,6,6,0,0.0,unchanged,1.5,1.5
+6019,Nikola Vlasic,Croatia,CRO,RW,13,25.31,20.24,5,10,10,0,0.0,unchanged,2.0,2.0
+8419,Gonzalo Montiel,Argentina,ARG,RB,4,24.67,19.73,2,4,4,0,0.0,unchanged,2.0,2.0
+112,Michy Batshuayi,Belgium,BEL,CF,23,25.25,20.2,2,9,9,0,0.0,unchanged,4.5,4.5
+308,Harry Wilson,Wales,WAL,CM,8,26.07,20.86,2,11,11,0,0.0,unchanged,5.5,5.5
+30,Gabriel Jesus,Brazil,BRA,CF,18,25.81,20.65,2,4,4,0,0.0,unchanged,2.0,2.0
+6038,Nuno Mendes,Portugal,POR,LB,19,24.23,19.38,1,1,1,0,0.0,unchanged,1.0,1.0
+4681,Giovanni Reyna,United States,USA,CAM,7,23.71,18.97,1,1,1,0,0.0,unchanged,1.0,1.0
+22,Kevin De Bruyne,Belgium,BEL,RW,7,24.93,19.95,3,21,21,0,0.0,unchanged,7.0,7.0
+13916,Chul Hong,South Korea,KOR,LB,14,24.45,19.56,1,5,5,0,0.0,unchanged,5.0,5.0
+1536,Martin Braithwaite,Denmark,DEN,CF,9,25.25,20.2,2,10,10,0,0.0,unchanged,5.0,5.0
+1334,Weston McKennie,United States,USA,CM,8,24.4,19.52,4,16,16,0,0.0,unchanged,4.0,4.0
+13995,Abdulelah Al-Amri,Saudi Arabia,KSA,RCB,4,24.38,19.5,2,12,12,0,0.0,unchanged,6.0,6.0
+1877,Guido Rodríguez,Argentina,ARG,CDM,18,23.83,19.06,1,6,6,0,0.0,unchanged,6.0,6.0
+1340,Shaq Moore,United States,USA,RB,18,26.2,20.96,2,3,3,0,0.0,unchanged,1.5,1.5
+8008,Goncalo Ramos,Portugal,POR,CF,26,24.79,19.83,2,9,9,0,0.0,unchanged,4.5,4.5
+8113,Noah Okafor,Switzerland,SUI,CF,19,20.62,16.49,1,1,1,0,0.0,unchanged,1.0,1.0
+4608,Niklas Süle,Germany,GER,RB,15,25.01,20.01,3,12,12,0,0.0,unchanged,4.0,4.0
+1228,Jonathan Osorio,Canada,CAN,CM,21,25.01,20.01,2,11,11,0,0.0,unchanged,5.5,5.5
+4560,Carlos Gruezo,Ecuador,ECU,CDM,8,22.74,18.19,1,2,2,0,0.0,unchanged,2.0,2.0
+13870,Abderrazak Hamdallah,Morocco,MAR,CF,9,24.04,19.23,3,6,6,0,0.0,unchanged,2.0,2.0
+4615,Josip Stanisic,Croatia,CRO,RB,2,24.39,19.51,1,6,6,0,0.0,unchanged,6.0,6.0
+4280,Ui-jo Hwang,South Korea,KOR,CF,16,23.57,18.85,2,9,9,0,0.0,unchanged,4.5,4.5
+12537,Nicola Zalewski,Poland,POL,LM,21,23.59,18.87,2,3,3,0,0.0,unchanged,1.5,1.5
+2099,Takuma Asano,Japan,JPN,RW,18,24.9,19.92,4,14,14,0,0.0,unchanged,3.5,3.5
+6916,Junior Hoilett,Canada,CAN,LW,10,25.8,20.64,2,7,7,0,0.0,unchanged,3.5,3.5
+9963,Niclas Fullkrug,Germany,GER,CF,9,25.47,20.38,1,2,2,0,0.0,unchanged,2.0,2.0
+14034,Lawrence Ati Zigi,Ghana,GHA,GK,1,25.83,20.67,3,4,4,0,0.0,unchanged,1.33,1.33
+8402,Nicolas Ngamaleu,Cameroon,CMR,LW,6,24.73,19.79,1,10,10,0,0.0,unchanged,10.0,10.0
+13920,Jun-ho Son,South Korea,KOR,CDM,13,24.6,19.68,3,3,3,0,0.0,unchanged,1.0,1.0
+13984,Karim Ansarifard,Iran,IRN,CF,10,32.26,25.81,1,1,1,0,0.0,unchanged,1.0,1.0
+13971,Ehsan Hajsafi,Iran,IRN,LW,3,24.85,19.88,3,14,14,0,0.0,unchanged,4.67,4.67
+3903,Krépin Diatta,Senegal,SEN,RW,15,25.3,20.24,3,12,12,0,0.0,unchanged,4.0,4.0
+6,Ederson,Brazil,BRA,GK,23,45.0,36.0,1,2,2,0,0.0,unchanged,2.0,2.0
+13118,Eray Comert,Switzerland,SUI,RCB,18,24.84,19.87,1,2,2,0,0.0,unchanged,2.0,2.0
+4656,Gregor Kobel,Switzerland,SUI,GK,21,45.0,36.0,1,2,2,0,0.0,unchanged,2.0,2.0
+8416,Michel Aebischer,Switzerland,SUI,CM,14,25.73,20.58,1,4,4,0,0.0,unchanged,4.0,4.0
+4616,Joshua Kimmich,Germany,GER,CM,6,25.08,20.06,3,14,14,0,0.0,unchanged,4.67,4.67
+13871,Devis Epassy,Cameroon,CMR,GK,16,35.37,28.3,2,3,3,0,0.0,unchanged,1.5,1.5
+7419,Krystian Bielik,Poland,POL,CM,6,25.42,20.34,4,7,7,0,0.0,unchanged,1.75,1.75
+3994,Arkadiusz Milik,Poland,POL,CF,7,24.61,19.69,2,7,7,0,0.0,unchanged,3.5,3.5
+1184,Jordan Morris,United States,USA,LW,16,22.98,18.39,1,2,2,0,0.0,unchanged,2.0,2.0
+8042,Wojciech Szczesny,Poland,POL,GK,1,32.14,25.71,4,6,6,0,0.0,unchanged,1.5,1.5
+4602,Manuel Neuer,Germany,GER,GK,1,25.57,20.46,3,8,8,0,0.0,unchanged,2.67,2.67
+3861,Xavi Simons,Netherlands,NED,CAM,25,21.86,17.48,1,1,1,0,0.0,unchanged,1.0,1.0
+13862,Munir,Morocco,MAR,GK,12,26.56,21.25,1,2,2,0,0.0,unchanged,2.0,2.0
+13857,Borna Barisic,Croatia,CRO,LB,3,25.13,20.11,1,6,6,0,0.0,unchanged,6.0,6.0
+1672,Thibaut Courtois,Belgium,BEL,GK,1,27.37,21.9,3,5,5,0,0.0,unchanged,1.67,1.67
+13982,Ahmad Nourollahi,Iran,IRN,CM,21,24.94,19.95,3,19,19,0,0.0,unchanged,6.33,6.33
+240,Rúben Neves,Portugal,POR,CM,18,25.11,20.08,4,18,18,0,0.0,unchanged,4.5,4.5
+13819,Mitchell Duke,Australia,AUS,CF,15,25.0,20.0,4,19,19,0,0.0,unchanged,4.75,4.75
+13861,Bruno Petkovic,Croatia,CRO,CF,16,25.16,20.13,4,7,7,0,0.0,unchanged,1.75,1.75
+1529,Ansu Fati,Spain,ESP,LW,25,24.5,19.6,2,4,4,0,0.0,unchanged,2.0,2.0
+14011,Saleh Al-Shehri,Saudi Arabia,KSA,CF,11,26.18,20.95,2,7,7,0,0.0,unchanged,3.5,3.5
+8018,Andre Onana,Cameroon,CMR,GK,23,21.81,17.45,1,2,2,0,0.0,unchanged,2.0,2.0
+1895,William Saliba,France,FRA,RCB,17,25.58,20.46,1,2,2,0,0.0,unchanged,2.0,2.0
+5139,Romelu Lukaku,Belgium,BEL,CF,9,22.58,18.06,1,2,2,0,0.0,unchanged,2.0,2.0
+13939,Djorkaeff Reasco,Ecuador,ECU,CF,24,22.46,17.96,1,1,1,0,0.0,unchanged,1.0,1.0
+5074,Bryan Mbeumo,Cameroon,CMR,RW,20,24.68,19.74,3,23,23,0,0.0,unchanged,7.67,7.67
+6029,Kristijan Jakic,Croatia,CRO,CDM,26,9.27,7.41,0,0,0,0,,unchanged,0.0,0.0
+8079,Matheus Nunes,Portugal,POR,CM,23,28.41,22.73,1,3,3,0,0.0,unchanged,3.0,3.0
+3263,Hannibal Mejbri,Tunisia,TUN,CAM,8,23.92,19.13,1,5,5,0,0.0,unchanged,5.0,5.0
+13917,Chang-hoon Kwon,South Korea,KOR,RW,22,25.51,20.41,1,3,3,0,0.0,unchanged,3.0,3.0
+252,Raúl Jiménez,Mexico,MEX,CF,9,23.32,18.66,3,5,5,0,0.0,unchanged,1.67,1.67
+5006,Renato Steffen,Switzerland,SUI,LW,11,29.78,23.83,1,2,2,0,0.0,unchanged,2.0,2.0
+123,Luke Shaw,England,ENG,LB,3,25.0,20.0,5,34,34,0,0.0,unchanged,6.8,6.8
+13055,Nicolas Jackson,Senegal,SEN,RW,7,24.39,19.51,1,2,2,0,0.0,unchanged,2.0,2.0
+7441,Sardar Azmoun,Iran,IRN,CF,20,25.08,20.06,3,11,11,0,0.0,unchanged,3.67,3.67
+66,Toby Alderweireld,Belgium,BEL,UNK,2,25.81,20.65,3,8,8,0,0.0,unchanged,2.67,2.67
+9806,Lois Openda,Belgium,BEL,CF,24,23.52,18.81,1,1,1,0,0.0,unchanged,1.0,1.0
+4695,Nico Elvedi,Switzerland,SUI,LCB,4,24.45,19.56,2,5,5,0,0.0,unchanged,2.5,2.5
+5035,Edimilson Fernandes,Switzerland,SUI,CM,2,25.04,20.03,3,7,7,0,0.0,unchanged,2.33,2.33
