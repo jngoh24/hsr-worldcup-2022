@@ -1,4 +1,5 @@
 # ⚡ Relative High-Speed Running — FIFA World Cup 2022
+### Challenging the Industry Standard to Assess "Hard Yards"
 
 [![Live Dashboard](https://img.shields.io/badge/Dashboard-Live-brightgreen?style=flat-square&logo=streamlit)](https://hsr-worldcup-2022-gfveg8myjojscddwtja6kc.streamlit.app/)
 [![Tests](https://img.shields.io/badge/Tests-13%20passing-brightgreen?style=flat-square&logo=pytest)](tests/test_hsr_metric.py)
@@ -7,7 +8,7 @@
 
 **→ [Open the live dashboard](https://hsr-worldcup-2022-gfveg8myjojscddwtja6kc.streamlit.app/)**
 
-A data science project that challenges the industry standard definition of high-speed running using GradientSports broadcast tracking data from the 2022 FIFA Men's World Cup — processed through an Azure Databricks medallion pipeline and deployed as an interactive Streamlit dashboard.
+A data science project redefining what counts as a "hard yard" — challenging the industry-standard flat 20 km/h HSR threshold using GradientSports broadcast tracking data from the 2022 FIFA Men's World Cup, processed through an Azure Databricks medallion pipeline and deployed as an interactive Streamlit dashboard.
 
 ---
 
