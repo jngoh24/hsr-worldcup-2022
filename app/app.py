@@ -467,6 +467,10 @@ filtered_summary = summary_merged[
     (~summary_merged["low_confidence"])
 ].copy()
 
+# Recompute threshold_at_pct on the filtered set using current slider value
+# This ensures it reflects the current threshold_pct, not any stale value
+filtered_summary["threshold_at_pct"] = filtered_summary["vmax_kmh"] * threshold_pct
+
 filtered_comparison = comparison_df[
     comparison_df["team_short"].isin(selected_teams) &
     comparison_df["pos"].isin(selected_positions) &
