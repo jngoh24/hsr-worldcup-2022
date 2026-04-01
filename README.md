@@ -161,8 +161,7 @@ hsr-worldcup-2022/
 ├── notebooks/
 │   ├── 01_bronze_ingestion.py
 │   ├── 02_silver_features.py
-│   ├── 03_gold_metrics.py
-│   └── 04_gk_investigation.py
+│   └── 03_gold_metrics.py
 ├── src/
 │   ├── hsr_metric.py
 │   └── hsr_comparison.py
