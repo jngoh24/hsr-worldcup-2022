@@ -1,4 +1,4 @@
-# ⚡ Relative High-Speed Running — FIFA World Cup 2022
+# Effort, Not Speed — Redefining High-Speed Running at FIFA World Cup 2022
 ### Challenging the Industry Standard to Assess "Hard Yards"
 
 [![Live Dashboard](https://img.shields.io/badge/Dashboard-Live-brightgreen?style=flat-square&logo=streamlit)](https://hsr-worldcup-2022-gfveg8myjojscddwtja6kc.streamlit.app/)
