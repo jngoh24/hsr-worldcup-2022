@@ -1,6 +1,6 @@
 # Relative High-Speed Running — FIFA World Cup 2022
 
-**A data science portfolio project built asses player effort.**
+**A data science portfolio project built to asses player effort.**
 
 Redefining high-speed running (HSR) as a relative metric — >= 80% of a player's personal v-max sustained for >= 1 second — rather than the industry-standard flat 20 km/h threshold. Built on GradientSports broadcast tracking data from the 2022 FIFA Men's World Cup, processed through an Azure Databricks medallion pipeline, and deployed as an interactive Streamlit dashboard.
 
