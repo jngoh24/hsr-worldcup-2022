@@ -4,10 +4,10 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import os
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.pipeline import Pipeline
-from sklearn.ensemble import HistGradientBoostingClassifier
+# from sklearn.compose import ColumnTransformer
+# from sklearn.preprocessing import OrdinalEncoder
+# from sklearn.pipeline import Pipeline
+# from sklearn.ensemble import HistGradientBoostingClassifier
 
 # ─────────────────────────────────────────────
 # Page config
