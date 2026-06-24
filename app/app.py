@@ -2120,9 +2120,7 @@ with tab7:
 # ─────────────────────────────────────────────
 st.divider()
 st.markdown(
-    '<p style="text-align:center;font-family:Inter,sans-serif;font-size:11px;color:#aaa;">'
-    'GradientSports FIFA World Cup 2022 · fast-forward-football · Azure Databricks Delta Lake · '
-    'Built for USSF Data Scientist application &nbsp;·&nbsp; '
+    '<p style="text-align:center;font-family:Inter,sans-serif;font-size:13px;color:#888;">'
     '<a href="https://github.com/jngoh24/hsr-worldcup-2022" target="_blank" '
     'style="color:#888;text-decoration:underline;">View on GitHub</a></p>',
     unsafe_allow_html=True
