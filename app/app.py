@@ -3,18 +3,15 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import os
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.pipeline import Pipeline
-from sklearn.ensemble import HistGradientBoostingClassifier
 
 # ─────────────────────────────────────────────
 # Page config
 # ─────────────────────────────────────────────
 st.set_page_config(
-    page_title="Foul-Won Model · EPL 2015/16",
-    page_icon="⚽",
+    page_title="HSR Metric · FIFA World Cup 2022",
+    page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -120,8 +117,16 @@ hr { border-color: #e5e5e3; }
     background: #fff;
 }
 
-/* ── Slider / multiselect labels ── */
-[data-testid="stSlider"] label,
+/* ── Slider label ── */
+[data-testid="stSlider"] label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ── Multiselect ── */
 [data-testid="stMultiSelect"] label {
     font-size: 12px;
     font-weight: 500;
@@ -130,7 +135,7 @@ hr { border-color: #e5e5e3; }
     letter-spacing: 0.05em;
 }
 
-/* ── Utility classes ── */
+/* ── Caption / label utility classes ── */
 .eyebrow {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
@@ -139,11 +144,12 @@ hr { border-color: #e5e5e3; }
     text-transform: uppercase;
     letter-spacing: 0.08em;
 }
-.caption {
+.stat-label {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     color: #888;
-    margin: 2px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 .kicker {
     font-family: 'Source Serif 4', serif;
@@ -164,54 +170,337 @@ hr { border-color: #e5e5e3; }
 .gained-badge { display:inline-block; background:#e8f5e9; color:#2e7d32;
                 font-size:11px; font-weight:600; padding:2px 8px;
                 border-radius:3px; font-family:'Inter',sans-serif; }
+.lost-badge   { display:inline-block; background:#fce4e4; color:#c62828;
+                font-size:11px; font-weight:600; padding:2px 8px;
+                border-radius:3px; font-family:'Inter',sans-serif; }
+.unch-badge   { display:inline-block; background:#f5f5f5; color:#666;
+                font-size:11px; font-weight:600; padding:2px 8px;
+                border-radius:3px; font-family:'Inter',sans-serif; }
 </style>
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# Data + model
+# Data loading
 # ─────────────────────────────────────────────
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
-BASE_RATE = 0.0183
-
-NUM = ['x','y','dist_to_goal','dist_to_own_goal','dist_to_touchline','central_dist',
-       'minute','poss_seq','poss_passes_before','poss_time_elapsed','in_pass_length','pl_enc']
-CAT = ['gain_type','pos_role','play_pattern','in_pass_height']
-BOOLS = ['under_pressure','on_poss_team','is_home_team','period_2nd']
-FEATS = CAT + NUM + BOOLS
 
 @st.cache_data
 def load_data():
-    players = pd.read_csv(os.path.join(DATA_DIR, "player_stats.csv"))
-    teams   = pd.read_csv(os.path.join(DATA_DIR, "team_stats.csv"))
-    gains   = pd.read_parquet(os.path.join(DATA_DIR, "gains.parquet"))
-    gains['under_pressure'] = gains['under_pressure'].astype(str).str.lower().isin(['true','1']).astype(int)
-    enc = players.set_index('player_id')['pl_enc']
-    gains['pl_enc'] = gains['player_id'].map(enc).fillna(BASE_RATE)
-    return players, teams, gains
-
-@st.cache_resource
-def get_model():
-    _, _, gains = load_data()
-    X = gains[FEATS].copy()
-    X['in_pass_height'] = X['in_pass_height'].fillna('None')
-    y = gains['won_foul'].values
-    pre = ColumnTransformer(
-        [('cat', OrdinalEncoder(handle_unknown='use_encoded_value',
-                                unknown_value=np.nan, encoded_missing_value=np.nan), CAT)],
-        remainder='passthrough')
-    pipe = Pipeline([('pre', pre),
-                     ('hgb', HistGradientBoostingClassifier(
-                         max_iter=400, learning_rate=0.05, max_leaf_nodes=31,
-                         min_samples_leaf=200, l2_regularization=1.0,
-                         early_stopping=True, random_state=42))])
-    pipe.fit(X, y)
-    return pipe
+    summary    = pd.read_csv(os.path.join(DATA_DIR, "hsr_player_summary.csv"))
+    comparison = pd.read_csv(os.path.join(DATA_DIR, "hsr_comparison.csv"))
+    runs       = pd.read_csv(os.path.join(DATA_DIR, "hsr_runs.csv"))
+    meta_path  = os.path.join(DATA_DIR, "match_metadata.csv")
+    metadata   = pd.read_csv(meta_path) if os.path.exists(meta_path) else pd.DataFrame()
+    abs_path   = os.path.join(DATA_DIR, "hsr_absolute_runs.csv")
+    absolute   = pd.read_csv(abs_path) if os.path.exists(abs_path) else pd.DataFrame()
+    return summary, comparison, runs, metadata, absolute
 
 try:
-    players_df, teams_df, gains_df = load_data()
+    summary_df, comparison_df, runs_df, match_meta_df, absolute_df = load_data()
     data_loaded = True
 except FileNotFoundError:
     data_loaded = False
+    absolute_df = pd.DataFrame()
+    match_meta_df = pd.DataFrame()
+
+# ─────────────────────────────────────────────
+# Sidebar
+# ─────────────────────────────────────────────
+with st.sidebar:
+    st.markdown(
+        '<p class="eyebrow" style="margin-bottom:2px;">HSR Metric</p>',
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        '<p style="font-family:Inter;font-size:12px;color:#666;margin:0 0 16px 0;">'
+        'FIFA World Cup 2022</p>',
+        unsafe_allow_html=True
+    )
+    st.divider()
+    st.markdown(
+        '<p class="eyebrow" style="margin-bottom:8px;">Threshold</p>',
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        '<p style="font-family:Inter;font-size:12px;color:#666;margin:0 0 8px 0;">'
+        'Minimum % of personal v-max to count as a high-speed run</p>',
+        unsafe_allow_html=True
+    )
+
+    threshold_int = st.slider(
+        label="Relative threshold",
+        min_value=60,
+        max_value=95,
+        value=80,
+        step=5,
+        format="%d%%",
+        help="80% = project default. Raise to see only near-maximum efforts."
+    )
+    threshold_pct = threshold_int / 100.0
+
+    st.markdown(f"""
+    <div style="background:#f0f0ee;border-left:3px solid #111;padding:10px 14px;margin-top:8px;">
+        <p style="font-family:Inter;font-size:11px;font-weight:600;color:#888;
+                  text-transform:uppercase;letter-spacing:0.06em;margin:0 0 2px 0;">Active threshold</p>
+        <p style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:600;
+                  color:#111;margin:0;">{threshold_pct*100:.0f}%</p>
+        <p style="font-family:Inter;font-size:11px;color:#666;margin:2px 0 0 0;">of personal v-max</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.divider()
+
+    st.markdown("### Filters")
+
+    if data_loaded:
+        teams = sorted(summary_df["team_short"].dropna().unique().tolist())
+        selected_teams = st.multiselect(
+            "Teams",
+            options=teams,
+            default=teams,
+            placeholder="All teams"
+        )
+
+        pos_groups = ["GK", "DEF", "MID", "FWD", "UNK"]
+        selected_positions = st.multiselect(
+            "Position group",
+            options=pos_groups,
+            default=["GK", "DEF", "MID", "FWD"],
+            placeholder="All positions"
+        )
+
+        min_games = st.slider("Min games played", 1, 7, 2)
+
+    st.divider()
+    st.markdown(
+        '<p class="eyebrow" style="margin-bottom:8px;">Match filter</p>',
+        unsafe_allow_html=True
+    )
+    if data_loaded and not match_meta_df.empty:
+        match_meta_df["label"] = (
+            match_meta_df["home_team_short"] + " vs " +
+            match_meta_df["away_team_short"] + "  ·  W" +
+            match_meta_df["week"].astype(str) +
+            "  (" + match_meta_df["Round"].str[:2].str.upper() + ")"
+        )
+        game_options = ["All games"] + match_meta_df.sort_values("date")["label"].tolist()
+        selected_game_label = st.selectbox(
+            "Game",
+            options=game_options,
+            help="Filter all tabs to a single match"
+        )
+        if selected_game_label != "All games":
+            selected_game_id = str(match_meta_df[
+                match_meta_df["label"] == selected_game_label
+            ]["game_id"].iloc[0])
+        else:
+            selected_game_id = None
+    else:
+        selected_game_id = None
+
+    st.divider()
+    st.markdown(
+        '<p style="font-family:Inter;font-size:11px;color:#888;line-height:1.5;">'
+        '<strong>New definition</strong> — a run where a player reaches &ge; threshold% '
+        'of their personal v-max for &ge; 1 second.<br><br>'
+        '<strong>Industry standard</strong> — flat 20 km/h absolute threshold.</p>',
+        unsafe_allow_html=True
+    )
+
+# ─────────────────────────────────────────────
+# Header
+# ─────────────────────────────────────────────
+st.markdown(
+    '<p class="eyebrow" style="margin-bottom:4px;">FIFA Men\'s World Cup 2022 · GradientSports Tracking</p>',
+    unsafe_allow_html=True
+)
+st.markdown(
+    '<h1 style="margin:0 0 4px 0;">Relative High-Speed Running</h1>',
+    unsafe_allow_html=True
+)
+st.markdown(
+    f"<p class='kicker'>Redefining high-speed running as &ge; <span class='threshold-badge'>{threshold_pct*100:.0f}%</span> of each player's personal v-max, sustained for &ge; 1 second. Industry standard shown for comparison.</p>",
+    unsafe_allow_html=True
+)
+
+st.divider()
+
+if not data_loaded:
+    st.error(
+        "⚠️ Data files not found. Place `hsr_player_summary.csv`, "
+        "`hsr_comparison.csv`, and `hsr_runs.csv` in the `data/` folder."
+    )
+    st.stop()
+
+# ─────────────────────────────────────────────
+# Position rollup
+# ─────────────────────────────────────────────
+POS_ROLLUP = {
+    # Goalkeeper
+    "GK":  "GK",
+    # Defenders
+    "CB":  "DEF", "LCB": "DEF", "RCB": "DEF",
+    "LB":  "DEF", "RB":  "DEF",
+    "LWB": "DEF", "RWB": "DEF", "SW":  "DEF",
+    # Midfielders
+    "CDM": "MID", "CM":  "MID", "LCM": "MID", "RCM": "MID",
+    "CAM": "MID", "LAM": "MID", "RAM": "MID",
+    "LM":  "MID", "RM":  "MID",
+    # Forwards
+    "LW":  "FWD", "RW":  "FWD",
+    "LF":  "FWD", "RF":  "FWD",
+    "CF":  "FWD", "SS":  "FWD", "ST": "FWD",
+    # Unknown
+    "UNK": "UNK",
+}
+
+def add_pos_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Add pos (rolled-up group) and pos_detail (original code) columns."""
+    df = df.copy()
+    df["pos_detail"] = df["position"]
+    df["pos"] = df["position"].map(POS_ROLLUP).fillna("UNK")
+    return df
+
+summary_df   = add_pos_columns(summary_df)
+comparison_df= add_pos_columns(comparison_df)
+# Always add pos columns to runs_df — position col may be named differently
+if "position" in runs_df.columns:
+    runs_df = add_pos_columns(runs_df)
+elif "pos_detail" not in runs_df.columns:
+    runs_df["pos_detail"] = "UNK"
+    runs_df["pos"] = "UNK"
+
+# ─────────────────────────────────────────────
+# Recompute metric at selected threshold
+# ─────────────────────────────────────────────
+# Recompute runs_per_game dynamically from runs_df using pct_of_vmax
+# runs_df has one row per run with pct_of_vmax — filter to runs that
+# qualify at the current threshold and recount per player per game
+
+qualifying_runs = runs_df[runs_df["pct_of_vmax"] >= threshold_pct].copy()
+if selected_game_id:
+    qualifying_runs = qualifying_runs[qualifying_runs["game_id"].astype(str) == selected_game_id]
+
+# Ensure qualifying_runs has team_short and pos for pitch map filtering
+# Merge from player_lookup if columns are missing
+_player_meta = summary_df[["player_id", "team_short", "pos", "pos_detail",
+                             "player_name"]].drop_duplicates("player_id")     if "player_id" in summary_df.columns else None
+
+if _player_meta is not None and "player_id" in qualifying_runs.columns:
+    _missing = [c for c in ["team_short", "pos", "player_name"]
+                if c not in qualifying_runs.columns]
+    if _missing:
+        qualifying_runs = qualifying_runs.merge(
+            _player_meta[["player_id"] + _missing],
+            on="player_id", how="left"
+        )
+
+dynamic_counts = (
+    qualifying_runs
+    .groupby("player_id")
+    .agg(
+        total_runs_dynamic   = ("run_id", "count"),
+        games_with_runs      = ("game_id", "nunique"),
+        mean_pct_dynamic     = ("pct_of_vmax", "mean"),
+        mean_duration_dynamic= ("duration_sec", "mean"),
+        total_distance_dynamic=("distance_m", "sum"),
+        mean_peak_dynamic    = ("peak_speed_kmh", "mean"),
+    )
+    .reset_index()
+)
+dynamic_counts["runs_per_game_dynamic"] = (
+    dynamic_counts["total_runs_dynamic"]
+    / dynamic_counts["games_with_runs"].clip(lower=1)
+).round(2)
+dynamic_counts["mean_pct_dynamic"] = (
+    dynamic_counts["mean_pct_dynamic"] * 100
+).round(1)
+
+# Merge dynamic counts back onto summary
+summary_merged = summary_df.merge(dynamic_counts, on="player_id", how="left")
+summary_merged["total_runs_dynamic"]    = summary_merged["total_runs_dynamic"].fillna(0).astype(int)
+summary_merged["runs_per_game_dynamic"] = summary_merged["runs_per_game_dynamic"].fillna(0)
+summary_merged["mean_peak_dynamic"]     = summary_merged["mean_peak_dynamic"].fillna(0)
+summary_merged["threshold_at_pct"]     = summary_merged["vmax_kmh"] * threshold_pct
+
+# Recompute comparison metrics at new threshold
+comparison_df["threshold_at_pct"]   = comparison_df["vmax_kmh"] * threshold_pct
+comparison_df["above_absolute"]     = comparison_df["threshold_at_pct"] <= 20.0
+comparison_df["new_threshold_vs_20"]= comparison_df["threshold_at_pct"] - 20.0
+
+# Dynamic comparison: recount relative runs at new threshold
+# Absolute runs come from pre-computed hsr_absolute_runs.csv — correctly
+# derived from the full Silver table, not just from hsr_runs.csv
+rel_counts = (
+    qualifying_runs
+    .groupby("player_id")
+    .size()
+    .reset_index(name="runs_relative_dynamic")
+)
+
+# Use pre-computed absolute counts if available, else fall back to 0
+if not absolute_df.empty and "player_id" in absolute_df.columns:
+    abs_counts = absolute_df[["player_id", "runs_absolute"]].rename(
+        columns={"runs_absolute": "runs_absolute_dynamic"}
+    )
+else:
+    abs_counts = pd.DataFrame(columns=["player_id", "runs_absolute_dynamic"])
+
+comparison_df = comparison_df.merge(abs_counts, on="player_id", how="left")
+comparison_df = comparison_df.merge(rel_counts, on="player_id", how="left")
+comparison_df["runs_absolute_dynamic"] = comparison_df["runs_absolute_dynamic"].fillna(0).astype(int)
+comparison_df["runs_relative_dynamic"] = comparison_df["runs_relative_dynamic"].fillna(0).astype(int)
+comparison_df["run_delta"]   = comparison_df["runs_relative_dynamic"] - comparison_df["runs_absolute_dynamic"]
+comparison_df["pct_change"]  = (
+    (comparison_df["runs_relative_dynamic"] - comparison_df["runs_absolute_dynamic"])
+    / comparison_df["runs_absolute_dynamic"].clip(lower=1) * 100
+).round(1)
+comparison_df["category"] = comparison_df["run_delta"].apply(
+    lambda x: "gained" if x > 0 else ("lost" if x < 0 else "unchanged")
+)
+
+# Apply sidebar filters
+filtered_summary = summary_merged[
+    summary_merged["team_short"].isin(selected_teams) &
+    summary_merged["pos"].isin(selected_positions) &
+    (summary_merged["games_appeared"] >= min_games) &
+    (~summary_merged["low_confidence"])
+].copy()
+
+# Recompute threshold_at_pct on the filtered set using current slider value
+# This ensures it reflects the current threshold_pct, not any stale value
+filtered_summary["threshold_at_pct"] = filtered_summary["vmax_kmh"] * threshold_pct
+
+filtered_comparison = comparison_df[
+    comparison_df["team_short"].isin(selected_teams) &
+    comparison_df["pos"].isin(selected_positions) &
+    (comparison_df["n_games"] >= min_games)
+].copy()
+
+# ─────────────────────────────────────────────
+# KPI cards
+# ─────────────────────────────────────────────
+k1, k2, k3, k4, k5 = st.columns(5)
+
+avg_vmax   = filtered_summary["vmax_kmh"].mean()
+avg_runs   = filtered_summary["runs_per_game_dynamic"].mean()
+top_speed  = filtered_summary["tournament_peak_speed_kmh"].max()
+n_players  = len(filtered_summary)
+
+# Players below 20 km/h — calculated from same filtered_summary as all other KPIs
+# filtered_summary already excludes low_confidence and applies min_games filter
+n_below_20 = (filtered_summary["threshold_at_pct"] < 20.0).sum()
+pct_below  = n_below_20 / n_players * 100 if n_players > 0 else 0
+
+k1.metric("Players tracked",              f"{n_players:,}")
+k2.metric("Avg v-max",                    f"{avg_vmax:.1f} km/h")
+k3.metric("Avg HSR runs / game",          f"{avg_runs:.1f}")
+k4.metric("Top speed recorded",           f"{top_speed:.1f} km/h")
+k5.metric("Players below 20 km/h threshold", f"{n_below_20} ({pct_below:.0f}%)",
+          help="Of the players tracked above, how many have a relative threshold "
+               "below 20 km/h — meaning the industry standard undercounts their effort")
+
+st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
 # Plotly theme
@@ -221,19 +510,17 @@ PAPER_BG   = "#f7f7f5"
 GRID_COLOR = "#eeeeec"
 TEXT_COLOR = "#666666"
 ACCENT     = "#1a6b3c"   # Athletic-style dark green
-BLUE       = "#1a4b8c"
-RED        = "#c0392b"
-AMBER      = "#b7791f"
+BLUE       = "#1a4b8c"   # deep blue for second accent
+RED        = "#c0392b"   # muted red
+AMBER      = "#b7791f"   # warm amber
 GREEN      = "#1a6b3c"
 POS_COLORS = {
-    "GK":  "#f0a500",
-    "DEF": "#1a4b8c",
-    "MID": "#1a6b3c",
-    "FWD": "#c0392b",
-    "OTH": "#aaaaaa",
+    "GK":  "#f0a500",  # amber
+    "DEF": "#1a4b8c",  # blue
+    "MID": "#1a6b3c",  # green
+    "FWD": "#c0392b",  # red
     "UNK": "#aaaaaa",
 }
-POS_ORDER = ["FWD", "MID", "DEF", "GK"]
 
 def base_layout(title="", height=400, xaxis=None, yaxis=None):
     default_axis = dict(gridcolor=GRID_COLOR, showline=False, zeroline=False)
@@ -251,427 +538,1592 @@ def base_layout(title="", height=400, xaxis=None, yaxis=None):
     )
 
 # ─────────────────────────────────────────────
-# Sidebar
+# Tabs
 # ─────────────────────────────────────────────
-with st.sidebar:
-    st.markdown('<p class="eyebrow" style="margin-bottom:2px;">Foul-Won Model</p>',
-                unsafe_allow_html=True)
-    st.markdown('<p style="font-family:Inter;font-size:12px;color:#666;margin:0 0 16px 0;">'
-                'Premier League 2015/16</p>', unsafe_allow_html=True)
-    st.divider()
-
-    st.markdown('<p class="eyebrow" style="margin-bottom:8px;">League base rate</p>',
-                unsafe_allow_html=True)
-    st.markdown(f"""
-    <div style="background:#f0f0ee;border-left:3px solid {ACCENT};padding:10px 14px;">
-        <p style="font-family:Inter;font-size:11px;font-weight:600;color:#888;
-                  text-transform:uppercase;letter-spacing:0.06em;margin:0 0 2px 0;">Foul won per possession</p>
-        <p style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:600;
-                  color:#111;margin:0;">{BASE_RATE*100:.2f}%</p>
-        <p style="font-family:Inter;font-size:11px;color:#666;margin:2px 0 0 0;">after a receipt or recovery</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.divider()
-    st.markdown("### Filters")
-    if data_loaded:
-        all_teams = sorted(players_df["team"].dropna().unique().tolist())
-        selected_teams = st.multiselect("Teams", options=all_teams, default=all_teams,
-                                        placeholder="All teams")
-        selected_positions = st.multiselect("Position group", options=POS_ORDER,
-                                            default=POS_ORDER, placeholder="All positions")
-        min_games = st.slider("Min games played", 1, 38, 5)
-
-    st.divider()
-    st.markdown('<p style="font-family:Inter;font-size:11px;color:#888;line-height:1.5;">'
-                '<strong>Fouls drawn</strong> — a player is fouled on his possession after he '
-                'receives or recovers the ball. The Players & Teams tabs count every such foul; '
-                'the Pitch & Model tabs use foul-won <em>rates</em> per possession.</p>',
-                unsafe_allow_html=True)
-
-# ─────────────────────────────────────────────
-# Header
-# ─────────────────────────────────────────────
-st.markdown('<p class="eyebrow" style="margin-bottom:4px;">English Premier League 2015/16 · StatsBomb event data</p>',
-            unsafe_allow_html=True)
-st.markdown('<h1 style="margin:0 0 4px 0;">Winning Fouls</h1>', unsafe_allow_html=True)
-st.markdown(f"<p class='kicker'>Modelling the probability a player wins a foul on his possession "
-            f"after receiving or recovering the ball — a league-wide "
-            f"<span class='threshold-badge'>{BASE_RATE*100:.2f}%</span> per possession.</p>",
-            unsafe_allow_html=True)
-st.divider()
-
-if not data_loaded:
-    st.error("⚠️ Data files not found. Place `player_stats.csv`, `team_stats.csv`, and "
-             "`gains.parquet` in the `data/` folder.")
-    st.stop()
-
-# ─────────────────────────────────────────────
-# Apply sidebar filters
-# ─────────────────────────────────────────────
-fp = players_df[
-    players_df["team"].isin(selected_teams) &
-    players_df["pos_role"].isin(selected_positions) &
-    (players_df["games"] >= min_games)
-].copy()
-ft = teams_df[teams_df["team"].isin(selected_teams)].copy()
-
-# ─────────────────────────────────────────────
-# KPI cards
-# ─────────────────────────────────────────────
-k1, k2, k3, k4, k5 = st.columns(5)
-k1.metric("Players", f"{len(fp):,}")
-k2.metric("Total fouls drawn", f"{int(fp['fouls_won'].sum()):,}")
-if len(fp):
-    top_row = fp.sort_values('fouls_won', ascending=False).iloc[0]
-    k3.metric("Most fouled", top_row['player_name'], f"{int(top_row['fouls_won'])} fouls")
-    k4.metric("Avg fouls / game", f"{fp['fouls_per_game'].mean():.2f}")
-else:
-    k3.metric("Most fouled", "—"); k4.metric("Avg fouls / game", "—")
-k5.metric("Model ROC-AUC", "0.81", help="Held-out gradient-boosting model; well calibrated")
-st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-
-tab1, tab2, tab3, tab4 = st.tabs(["Players", "Teams", "Pitch", "Model"])
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    "Players",
+    "Teams",
+    "Positions",
+    "Definition Comparison",
+    "Pitch Map",
+    "Match Analysis",
+    "Tournament Phases",
+])
 
 # ══════════════════════════════════════════════
-# TAB 1 — PLAYERS
+# TAB 1 — Player ranking
 # ══════════════════════════════════════════════
 with tab1:
-    st.markdown("### Most-fouled players")
-    st.markdown(f'<p class="caption">Fouls drawn across the season · colour = position group · '
-                f'min {min_games} games</p>', unsafe_allow_html=True)
+    st.markdown("### Top players by HSR runs per game")
+    st.markdown(
+        f'<p class="caption">Relative definition · threshold = {threshold_pct*100:.0f}% of personal v-max · min {min_games} games</p>',
+        unsafe_allow_html=True
+    )
 
-    metric = st.radio("Rank by", ["Total fouls drawn", "Fouls drawn per game"],
-                      horizontal=True, label_visibility="collapsed")
-    sort_col = 'fouls_won' if metric.startswith("Total") else 'fouls_per_game'
+    col_chart, col_scatter = st.columns([3, 2])
 
-    col_chart, col_side = st.columns([3, 2])
     with col_chart:
-        top_n = st.select_slider("Show top players", options=[10, 15, 20, 25, 30],
-                                 value=20, format_func=lambda x: f"Top {x}")
-        tp = fp.nlargest(top_n, sort_col)
-        labels = tp['player_name'] + "  (" + tp['team'] + ")"
-        fig = go.Figure(go.Bar(
-            x=tp[sort_col], y=labels, orientation="h",
-            marker=dict(color=tp['pos_role'].map(POS_COLORS).fillna("#aaa"),
-                        line=dict(width=0), opacity=0.85),
-            hovertemplate="<b>%{y}</b><br>" +
-                          ("Fouls drawn: %{x:.0f}" if sort_col == 'fouls_won'
-                           else "Per game: %{x:.2f}") + "<extra></extra>",
+        top_n = st.select_slider("Show top players", options=[10, 15, 20, 25, 30], value=20,
+                                  format_func=lambda x: f"Top {x}")
+        top_players = filtered_summary.nlargest(top_n, "runs_per_game_dynamic")
+
+        fig_bar = go.Figure()
+        pos_color_map = top_players["pos"].map(POS_COLORS).fillna("#aaa")
+        fig_bar.add_trace(go.Bar(
+            x=top_players["runs_per_game_dynamic"],
+            y=top_players["player_name"] + " (" + top_players["team_short"] + ")",
+            orientation="h",
+            marker=dict(
+                color=pos_color_map,
+                line=dict(width=0),
+                opacity=0.85,
+            ),
+            hovertemplate=(
+                "<b>%{y}</b><br>"
+                "Runs/game: %{x:.1f}<br>"
+                "<extra></extra>"
+            ),
         ))
-        fig.update_layout(**base_layout(
-            height=max(400, top_n * 22),
-            yaxis=dict(autorange="reversed", tickfont=dict(size=10)),
-            xaxis=dict(title=metric)))
-        st.plotly_chart(fig, use_container_width=True)
+        fig_bar.update_layout(
+            **base_layout(
+                height=max(400, top_n * 22),
+                yaxis=dict(autorange="reversed", tickfont=dict(size=10)),
+                xaxis=dict(title="HSR runs per game"),
+            )
+        )
+        st.plotly_chart(fig_bar, use_container_width=True)
 
-    with col_side:
-        st.markdown("#### Fouls drawn by position")
-        grp = (fp.groupby('pos_role')
-               .agg(total=('fouls_won', 'sum'), per_game=('fouls_per_game', 'mean'))
-               .reindex(POS_ORDER).dropna())
-        fig_t = go.Figure(go.Bar(
-            x=grp.index, y=grp['total'],
-            marker=dict(color=[POS_COLORS[p] for p in grp.index], opacity=0.85),
-            text=[f"{int(v):,}" for v in grp['total']], textposition="outside",
-            hovertemplate="<b>%{x}</b><br>Total fouls: %{y:,}<extra></extra>"))
-        fig_t.update_layout(**base_layout("Total fouls drawn", height=235,
-                            yaxis=dict(title=""), xaxis=dict(title="")))
-        st.plotly_chart(fig_t, use_container_width=True)
+    with col_scatter:
+        st.markdown("#### Speed profile vs HSR volume")
+        fig_scatter = px.scatter(
+            filtered_summary,
+            x="vmax_kmh",
+            y="runs_per_game_dynamic",
+            color="pos",
+            color_discrete_map=POS_COLORS,
+            size="games_appeared",
+            hover_data=["player_name", "team_name", "pos_detail", "tournament_peak_speed_kmh"],
+            labels={
+                "vmax_kmh": "Personal v-max (km/h)",
+                "runs_per_game_dynamic": "HSR runs per game",
+                "pos": "Position group",
+            },
+            color_discrete_sequence=px.colors.qualitative.Set2,
+        )
+        fig_scatter.update_layout(**base_layout(height=420))
+        fig_scatter.update_traces(marker=dict(line=dict(width=0)))
+        # Add threshold line
+        fig_scatter.add_vline(
+            x=20 / threshold_pct,
+            line=dict(color=AMBER, width=1, dash="dot"),
+            annotation_text=f"v-max where {threshold_pct*100:.0f}% = 20 km/h",
+            annotation_font=dict(size=9, color=AMBER),
+        )
+        st.plotly_chart(fig_scatter, use_container_width=True)
 
-        fig_pg = go.Figure(go.Bar(
-            x=grp.index, y=grp['per_game'],
-            marker=dict(color=[POS_COLORS[p] for p in grp.index], opacity=0.85),
-            text=[f"{v:.2f}" for v in grp['per_game']], textposition="outside",
-            hovertemplate="<b>%{x}</b><br>Per game: %{y:.2f}<extra></extra>"))
-        fig_pg.update_layout(**base_layout("Avg per game (per player)", height=235,
-                             yaxis=dict(title=""), xaxis=dict(title="")))
-        st.plotly_chart(fig_pg, use_container_width=True)
 
-    st.markdown("#### Leaderboard")
-    tbl = (fp.sort_values(sort_col, ascending=False).head(25)
-           [['player_name', 'team', 'position', 'fouls_won', 'games', 'fouls_per_game']]
-           .reset_index(drop=True))
-    tbl.index = tbl.index + 1
-    st.dataframe(tbl, use_container_width=True, height=430,
-        column_config={
-            'player_name': st.column_config.TextColumn("Player"),
-            'team': st.column_config.TextColumn("Team"),
-            'position': st.column_config.TextColumn("Position"),
-            'fouls_won': st.column_config.NumberColumn("Fouls drawn", format="%d"),
-            'games': st.column_config.NumberColumn("Games", format="%d"),
-            'fouls_per_game': st.column_config.NumberColumn("Per game", format="%.2f")})
+
+    # ══ Per-player zone heatmap ══════════════════════════════════════════
+    st.markdown("#### Player zone heatmap")
+    st.markdown(
+        '<p style="font-family:Inter;font-size:12px;color:#666;">'
+        'Select a player to see where their high-speed runs start across 30 pitch zones '
+        '(6 columns x 5 rows). Darker zones = more runs.</p>',
+        unsafe_allow_html=True
+    )
+
+    if "start_x" in runs_df.columns and "player_name" in qualifying_runs.columns:
+
+        player_options = (
+            filtered_summary
+            .sort_values("runs_per_game_dynamic", ascending=False)
+            .dropna(subset=["player_name"])
+            ["player_name"].tolist()
+        )
+
+        ph_col1, ph_col2 = st.columns([1, 2])
+
+        with ph_col1:
+            selected_player = st.selectbox(
+                "Select player",
+                options=player_options,
+                key="player_heatmap_selector"
+            )
+
+            pmeta = filtered_summary[filtered_summary["player_name"] == selected_player]
+            if not pmeta.empty:
+                pm = pmeta.iloc[0]
+                st.markdown(
+                    f'<div style="background:#f0f0ee;border-left:3px solid #111;'
+                    f'padding:10px 14px;margin-top:8px;">'
+                    f'<p style="font-family:Inter;font-size:11px;font-weight:600;color:#888;'
+                    f'text-transform:uppercase;letter-spacing:0.06em;margin:0 0 4px 0;">'
+                    f'{pm.get("team_name","")}</p>'
+                    f'<p style="font-family:Georgia,serif;font-size:20px;font-weight:600;'
+                    f'color:#111;margin:0 0 8px 0;">{selected_player}</p>'
+                    f'<p style="font-family:Inter;font-size:12px;color:#444;margin:0;">'
+                    f'{pm.get("pos_detail","")} &nbsp;&middot;&nbsp; '
+                    f'v-max <strong>{pm.get("vmax_kmh",0):.1f} km/h</strong></p>'
+                    f'<p style="font-family:Inter;font-size:12px;color:#444;margin:4px 0 0 0;">'
+                    f'<strong>{int(pm.get("total_runs_dynamic",0))}</strong> HSR runs &nbsp;&middot;&nbsp; '
+                    f'<strong>{pm.get("runs_per_game_dynamic",0):.1f}</strong> per game</p>'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
+
+        with ph_col2:
+            player_runs = qualifying_runs[
+                qualifying_runs["player_name"] == selected_player
+            ].copy()
+
+            if player_runs.empty:
+                st.info("No qualifying runs found for this player at the current threshold.")
+            else:
+                # 30-zone grid: 6 cols x 5 rows
+                x_edges_30 = [-52.5, -35.0, -17.5,  0.0, 17.5, 35.0, 52.5]
+                y_edges_30 = [-34.0, -20.4,  -6.8,  6.8, 20.4, 34.0]
+
+                # Channel labels — one word each to avoid multi-line string issues
+                ch_labels_30 = ["Right", "R. Half", "Centre", "L. Half", "Left"]
+
+                zone_counts_30 = np.zeros((5, 6), dtype=int)
+                zone_speed_30  = np.zeros((5, 6))
+
+                for _, row in player_runs.iterrows():
+                    xi = min(int(np.searchsorted(x_edges_30[1:], row["start_x"])), 5)
+                    yi = min(int(np.searchsorted(y_edges_30[1:], row["start_y"])), 4)
+                    zone_counts_30[yi, xi] += 1
+                    if "peak_speed_kmh" in player_runs.columns:
+                        zone_speed_30[yi, xi] += row["peak_speed_kmh"]
+
+                total_pr   = zone_counts_30.sum()
+                zone_pct_30 = np.where(total_pr > 0, zone_counts_30 / total_pr * 100, 0)
+                max_c = zone_counts_30.max() if zone_counts_30.max() > 0 else 1
+
+                PITCH_BG_P = "#f8f8f5"
+                PITCH_LN_P = "#c8c8c4"
+                PL_TOP     = "#aaaaaa"
+
+                fig_ph = go.Figure()
+
+                # Pitch background
+                fig_ph.add_shape(
+                    type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34,
+                    fillcolor=PITCH_BG_P,
+                    line=dict(color=PITCH_LN_P, width=1.5),
+                    layer="below"
+                )
+
+                # Zone rectangles
+                for row_i in range(5):
+                    for col_i in range(6):
+                        x0 = x_edges_30[col_i]
+                        x1 = x_edges_30[col_i + 1]
+                        y0 = y_edges_30[row_i]
+                        y1 = y_edges_30[row_i + 1]
+                        count = int(zone_counts_30[row_i, col_i])
+                        pct   = float(zone_pct_30[row_i, col_i])
+                        inten = count / max_c
+
+                        r_c = int(255 + (26  - 255) * inten)
+                        g_c = int(255 + (75  - 255) * inten)
+                        b_c = int(255 + (140 - 255) * inten)
+                        fill = "rgba(%d,%d,%d,0.80)" % (r_c, g_c, b_c)
+                        tcol = "#ffffff" if inten > 0.45 else "#222222"
+                        cx   = (x0 + x1) / 2
+                        cy   = (y0 + y1) / 2
+
+                        fig_ph.add_shape(
+                            type="rect", x0=x0, x1=x1, y0=y0, y1=y1,
+                            fillcolor=fill,
+                            line=dict(color=PITCH_LN_P, width=0.5),
+                            layer="below"
+                        )
+
+                        if count > 0:
+                            fig_ph.add_annotation(
+                                x=cx, y=cy + 2.5,
+                                text="<b>%d</b>" % count,
+                                showarrow=False,
+                                font=dict(family="Inter", size=12, color=tcol),
+                                xanchor="center", yanchor="middle",
+                            )
+                            fig_ph.add_annotation(
+                                x=cx, y=cy - 2.8,
+                                text="%.0f%%" % pct,
+                                showarrow=False,
+                                font=dict(family="Inter", size=9, color=tcol),
+                                xanchor="center", yanchor="middle",
+                            )
+
+                # Pitch markings
+                for sh in [
+                    dict(type="line", x0=0, x1=0, y0=-34, y1=34,
+                         line=dict(color=PL_TOP, width=1.2)),
+                    dict(type="circle", x0=-9.15, x1=9.15, y0=-9.15, y1=9.15,
+                         line=dict(color=PL_TOP, width=1)),
+                    dict(type="rect", x0=-52.5, x1=-36, y0=-20.16, y1=20.16,
+                         line=dict(color=PL_TOP, width=1)),
+                    dict(type="rect", x0=36, x1=52.5, y0=-20.16, y1=20.16,
+                         line=dict(color=PL_TOP, width=1)),
+                    dict(type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34,
+                         line=dict(color=PL_TOP, width=1.5)),
+                ]:
+                    fig_ph.add_shape(**sh)
+
+                # Zone grid lines
+                for xb in x_edges_30[1:-1]:
+                    fig_ph.add_shape(
+                        type="line", x0=xb, x1=xb, y0=-34, y1=34,
+                        line=dict(color=PL_TOP, width=0.6, dash="dot")
+                    )
+                for yb in y_edges_30[1:-1]:
+                    fig_ph.add_shape(
+                        type="line", x0=-52.5, x1=52.5, y0=yb, y1=yb,
+                        line=dict(color=PL_TOP, width=0.6, dash="dot")
+                    )
+
+                # Third labels above
+                third_labels = ["Defensive third", "Middle third", "Attacking third"]
+                third_cx     = [-35.0, 0.0, 35.0]
+                for lbl, cx in zip(third_labels, third_cx):
+                    fig_ph.add_annotation(
+                        x=cx, y=36.2, text=lbl.upper(),
+                        showarrow=False,
+                        font=dict(family="Inter", size=9, color="#888"),
+                        xanchor="center"
+                    )
+
+                # Channel labels left
+                for i, lbl in enumerate(ch_labels_30):
+                    cy = (y_edges_30[i] + y_edges_30[i + 1]) / 2
+                    fig_ph.add_annotation(
+                        x=-55, y=cy, text=lbl,
+                        showarrow=False,
+                        font=dict(family="Inter", size=9, color="#888"),
+                        xanchor="right"
+                    )
+
+                # Attack direction arrow
+                fig_ph.add_annotation(
+                    x=50, y=-37, ax=38, ay=-37,
+                    xref="x", yref="y", axref="x", ayref="y",
+                    showarrow=True, arrowhead=2, arrowsize=1,
+                    arrowwidth=1.5, arrowcolor="#888",
+                    text="Attack",
+                    font=dict(family="Inter", size=9, color="#888"),
+                    xanchor="right",
+                )
+
+                fig_ph.update_layout(
+                    plot_bgcolor=PITCH_BG_P,
+                    paper_bgcolor=PAPER_BG,
+                    height=460,
+                    margin=dict(l=70, r=16, t=30, b=20),
+                    xaxis=dict(range=[-58, 55], showgrid=False, zeroline=False,
+                               showticklabels=False, showline=False),
+                    yaxis=dict(range=[-40, 39], showgrid=False, zeroline=False,
+                               showticklabels=False, showline=False,
+                               scaleanchor="x", scaleratio=1),
+                    showlegend=False,
+                )
+
+                st.plotly_chart(fig_ph, use_container_width=True)
+
+                # Top zone narrative
+                ch_name   = {0: "right channel", 1: "right half-space",
+                             2: "central channel", 3: "left half-space",
+                             4: "left channel"}
+                third_name = {0: "defensive third", 1: "defensive third",
+                              2: "middle third",    3: "middle third",
+                              4: "attacking third", 5: "attacking third"}
+
+                flat_idx  = zone_counts_30.flatten().argsort()[::-1]
+                top_zones = [(int(idx // 6), int(idx % 6)) for idx in flat_idx
+                             if zone_counts_30[idx // 6, idx % 6] > 0][:3]
+
+                if top_zones:
+                    parts = []
+                    for ri, ci in top_zones:
+                        cnt = int(zone_counts_30[ri, ci])
+                        pct = float(zone_pct_30[ri, ci])
+                        parts.append(
+                            "<strong>%d runs (%.0f%%)</strong> in the %s of the %s"
+                            % (cnt, pct, ch_name.get(ri, ""), third_name.get(ci, ""))
+                        )
+                    st.markdown(
+                        '<p style="font-family:Inter;font-size:12px;color:#444;'
+                        'line-height:1.8;margin-top:4px;">'
+                        + " &nbsp;&middot;&nbsp; ".join(parts) + "</p>",
+                        unsafe_allow_html=True
+                    )
+    else:
+        st.info("Player zone heatmap requires start_x/start_y columns in hsr_runs.csv.")
+
+
+    st.divider()
+    st.markdown("#### Full player table")
+
+    # Build display table — add avg speed, cap pct_of_vmax at 100%
+    display_cols = [
+        "player_name", "team_name", "pos", "pos_detail", "games_appeared",
+        "vmax_kmh", "threshold_at_pct", "total_runs_dynamic", "runs_per_game_dynamic",
+        "hsr_distance_per_game_m", "mean_peak_dynamic", "mean_pct_of_vmax_pct",
+        "tournament_peak_speed_kmh",
+    ]
+    table_df = filtered_summary[display_cols].copy()
+
+    # Cap avg % of v-max at 100 — values above 100 occur when peak speed
+    # in a run slightly exceeds the p99.5 v-max estimate (expected, not an error)
+    table_df["mean_pct_of_vmax_pct"] = table_df["mean_pct_of_vmax_pct"].clip(upper=100.0)
+
+    # Round numeric columns
+    table_df["vmax_kmh"]           = table_df["vmax_kmh"].round(1)
+    table_df["threshold_at_pct"]   = table_df["threshold_at_pct"].round(1)
+    table_df["hsr_distance_per_game_m"] = table_df["hsr_distance_per_game_m"].round(0)
+    table_df["mean_peak_dynamic"]  = table_df["mean_peak_dynamic"].round(1)
+    table_df["tournament_peak_speed_kmh"] = table_df["tournament_peak_speed_kmh"].round(1)
+
+    st.dataframe(
+        table_df
+        .sort_values("runs_per_game_dynamic", ascending=False)
+        .reset_index(drop=True)
+        .rename(columns={
+            "player_name":              "Player",
+            "team_name":                "Team",
+            "pos":                      "Pos",
+            "pos_detail":               "Pos detail",
+            "games_appeared":           "Games",
+            "vmax_kmh":                 "v-max (km/h)",
+            "threshold_at_pct":         "Threshold (km/h)",
+            "total_runs_dynamic":       "Total runs",
+            "runs_per_game_dynamic":    "Runs / game",
+            "hsr_distance_per_game_m":  "HSR dist / game (m)",
+            "mean_peak_dynamic":        "Avg speed in run (km/h)",
+            "mean_pct_of_vmax_pct":     "Avg % of v-max",
+            "tournament_peak_speed_kmh":"Peak speed (km/h)",
+        }),
+        use_container_width=True,
+        height=400,
+    )
 
 # ══════════════════════════════════════════════
-# TAB 2 — TEAMS
+# TAB 2 — Team analysis
 # ══════════════════════════════════════════════
 with tab2:
-    st.markdown("### Team foul-drawing")
-    st.markdown('<p class="caption">Click a row in the table to drill into a club and see its '
-                'top five foul-winners.</p>', unsafe_allow_html=True)
+    st.markdown("### Team HSR profile")
 
-    ft = ft.copy()
-    ft['foul_rate'] = (ft['fouls_won_total'] / ft['touches'] * 100).round(2)
-    show = (ft.sort_values('fouls_won_total', ascending=False)
-            [['team', 'fouls_won_total', 'fouls_per_game', 'games', 'foul_rate']]
-            .reset_index(drop=True))
+    team_agg = (
+        filtered_summary
+        .groupby(["team_name", "team_short"])
+        .agg(
+            avg_runs_per_game       = ("runs_per_game_dynamic", "mean"),
+            total_team_runs         = ("total_runs_dynamic", "sum"),
+            avg_vmax                = ("vmax_kmh", "mean"),
+            avg_peak_speed          = ("tournament_peak_speed_kmh", "mean"),
+            avg_hsr_distance        = ("hsr_distance_per_game_m", "mean"),
+            avg_intensity           = ("mean_pct_of_vmax_pct", "mean"),
+            n_players               = ("player_name", "count"),
+        )
+        .reset_index()
+        .sort_values("avg_runs_per_game", ascending=False)
+    )
 
-    left, right = st.columns([1.1, 1])
-    with left:
-        st.markdown("#### League table — fouls drawn")
-        event = st.dataframe(
-            show, use_container_width=True, height=430, hide_index=True,
-            on_select="rerun", selection_mode="single-row",
-            column_config={
-                'team': st.column_config.TextColumn("Team"),
-                'fouls_won_total': st.column_config.NumberColumn("Fouls drawn", format="%d"),
-                'fouls_per_game': st.column_config.NumberColumn("Per game", format="%.2f"),
-                'games': st.column_config.NumberColumn("Games", format="%d"),
-                'foul_rate': st.column_config.NumberColumn("Per 100 touches", format="%.2f")})
-        sel = event.selection.rows
-        default_team = show.iloc[sel[0]]['team'] if sel else (show.iloc[0]['team'] if len(show) else None)
-    with right:
-        st.markdown("#### Drill into a club")
-        team_list = show['team'].tolist()
-        if team_list:
-            chosen = st.selectbox("Team", team_list,
-                                  index=team_list.index(default_team) if default_team in team_list else 0)
-            row = ft[ft['team'] == chosen].iloc[0]
-            _padL, m1, m2, _padR = st.columns([0.2, 1, 1, 0.6])
-            m1.metric("Fouls drawn", f"{int(row['fouls_won_total'])}")
-            m2.metric("Per game", f"{row['fouls_per_game']:.2f}")
-            st.markdown(f'<p class="caption">Top 5 foul-winners · {chosen}</p>', unsafe_allow_html=True)
-            top5 = (players_df[players_df['team'] == chosen]
-                    .sort_values('fouls_won', ascending=False).head(5)
-                    [['player_name', 'position', 'fouls_won', 'fouls_per_game']].reset_index(drop=True))
-            top5.index = top5.index + 1
-            st.dataframe(top5, use_container_width=True,
-                column_config={
-                    'player_name': st.column_config.TextColumn("Player"),
-                    'position': st.column_config.TextColumn("Position"),
-                    'fouls_won': st.column_config.NumberColumn("Fouls drawn", format="%d"),
-                    'fouls_per_game': st.column_config.NumberColumn("Per game", format="%.2f")})
-        else:
-            chosen = None
+    col_t1, col_t2 = st.columns(2)
 
-    st.markdown("#### Fouls drawn per game — all clubs")
-    order = ft.sort_values('fouls_per_game', ascending=False)
-    colors = [AMBER if t == chosen else ACCENT for t in order['team']]
-    fig_team = go.Figure(go.Bar(
-        x=order['fouls_per_game'], y=order['team'], orientation="h",
-        marker=dict(color=colors, opacity=0.88),
-        hovertemplate="<b>%{y}</b><br>Fouls drawn/game: %{x:.2f}<extra></extra>"))
-    fig_team.update_layout(**base_layout(
-        height=max(400, len(order) * 24),
-        yaxis=dict(autorange="reversed", tickfont=dict(size=11)),
-        xaxis=dict(title="fouls drawn per game")))
-    st.plotly_chart(fig_team, use_container_width=True)
+    with col_t1:
+        fig_team_bar = go.Figure(go.Bar(
+            x=team_agg["avg_runs_per_game"],
+            y=team_agg["team_short"],
+            orientation="h",
+            marker=dict(
+                color=team_agg["avg_vmax"],
+                colorscale=[[0, "#0d2137"], [1, "#4fc3f7"]],
+                colorbar=dict(title=dict(text="Avg v-max"), thickness=10),
+                line=dict(width=0),
+            ),
+            hovertemplate="<b>%{y}</b><br>Avg runs/game/player: %{x:.2f}<extra></extra>",
+        ))
+        fig_team_bar.update_layout(
+            **base_layout(
+                "Avg HSR runs per game per player",
+                height=700,
+                yaxis=dict(autorange="reversed", tickfont=dict(size=11)),
+                xaxis=dict(title="Avg runs per game"),
+            )
+        )
+        st.plotly_chart(fig_team_bar, use_container_width=True)
+
+    with col_t2:
+        fig_team_scatter = px.scatter(
+            team_agg,
+            x="avg_vmax",
+            y="avg_runs_per_game",
+            text="team_short",
+            size="n_players",
+            color="avg_intensity",
+            color_continuous_scale=[[0, "#ddeeff"], [1, "#1a4b8c"]],
+            labels={
+                "avg_vmax": "Avg v-max (km/h)",
+                "avg_runs_per_game": "Avg HSR runs per game",
+                "avg_intensity": "Avg intensity (% v-max)",
+            },
+        )
+        fig_team_scatter.update_traces(
+            textposition="top center",
+            textfont=dict(size=9, color="#94a3b8"),
+            marker=dict(line=dict(width=0)),
+        )
+        fig_team_scatter.update_layout(**base_layout("Speed vs volume — team view", height=420))
+        st.plotly_chart(fig_team_scatter, use_container_width=True)
+
+        # HSR distance per game
+        team_agg_sorted = team_agg.sort_values("avg_hsr_distance", ascending=True).tail(16)
+        fig_dist = go.Figure(go.Bar(
+            x=team_agg_sorted["avg_hsr_distance"],
+            y=team_agg_sorted["team_short"],
+            orientation="h",
+            marker=dict(color=ACCENT, line=dict(width=0)),
+            hovertemplate="<b>%{y}</b><br>Avg HSR dist/game: %{x:.0f}m<extra></extra>",
+        ))
+        fig_dist.update_layout(
+            **base_layout(
+                "Avg HSR distance per game (m)",
+                height=280,
+                yaxis=dict(tickfont=dict(size=11)),
+                xaxis=dict(title="metres"),
+            )
+        )
+        st.plotly_chart(fig_dist, use_container_width=True)
+
+    st.divider()
+    st.markdown("#### Team summary table")
+    st.dataframe(
+        team_agg
+        .sort_values("avg_runs_per_game", ascending=False)
+        .reset_index(drop=True)
+        .rename(columns={
+            "team_name":                    "Team",
+            "team_short":                   "Code",
+            "avg_runs_per_game":            "Avg runs / game",
+            "total_team_runs":              "Total runs",
+            "avg_vmax":                     "Avg v-max (km/h)",
+            "avg_peak_speed":               "Avg peak speed (km/h)",
+            "avg_hsr_distance":             "Avg HSR dist / game (m)",
+            "avg_intensity":                "Avg intensity (% v-max)",
+            "n_players_tracked":            "Players tracked",
+        })
+        .round(2),
+        use_container_width=True,
+        height=400,
+    )
 
 # ══════════════════════════════════════════════
-# TAB 3 — PITCH
+# TAB 3 — Position analysis
 # ══════════════════════════════════════════════
-def hex_ramp(t, end=(26, 107, 60)):
-    r = int(255 + (end[0] - 255) * t)
-    g = int(255 + (end[1] - 255) * t)
-    b = int(255 + (end[2] - 255) * t)
-    return f"rgba({r},{g},{b},0.88)"
-
 with tab3:
-    st.markdown("### Where fouls are won")
-    st.markdown('<p class="caption">Foul-won rate per possession across the pitch, by play pattern, '
-                'and by how the ball was gained · attack →</p>', unsafe_allow_html=True)
+    st.markdown("### HSR by position")
 
-    flt = st.radio("Filter touches", ["All", "Receipts only", "Recoveries only"],
-                   horizontal=True, label_visibility="collapsed")
-    gp = gains_df
-    if flt == "Receipts only":   gp = gains_df[gains_df['gain_type'] == 'receipt']
-    elif flt == "Recoveries only": gp = gains_df[gains_df['gain_type'] == 'recovery']
+    pos_agg = (
+        filtered_summary
+        .groupby("pos")
+        .agg(
+            avg_runs_per_game   = ("runs_per_game_dynamic", "mean"),
+            avg_vmax            = ("vmax_kmh", "mean"),
+            avg_threshold       = ("threshold_kmh", "mean"),
+            avg_distance        = ("hsr_distance_per_game_m", "mean"),
+            avg_intensity       = ("mean_pct_of_vmax_pct", "mean"),
+            avg_peak_speed      = ("tournament_peak_speed_kmh", "mean"),
+            n_players           = ("player_name", "count"),
+        )
+        .reset_index()
+        .sort_values("avg_runs_per_game", ascending=False)
+        .reset_index()
+    )
+    pos_agg = pos_agg.rename(columns={"pos": "position"})
 
-    col_pitch, col_side = st.columns([1.3, 1])
-    with col_pitch:
-        st.markdown("#### Foul-won rate by pitch location")
-        nx, ny = 6, 4
-        xed = np.linspace(0, 120, nx + 1); yed = np.linspace(0, 80, ny + 1)
-        d = gp.copy()
-        d['xb'] = pd.cut(d['x'], xed, labels=False, include_lowest=True)
-        d['yb'] = pd.cut(d['y'], yed, labels=False, include_lowest=True)
-        cell = d.groupby(['yb', 'xb'])['won_foul'].mean().unstack() * 100
-        vmax = np.nanmax(cell.values) if cell.size else 1
+    col_p1, col_p2 = st.columns(2)
 
-        fig_p = go.Figure()
-        PITCH_LN = "#c8c8c4"
-        fig_p.add_shape(type="rect", x0=0, x1=120, y0=0, y1=80,
-                        fillcolor="#f8f8f5", line=dict(color=PITCH_LN, width=1.5), layer="below")
-        for j in range(ny):
-            for i in range(nx):
-                try:
-                    rate = cell.loc[j, i]
-                except (KeyError, TypeError):
-                    rate = np.nan
-                if pd.isna(rate): rate = 0.0
-                t = rate / vmax if vmax > 0 else 0
-                fig_p.add_shape(type="rect", x0=xed[i], x1=xed[i+1], y0=yed[j], y1=yed[j+1],
-                                fillcolor=hex_ramp(t), line=dict(color=PITCH_LN, width=0.5), layer="below")
-                cx, cy = (xed[i]+xed[i+1])/2, (yed[j]+yed[j+1])/2
-                tcol = "#ffffff" if t > 0.55 else "#222222"
-                fig_p.add_annotation(x=cx, y=cy, text=f"<b>{rate:.1f}%</b>", showarrow=False,
-                                     font=dict(family="Inter", size=11, color=tcol))
-        for sh in [
-            dict(type="line", x0=60, x1=60, y0=0, y1=80, line=dict(color="#aaaaaa", width=1.2)),
-            dict(type="circle", x0=50, x1=70, y0=30, y1=50, line=dict(color="#aaaaaa", width=1)),
-            dict(type="rect", x0=0, x1=18, y0=18, y1=62, line=dict(color="#aaaaaa", width=1)),
-            dict(type="rect", x0=102, x1=120, y0=18, y1=62, line=dict(color="#aaaaaa", width=1)),
-            dict(type="rect", x0=0, x1=120, y0=0, y1=80, line=dict(color="#aaaaaa", width=1.5)),
-        ]:
-            fig_p.add_shape(**sh)
-        for lbl, cx in zip(["DEFENSIVE THIRD", "MIDDLE THIRD", "ATTACKING THIRD"], [20, 60, 100]):
-            fig_p.add_annotation(x=cx, y=83.5, text=lbl, showarrow=False,
-                                 font=dict(family="Inter", size=9, color="#888"))
-        fig_p.add_annotation(x=104, y=-4.5, ax=70, ay=-4.5, xref="x", yref="y", axref="x", ayref="y",
-                             showarrow=True, arrowhead=2, arrowsize=1, arrowwidth=1.5,
-                             arrowcolor="#888", text="Attack",
-                             font=dict(family="Inter", size=9, color="#888"), xanchor="right")
-        fig_p.update_layout(
-            plot_bgcolor="#f8f8f5", paper_bgcolor=PAPER_BG, height=430,
-            margin=dict(l=16, r=16, t=24, b=24),
-            xaxis=dict(range=[-4, 124], showgrid=False, zeroline=False, showticklabels=False, showline=False),
-            yaxis=dict(range=[-8, 88], showgrid=False, zeroline=False, showticklabels=False,
-                       showline=False, scaleanchor="x", scaleratio=1),
-            showlegend=False)
-        st.plotly_chart(fig_p, use_container_width=True)
-        st.markdown('<p class="caption">Rate dips inside the box (penalty risk) and peaks through midfield.</p>',
-                    unsafe_allow_html=True)
-
-    with col_side:
-        st.markdown("#### By play pattern")
-        pp = gp.groupby('play_pattern')['won_foul'].agg(['count', 'mean'])
-        pp = pp[pp['count'] >= 500].sort_values('mean')
-        colors = [AMBER if i == 'From Counter' else ACCENT for i in pp.index]
-        fig_pp = go.Figure(go.Bar(
-            x=pp['mean']*100, y=pp.index, orientation="h",
-            marker=dict(color=colors, opacity=0.88),
-            hovertemplate="<b>%{y}</b><br>Foul-won rate: %{x:.1f}%<extra></extra>"))
-        fig_pp.add_vline(x=BASE_RATE*100, line=dict(color="#999", width=1, dash="dash"))
-        fig_pp.update_layout(**base_layout(height=270,
-                             yaxis=dict(tickfont=dict(size=10)),
-                             xaxis=dict(title="foul-won rate (%)")))
-        st.plotly_chart(fig_pp, use_container_width=True)
-
-        st.markdown("#### Receipt vs recovery")
-        gt = gains_df.groupby('gain_type')['won_foul'].mean() * 100
-        fig_gt = go.Figure(go.Bar(
-            x=["Receipt", "Recovery"],
-            y=[gt.get('receipt', 0), gt.get('recovery', 0)],
-            marker=dict(color=[ACCENT, AMBER], opacity=0.88),
-            text=[f"{gt.get('receipt',0):.2f}%", f"{gt.get('recovery',0):.2f}%"],
+    with col_p1:
+        fig_pos = px.bar(
+            pos_agg,
+            x="position",
+            y="avg_runs_per_game",
+            color="avg_intensity",
+            color_continuous_scale=[[0, "#ddeeff"], [0.5, "#5588cc"], [1, "#1a4b8c"]],
+            text=pos_agg["avg_runs_per_game"].round(1),
+            labels={
+                "pos": "Position group",
+                "avg_runs_per_game": "Avg HSR runs per game",
+                "avg_intensity": "Avg intensity",
+            },
+        )
+        fig_pos.update_traces(
             textposition="outside",
-            hovertemplate="<b>%{x}</b><br>%{y:.2f}%<extra></extra>"))
-        fig_gt.add_hline(y=BASE_RATE*100, line=dict(color="#999", width=1, dash="dash"))
-        fig_gt.update_layout(**base_layout(height=210, yaxis=dict(title="rate (%)"), xaxis=dict(title="")))
-        st.plotly_chart(fig_gt, use_container_width=True)
-        st.markdown('<p class="caption">Recoveries lead to a won foul ~2.3× as often as receipts.</p>',
-                    unsafe_allow_html=True)
+            textfont=dict(size=10),
+            marker=dict(line=dict(width=0)),
+        )
+        fig_pos.update_layout(**base_layout("Avg HSR runs per game by position", height=400))
+        st.plotly_chart(fig_pos, use_container_width=True)
+
+    with col_p2:
+        # Radar chart — position profiles
+        categories = ["avg_runs_per_game", "avg_vmax", "avg_distance",
+                      "avg_intensity", "avg_peak_speed"]
+        labels     = ["Runs/game", "v-max", "HSR dist", "Intensity", "Peak speed"]
+
+        fig_radar = go.Figure()
+        colors    = [POS_COLORS.get(p, "#888888") for p in ["GK","DEF","MID","FWD","UNK"]]
+
+        for i, row in pos_agg.iterrows():
+            vals = []
+            for col in categories:
+                col_min = pos_agg[col].min()
+                col_max = pos_agg[col].max()
+                norm = (row[col] - col_min) / (col_max - col_min + 1e-9)
+                vals.append(round(norm * 100, 1))
+            vals.append(vals[0])
+
+            fig_radar.add_trace(go.Scatterpolar(
+                r=vals,
+                theta=labels + [labels[0]],
+                name=row.get("position", row.name),
+                line=dict(color=colors[i % len(colors)], width=2),
+                fill="toself",
+                fillcolor=colors[i % len(colors)],
+                opacity=0.15,
+            ))
+
+        fig_radar.update_layout(
+            polar=dict(
+                bgcolor="#ffffff",
+                radialaxis=dict(visible=True, range=[0, 100],
+                                gridcolor=GRID_COLOR, tickfont=dict(size=8)),
+                angularaxis=dict(gridcolor=GRID_COLOR),
+            ),
+            showlegend=True,
+            legend=dict(font=dict(size=10)),
+            **base_layout("Position profile (normalised)", height=400),
+        )
+        st.plotly_chart(fig_radar, use_container_width=True)
+
+    # Position table
+    st.markdown("#### Position summary table")
+    st.dataframe(
+        pos_agg.rename(columns={
+            "position": "Pos group",
+            "avg_runs_per_game": "Avg runs/game",
+            "avg_vmax": "Avg v-max",
+            "avg_threshold": "Avg threshold (km/h)",
+            "avg_distance": "Avg HSR dist/game (m)",
+            "avg_intensity": "Avg intensity (% v-max)",
+            "avg_peak_speed": "Avg peak speed",
+            "n_players": "N players",
+        }).round(2),
+        use_container_width=True,
+    )
 
 # ══════════════════════════════════════════════
-# TAB 4 — MODEL
+# TAB 4 — Definition comparison
 # ══════════════════════════════════════════════
 with tab4:
-    st.markdown("### Foul-won probability calculator")
-    st.markdown('<p class="caption">Set the situation; the gradient-boosting model returns the '
-                'calibrated probability of winning a foul on this possession.</p>',
-                unsafe_allow_html=True)
+    st.markdown("### Relative vs industry standard (20 km/h flat)")
+    st.markdown(
+        f'<p class="caption">Comparing {threshold_pct*100:.0f}% of personal v-max '
+        f'vs flat 20 km/h threshold across all players</p>',
+        unsafe_allow_html=True
+    )
 
-    model = get_model()
-    pp_opts = sorted(gains_df['play_pattern'].dropna().unique().tolist())
+    # Summary stats
+    fc1, fc2, fc3 = st.columns(3)
+    gained   = (filtered_comparison["category"] == "gained").sum()
+    lost     = (filtered_comparison["category"] == "lost").sum()
+    unchanged= (filtered_comparison["category"] == "unchanged").sum()
+    fc1.metric("Players who gained runs",     gained,    delta=f"+{gained}")
+    fc2.metric("Players who lost runs",       lost,      delta=f"-{lost}" if lost else "0")
+    fc3.metric("Players unchanged",           unchanged)
 
-    cfg, out = st.columns([1.25, 1])
-    with cfg:
-        a, b = st.columns(2)
-        gain_type = a.radio("Ball gained by", ["receipt", "recovery"],
-                            format_func=lambda s: s.capitalize())
-        pos_role = b.selectbox("Player position", POS_ORDER, index=0)
-        under_pressure = a.checkbox("Under pressure when gaining the ball", value=True)
-        play_pattern = b.selectbox("Play pattern", pp_opts,
-            index=pp_opts.index("From Counter") if "From Counter" in pp_opts else 0)
+    col_c1, col_c2 = st.columns(2)
 
-        st.markdown('<p class="eyebrow" style="margin:6px 0 4px;">Player foul-drawing tendency</p>',
-                    unsafe_allow_html=True)
-        names = ["League average"] + players_df.sort_values('fouls_won', ascending=False)['player_name'].tolist()
-        who = st.selectbox("Use a specific player's profile (optional)", names,
-                           label_visibility="collapsed")
-        pl_enc = BASE_RATE if who == "League average" else \
-            float(players_df.loc[players_df['player_name'] == who, 'pl_enc'].iloc[0])
-        st.markdown(f'<p class="caption">Tendency used: {pl_enc*100:.2f}% '
-                    f'(league avg {BASE_RATE*100:.2f}%)</p>', unsafe_allow_html=True)
+    with col_c1:
+        # Delta distribution
+        fig_delta = px.histogram(
+            filtered_comparison,
+            x="run_delta",
+            color="category",
+            color_discrete_map={
+                "gained":    GREEN,
+                "lost":      RED,
+                "unchanged": "#cccccc",
+            },
+            labels={"run_delta": "Run delta (relative − absolute)", "count": "Players"},
+            nbins=30,
+        )
+        fig_delta.update_layout(**base_layout("Distribution of run delta", height=350))
+        fig_delta.update_traces(marker=dict(line=dict(width=0)))
+        fig_delta.add_vline(x=0, line=dict(color=AMBER, width=1, dash="dash"))
+        st.plotly_chart(fig_delta, use_container_width=True)
 
-        st.markdown('<p class="eyebrow" style="margin:6px 0 4px;">Location on pitch (attack →)</p>',
-                    unsafe_allow_html=True)
-        lx, ly = st.columns(2)
-        x = lx.slider("x — up pitch", 0, 120, 70)
-        y = ly.slider("y — width", 0, 80, 40)
+    with col_c2:
+        # v-max vs threshold relative to 20 km/h
+        fig_thresh = px.scatter(
+            filtered_comparison,
+            x="vmax_kmh",
+            y="threshold_kmh",
+            color="category",
+            color_discrete_map={
+                "gained":    GREEN,
+                "lost":      RED,
+                "unchanged": "#cccccc",
+            },
+            hover_data=["player_name", "team_name", "run_delta"],
+            labels={
+                "vmax_kmh": "Personal v-max (km/h)",
+                "threshold_at_pct": f"Threshold at {threshold_pct*100:.0f}% (km/h)",
+            },
+        )
+        fig_thresh.add_hline(y=20, line=dict(color=AMBER, width=1, dash="dot"),
+                             annotation_text="20 km/h industry standard",
+                             annotation_font=dict(size=9, color=AMBER))
+        fig_thresh.update_layout(**base_layout("Threshold vs v-max", height=350))
+        fig_thresh.update_traces(marker=dict(size=6, line=dict(width=0)))
+        st.plotly_chart(fig_thresh, use_container_width=True)
 
-        st.markdown('<p class="eyebrow" style="margin:6px 0 4px;">Possession context</p>',
-                    unsafe_allow_html=True)
-        p1, p2, p3 = st.columns(3)
-        passes_before = p1.slider("Passes so far", 0, 15, 0)
-        time_elapsed = p2.slider("Secs into poss.", 0, 60, 3)
-        minute = p3.slider("Match minute", 0, 95, 60)
+    # Team outperformance
+    st.markdown("#### Team outperformance vs industry standard")
+    team_comp = (
+        filtered_comparison
+        .groupby(["team_name", "team_short"])
+        .agg(
+            total_runs_relative = ("runs_relative", "sum"),
+            total_runs_absolute = ("runs_absolute", "sum"),
+            total_run_delta     = ("run_delta", "sum"),
+            players_gained      = ("category", lambda x: (x == "gained").sum()),
+            players_lost        = ("category", lambda x: (x == "lost").sum()),
+            n_players           = ("player_name", "count"),
+        )
+        .reset_index()
+    )
+    team_comp["pct_outperformance"] = (
+        (team_comp["total_runs_relative"] - team_comp["total_runs_absolute"])
+        / team_comp["total_runs_absolute"].clip(lower=1) * 100
+    ).round(1)
+    team_comp = team_comp.sort_values("pct_outperformance", ascending=False)
 
-        if gain_type == "receipt":
-            ip1, ip2 = st.columns(2)
-            in_pass_height = ip1.selectbox("Incoming pass height",
-                                           ["Ground Pass", "Low Pass", "High Pass"])
-            in_pass_length = ip2.slider("Incoming pass length (m)", 0, 60, 18)
+    fig_outperf = go.Figure(go.Bar(
+        x=team_comp["pct_outperformance"],
+        y=team_comp["team_short"],
+        orientation="h",
+        marker=dict(
+            color=[GREEN if v >= 0 else RED for v in team_comp["pct_outperformance"]],
+            opacity=0.8,
+            line=dict(width=0),
+        ),
+        hovertemplate=(
+            "<b>%{y}</b><br>"
+            "Outperformance: %{x:.1f}%<br>"
+            "<extra></extra>"
+        ),
+    ))
+    fig_outperf.add_vline(x=0, line=dict(color=AMBER, width=1))
+    fig_outperf.update_layout(
+        **base_layout(
+            "% more runs under relative definition vs 20 km/h standard",
+            height=700,
+            yaxis=dict(autorange="reversed", tickfont=dict(size=11)),
+            xaxis=dict(title="% outperformance"),
+        )
+    )
+    st.plotly_chart(fig_outperf, use_container_width=True)
+
+    # Most affected players
+    st.markdown("#### Most affected players")
+    most_affected = (
+        filtered_comparison
+        .reindex(columns=["player_name", "team_short", "pos", "pos_detail",
+                          "vmax_kmh", "threshold_at_pct",
+                          "runs_absolute_dynamic", "runs_relative_dynamic",
+                          "run_delta", "pct_change", "category"])
+        .sort_values("run_delta", key=abs, ascending=False)
+        .reset_index(drop=True)
+    )
+    st.caption(f"{len(most_affected):,} players · sorted by absolute run delta")
+    st.dataframe(
+        most_affected.rename(columns={
+            "player_name":          "Player",
+            "team_short":           "Team",
+            "pos":                  "Pos",
+            "pos_detail":           "Pos detail",
+            "vmax_kmh":             "v-max (km/h)",
+            "threshold_at_pct":     "Threshold (km/h)",
+            "runs_absolute_dynamic":"HSR Industry Standard",
+            "runs_relative_dynamic":"HSR New Definition",
+            "run_delta":            "Delta",
+            "pct_change":           "% change",
+            "category":             "Category",
+        }),
+        use_container_width=True,
+        height=600,
+    )
+
+# ══════════════════════════════════════════════
+# TAB 5 — Pitch zones
+# ══════════════════════════════════════════════
+with tab5:
+    st.markdown("### HSR runs by pitch zone")
+    st.markdown(
+        '<p class="caption">CDF coordinate system: x ∈ [−52.5, 52.5] metres from centre</p>',
+        unsafe_allow_html=True
+    )
+
+    if "start_x" in runs_df.columns:
+        runs_df["pitch_zone"] = pd.cut(
+            runs_df["start_x"],
+            bins=[-53, -17.5, 17.5, 53],
+            labels=["Defensive third", "Middle third", "Attacking third"]
+        )
+
+        col_z1, col_z2 = st.columns(2)
+
+        with col_z1:
+            zone_agg = (
+                runs_df
+                .groupby("pitch_zone", observed=True)
+                .agg(
+                    n_runs          = ("duration_sec", "count"),
+                    avg_speed       = ("peak_speed_kmh", "mean"),
+                    avg_pct_of_vmax = ("pct_of_vmax", "mean"),
+                    avg_distance    = ("distance_m", "mean"),
+                    avg_duration    = ("duration_sec", "mean"),
+                )
+                .reset_index()
+            )
+            zone_agg["avg_pct_of_vmax"] *= 100
+
+            fig_zone = px.bar(
+                zone_agg,
+                x="pitch_zone",
+                y="n_runs",
+                color="avg_pct_of_vmax",
+                color_continuous_scale=[[0, "#ddeeff"], [1, "#1a4b8c"]],
+                text=zone_agg["n_runs"].apply(lambda x: f"{x:,}"),
+                labels={
+                    "pitch_zone": "Pitch zone",
+                    "n_runs": "Number of HSR runs",
+                    "avg_pct_of_vmax": "Avg % of v-max",
+                },
+            )
+            fig_zone.update_traces(
+                textposition="outside",
+                marker=dict(line=dict(width=0)),
+            )
+            fig_zone.update_layout(**base_layout("HSR runs per pitch zone", height=380))
+            st.plotly_chart(fig_zone, use_container_width=True)
+
+        with col_z2:
+            # Position breakdown within zones
+            if "position" in runs_df.columns:
+                zone_pos = (
+                    runs_df
+                    .groupby(["pitch_zone", "pos"], observed=True)
+                    .size()
+                    .reset_index(name="n_runs")
+                )
+                fig_zone_pos = px.bar(
+                    zone_pos,
+                    x="pitch_zone",
+                    y="n_runs",
+                    color="pos",
+                    barmode="stack",
+                    color_discrete_map=POS_COLORS,
+                    labels={
+                        "pitch_zone": "Pitch zone",
+                        "n_runs": "HSR runs",
+                        "pos": "Position group",
+                    },
+                )
+                fig_zone_pos.update_layout(
+                    **base_layout("HSR runs by zone and position", height=380)
+                )
+                fig_zone_pos.update_traces(marker=dict(line=dict(width=0)))
+                st.plotly_chart(fig_zone_pos, use_container_width=True)
+
+        # ── 9-Zone HSR Heatmap ────────────────────────────────────────────
+        st.markdown("#### HSR heatmap — run start positions")
+
+        # Filter to current threshold + sidebar filters
+        pitch_runs = qualifying_runs.copy()
+        if "team_short" in pitch_runs.columns:
+            pitch_runs = pitch_runs[pitch_runs["team_short"].isin(selected_teams)]
+        if "pos" in pitch_runs.columns:
+            pitch_runs = pitch_runs[pitch_runs["pos"].isin(selected_positions)]
+        if pitch_runs.empty:
+            pitch_runs = qualifying_runs.copy()
+
+        st.caption(
+            f"{len(pitch_runs):,} HSR runs at {threshold_pct*100:.0f}% threshold "
+            f"· home team attacks right"
+        )
+
+        # Pitch dimensions (CDF metres, origin at centre)
+        # x: -52.5 to 52.5  (length 105m)
+        # y: -34 to 34       (width 68m)
+        # 9 zones: 3 columns (thirds) × 3 rows (left/centre/right channel)
+        x_edges = [-52.5, -17.5,  17.5,  52.5]   # 3 thirds
+        y_edges = [-34.0,  -11.33, 11.33, 34.0]   # 3 channels
+
+        x_labels = ["Defensive third", "Middle third", "Attacking third"]
+        y_labels = ["Right channel", "Central channel", "Left channel"]
+
+        # Count runs in each zone
+        import numpy as np
+        zone_counts = np.zeros((3, 3), dtype=int)
+        zone_avg_speed = np.zeros((3, 3))
+        zone_speed_sum = np.zeros((3, 3))
+
+        if "start_x" in pitch_runs.columns and "start_y" in pitch_runs.columns:
+            for _, row in pitch_runs.iterrows():
+                xi = np.searchsorted(x_edges[1:], row["start_x"])
+                yi = np.searchsorted(y_edges[1:], row["start_y"])
+                xi = min(xi, 2)
+                yi = min(yi, 2)
+                zone_counts[yi, xi] += 1
+                if "peak_speed_kmh" in pitch_runs.columns:
+                    zone_speed_sum[yi, xi] += row["peak_speed_kmh"]
+
+        # Avg speed per zone
+        with np.errstate(divide="ignore", invalid="ignore"):
+            zone_avg_speed = np.where(
+                zone_counts > 0, zone_speed_sum / zone_counts, 0
+            )
+
+        total_runs = zone_counts.sum()
+        zone_pct = np.where(
+            total_runs > 0, zone_counts / total_runs * 100, 0
+        )
+
+        # ── Build pitch figure ────────────────────────────────────────────
+        fig_pitch = go.Figure()
+
+        PITCH_BG   = "#f8f8f5"
+        PITCH_LINE = "#c8c8c4"
+        HEAT_LOW   = "#ffffff"
+        HEAT_HIGH  = "#1a4b8c"
+
+        # Background
+        fig_pitch.add_shape(
+            type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34,
+            fillcolor=PITCH_BG, line=dict(color=PITCH_LINE, width=1.5), layer="below"
+        )
+
+        # Draw zone rectangles — coloured by run count
+        max_count = zone_counts.max() if zone_counts.max() > 0 else 1
+
+        for row_i in range(3):
+            for col_i in range(3):
+                x0 = x_edges[col_i]
+                x1 = x_edges[col_i + 1]
+                y0 = y_edges[row_i]
+                y1 = y_edges[row_i + 1]
+                count = int(zone_counts[row_i, col_i])
+                pct   = zone_pct[row_i, col_i]
+                speed = zone_avg_speed[row_i, col_i]
+                intensity = count / max_count
+
+                # Interpolate fill colour: white → dark blue
+                r = int(255 + (26  - 255) * intensity)
+                g = int(255 + (75  - 255) * intensity)
+                b = int(255 + (140 - 255) * intensity)
+                fill = f"rgba({r},{g},{b},0.75)"
+                text_col = "#ffffff" if intensity > 0.4 else "#333333"
+
+                fig_pitch.add_shape(
+                    type="rect", x0=x0, x1=x1, y0=y0, y1=y1,
+                    fillcolor=fill,
+                    line=dict(color=PITCH_LINE, width=0.8),
+                    layer="below"
+                )
+
+                # Zone label: count + % on two lines
+                cx = (x0 + x1) / 2
+                cy = (y0 + y1) / 2
+
+                fig_pitch.add_annotation(
+                    x=cx, y=cy + 3,
+                    text=f"<b>{count:,}</b>",
+                    showarrow=False,
+                    font=dict(family="Inter", size=14, color=text_col),
+                    xanchor="center", yanchor="middle",
+                )
+                fig_pitch.add_annotation(
+                    x=cx, y=cy - 3,
+                    text=f"{pct:.1f}%",
+                    showarrow=False,
+                    font=dict(family="Inter", size=10, color=text_col),
+                    xanchor="center", yanchor="middle",
+                )
+                if speed > 0:
+                    fig_pitch.add_annotation(
+                        x=cx, y=cy - 7.5,
+                        text=f"avg {speed:.1f} km/h",
+                        showarrow=False,
+                        font=dict(family="Inter", size=9,
+                                  color=text_col if intensity > 0.4 else "#666"),
+                        xanchor="center", yanchor="middle",
+                    )
+
+        # Pitch markings on top of zones
+        PITCH_LINE_TOP = "#aaaaaa"
+        # Halfway line
+        fig_pitch.add_shape(type="line", x0=0, x1=0, y0=-34, y1=34,
+                            line=dict(color=PITCH_LINE_TOP, width=1.2))
+        # Third boundaries (already zone edges but draw explicitly)
+        for xb in [-17.5, 17.5]:
+            fig_pitch.add_shape(type="line", x0=xb, x1=xb, y0=-34, y1=34,
+                                line=dict(color=PITCH_LINE_TOP, width=0.8, dash="dot"))
+        # Centre circle
+        fig_pitch.add_shape(type="circle", x0=-9.15, x1=9.15, y0=-9.15, y1=9.15,
+                            line=dict(color=PITCH_LINE_TOP, width=1))
+        # Penalty areas
+        fig_pitch.add_shape(type="rect", x0=-52.5, x1=-36, y0=-20.16, y1=20.16,
+                            line=dict(color=PITCH_LINE_TOP, width=1))
+        fig_pitch.add_shape(type="rect", x0=36, x1=52.5, y0=-20.16, y1=20.16,
+                            line=dict(color=PITCH_LINE_TOP, width=1))
+        # Outer boundary on top
+        fig_pitch.add_shape(type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34,
+                            line=dict(color=PITCH_LINE_TOP, width=1.5))
+
+        # Third labels above pitch
+        for i, label in enumerate(x_labels):
+            cx = (x_edges[i] + x_edges[i+1]) / 2
+            fig_pitch.add_annotation(
+                x=cx, y=36.5,
+                text=label.upper(),
+                showarrow=False,
+                font=dict(family="Inter", size=10, color="#888"),
+                xanchor="center",
+            )
+
+        # Channel labels left of pitch
+        for i, label in enumerate(y_labels):
+            cy = (y_edges[i] + y_edges[i+1]) / 2
+            fig_pitch.add_annotation(
+                x=-55, y=cy,
+                text=label,
+                showarrow=False,
+                font=dict(family="Inter", size=9, color="#888"),
+                xanchor="right",
+            )
+
+        # Attack direction arrow
+        fig_pitch.add_annotation(
+            x=50, y=-36.5,
+            ax=38, ay=-36.5,
+            xref="x", yref="y", axref="x", ayref="y",
+            showarrow=True,
+            arrowhead=2, arrowsize=1, arrowwidth=1.5,
+            arrowcolor="#888",
+            text="Attack",
+            font=dict(family="Inter", size=9, color="#888"),
+            xanchor="right",
+        )
+
+        fig_pitch.update_layout(
+            plot_bgcolor=PITCH_BG,
+            paper_bgcolor=PAPER_BG,
+            height=480,
+            margin=dict(l=80, r=20, t=30, b=20),
+            xaxis=dict(
+                range=[-58, 56], showgrid=False, zeroline=False,
+                showticklabels=False, showline=False,
+            ),
+            yaxis=dict(
+                range=[-40, 40], showgrid=False, zeroline=False,
+                showticklabels=False, showline=False,
+                scaleanchor="x", scaleratio=1,
+            ),
+            showlegend=False,
+        )
+
+        st.plotly_chart(fig_pitch, use_container_width=True)
+
+
+    else:
+        st.info("Pitch zone analysis requires start_x/start_y columns in hsr_runs.csv")
+
+# ══════════════════════════════════════════════
+# TAB 6 — Match analysis
+# ══════════════════════════════════════════════
+with tab6:
+    st.markdown("### Match analysis")
+
+    if match_meta_df.empty:
+        st.info("Add `match_metadata.csv` to the `data/` folder to enable match analysis.")
+    else:
+        # ── Match selector ────────────────────────────────────────────────
+        match_meta_df["label"] = (
+            match_meta_df["home_team_short"] + " vs " +
+            match_meta_df["away_team_short"] + "  ·  W" +
+            match_meta_df["week"].astype(str) +
+            "  (" + match_meta_df["Round"].str[:2].str.upper() + ")"
+        )
+        match_options = match_meta_df.sort_values("date")["label"].tolist()
+
+        # Default to the game selected in sidebar if one is chosen
+        default_idx = 0
+        if selected_game_id:
+            sid = str(selected_game_id)
+            match = match_meta_df[match_meta_df["game_id"].astype(str) == sid]
+            if not match.empty:
+                lbl = match["label"].iloc[0]
+                if lbl in match_options:
+                    default_idx = match_options.index(lbl)
+
+        selected_match_label = st.selectbox(
+            "Select match",
+            options=match_options,
+            index=default_idx,
+            key="match_tab_selector"
+        )
+
+        match_row = match_meta_df[match_meta_df["label"] == selected_match_label].iloc[0]
+        gid = str(match_row["game_id"])
+
+        # ── Match header ─────────────────────────────────────────────────
+        home = match_row["home_team_name"]
+        away = match_row["away_team_name"]
+        date = match_row["date"][:10]
+        stadium = match_row["stadium_name"]
+        rnd  = match_row["Round"]
+        week = match_row["week"]
+
+        c1, c2, c3 = st.columns([2, 1, 2])
+        c1.markdown(
+            f'<div style="text-align:right;">'
+            f'<p class="eyebrow">Home</p>'
+            f'<p style="font-family:Georgia,serif;font-size:24px;'
+            f'font-weight:600;color:#111;margin:0;">{home}</p></div>',
+            unsafe_allow_html=True
+        )
+        c2.markdown(
+            f'<div style="text-align:center;padding-top:20px;">'
+            f'<p style="font-family:JetBrains Mono,monospace;font-size:13px;'
+            f'color:#888;margin:0;">{date}</p>'
+            f'<p style="font-family:Inter;font-size:11px;color:#aaa;margin:2px 0;">'
+            f'{rnd} · W{week}</p></div>',
+            unsafe_allow_html=True
+        )
+        c3.markdown(
+            f'<div style="text-align:left;">'
+            f'<p class="eyebrow">Away</p>'
+            f'<p style="font-family:Georgia,serif;font-size:24px;'
+            f'font-weight:600;color:#111;margin:0;">{away}</p></div>',
+            unsafe_allow_html=True
+        )
+        st.markdown(
+            f'<p style="text-align:center;font-family:Inter;font-size:12px;'
+            f'color:#888;margin:4px 0 16px 0;">{stadium}</p>',
+            unsafe_allow_html=True
+        )
+        st.divider()
+
+        # ── Filter data to this match ─────────────────────────────────────
+        match_runs = qualifying_runs[qualifying_runs["game_id"].astype(str) == gid].copy()
+
+        if match_runs.empty:
+            # Fall back to unfiltered runs for this game
+            match_runs = runs_df[runs_df["game_id"].astype(str) == gid].copy()
+            match_runs = match_runs[match_runs["pct_of_vmax"] >= threshold_pct].copy()
+
+        if match_runs.empty:
+            st.warning("No HSR runs found for this match at the current threshold. Try lowering the threshold.")
         else:
-            in_pass_height = "None"; in_pass_length = np.nan
+            st.caption(f"{len(match_runs):,} HSR runs in this match at {threshold_pct*100:.0f}% threshold")
 
-    row = {
-        'gain_type': gain_type, 'pos_role': pos_role, 'play_pattern': play_pattern,
-        'in_pass_height': in_pass_height, 'x': x, 'y': y,
-        'dist_to_goal': float(np.hypot(120 - x, 40 - y)),
-        'dist_to_own_goal': float(np.hypot(x, 40 - y)),
-        'dist_to_touchline': float(min(y, 80 - y)), 'central_dist': float(abs(y - 40)),
-        'minute': minute, 'poss_seq': passes_before, 'poss_passes_before': passes_before,
-        'poss_time_elapsed': time_elapsed, 'in_pass_length': in_pass_length, 'pl_enc': pl_enc,
-        'under_pressure': int(under_pressure), 'on_poss_team': 1,
-        'is_home_team': 1, 'period_2nd': int(minute > 45)}
-    prob = float(model.predict_proba(pd.DataFrame([row])[FEATS])[:, 1][0])
-    lift = prob / BASE_RATE
+            # ── Top performers ───────────────────────────────────────────
+            st.markdown("#### Top performers")
 
-    with out:
-        st.markdown('<p class="eyebrow" style="margin-bottom:6px;">Predicted probability</p>',
-                    unsafe_allow_html=True)
-        st.markdown(f"""
-        <div style="background:#f0f0ee;border-left:3px solid {ACCENT};padding:16px 18px;">
-            <p style="font-family:'Source Serif 4',serif;font-size:44px;font-weight:600;
-                      color:{ACCENT};margin:0;line-height:1;">{prob*100:.1f}%</p>
-            <p style="font-family:Inter;font-size:12px;color:#666;margin:6px 0 0 0;">
-               {lift:.1f}× the league average of {BASE_RATE*100:.2f}% per possession</p>
-        </div>
-        """, unsafe_allow_html=True)
+            if "player_name" in match_runs.columns:
+                top_perf = (
+                    match_runs
+                    .groupby(["player_id", "player_name", "team_short", "pos"])
+                    .agg(
+                        runs        = ("run_id", "count"),
+                        total_dist  = ("distance_m", "sum"),
+                        peak_speed  = ("peak_speed_kmh", "max"),
+                        avg_speed   = ("peak_speed_kmh", "mean"),
+                        avg_pct_vmax= ("pct_of_vmax", "mean"),
+                    )
+                    .reset_index()
+                    .sort_values("runs", ascending=False)
+                )
+                top_perf["avg_pct_vmax"] = (top_perf["avg_pct_vmax"] * 100).round(1)
+                top_perf["avg_speed"]    = top_perf["avg_speed"].round(1)
+                top_perf["peak_speed"]   = top_perf["peak_speed"].round(1)
+                top_perf["total_dist"]   = top_perf["total_dist"].round(0)
 
-        fig_g = go.Figure(go.Bar(
-            x=[prob*100], y=[""], orientation="h",
-            marker=dict(color=ACCENT, opacity=0.9),
-            hovertemplate="%{x:.2f}%<extra></extra>"))
-        fig_g.add_vline(x=BASE_RATE*100, line=dict(color="#999", width=1.2, dash="dash"),
-                        annotation_text="league avg", annotation_position="top",
-                        annotation_font=dict(size=9, color="#888"))
-        fig_g.update_layout(**base_layout(height=120,
-                            xaxis=dict(title="probability (%)", range=[0, max(12, prob*100*1.25)]),
-                            yaxis=dict(showticklabels=False)))
-        fig_g.update_layout(margin=dict(l=10, r=20, t=30, b=40))
-        st.plotly_chart(fig_g, use_container_width=True)
+                mp1, mp2 = st.columns(2)
 
-        st.markdown('<p class="caption">Biggest levers: under-pressure status, the player\'s '
-                    'foul-drawing tendency, and counter-attacking play patterns. Toggle "under '
-                    'pressure" or switch to a counter to see the swing.</p>', unsafe_allow_html=True)
+                with mp1:
+                    fig_top = go.Figure(go.Bar(
+                        x=top_perf["runs"].head(15),
+                        y=(top_perf["player_name"] + " (" + top_perf["team_short"] + ")").head(15),
+                        orientation="h",
+                        marker=dict(
+                            color=[POS_COLORS.get(p, "#aaa") for p in top_perf["pos"].head(15)],
+                            opacity=0.85, line=dict(width=0),
+                        ),
+                        hovertemplate="<b>%{y}</b><br>HSR runs: %{x}<extra></extra>",
+                    ))
+                    fig_top.update_layout(
+                        **base_layout(
+                            "HSR runs in match",
+                            height=420,
+                            yaxis=dict(autorange="reversed", tickfont=dict(size=10)),
+                            xaxis=dict(title="HSR runs"),
+                        )
+                    )
+                    st.plotly_chart(fig_top, use_container_width=True)
 
+                with mp2:
+                    st.dataframe(
+                        top_perf
+                        .rename(columns={
+                            "player_name":  "Player",
+                            "team_short":   "Team",
+                            "pos":          "Pos",
+                            "runs":         "HSR runs",
+                            "total_dist":   "Total dist (m)",
+                            "peak_speed":   "Peak speed",
+                            "avg_speed":    "Avg speed",
+                            "avg_pct_vmax": "Avg % v-max",
+                        })
+                        .drop(columns=["player_id"])
+                        .reset_index(drop=True),
+                        use_container_width=True,
+                        height=420,
+                    )
+
+            # ── Team comparison ──────────────────────────────────────────
+            st.markdown("#### Team comparison")
+
+            if "team_short" in match_runs.columns:
+                team_match = (
+                    match_runs
+                    .groupby("team_short")
+                    .agg(
+                        total_runs  = ("run_id", "count"),
+                        total_dist  = ("distance_m", "sum"),
+                        avg_speed   = ("peak_speed_kmh", "mean"),
+                        peak_speed  = ("peak_speed_kmh", "max"),
+                        avg_pct_vmax= ("pct_of_vmax", "mean"),
+                        n_players   = ("player_id", "nunique"),
+                    )
+                    .reset_index()
+                )
+                team_match["avg_pct_vmax"] = (team_match["avg_pct_vmax"] * 100).round(1)
+
+                tm1, tm2, tm3 = st.columns(3)
+                for col, metric, label in [
+                    (tm1, "total_runs",  "Total HSR runs"),
+                    (tm2, "total_dist",  "Total HSR distance (m)"),
+                    (tm3, "avg_speed",   "Avg peak speed (km/h)"),
+                ]:
+                    fig_t = go.Figure(go.Bar(
+                        x=team_match["team_short"],
+                        y=team_match[metric].round(1),
+                        marker=dict(color=[BLUE, RED][:len(team_match)],
+                                    opacity=0.8, line=dict(width=0)),
+                        text=team_match[metric].round(1),
+                        textposition="outside",
+                    ))
+                    fig_t.update_layout(**base_layout(label, height=280))
+                    col.plotly_chart(fig_t, use_container_width=True)
+
+            # ── Position breakdown ───────────────────────────────────────
+            st.markdown("#### HSR by position")
+
+            if "pos" in match_runs.columns:
+                pos_match = (
+                    match_runs
+                    .groupby("pos")
+                    .agg(
+                        total_runs  = ("run_id", "count"),
+                        avg_pct_vmax= ("pct_of_vmax", "mean"),
+                        avg_speed   = ("peak_speed_kmh", "mean"),
+                    )
+                    .reset_index()
+                    .sort_values("total_runs", ascending=False)
+                )
+                pos_match["avg_pct_vmax"] = (pos_match["avg_pct_vmax"] * 100).round(1)
+
+                fig_pos_m = px.bar(
+                    pos_match,
+                    x="pos", y="total_runs",
+                    color="pos",
+                    color_discrete_map=POS_COLORS,
+                    text="total_runs",
+                    labels={"pos": "Position", "total_runs": "HSR runs"},
+                )
+                fig_pos_m.update_traces(marker=dict(line=dict(width=0)),
+                                        textposition="outside")
+                fig_pos_m.update_layout(**base_layout("HSR runs by position", height=320))
+                st.plotly_chart(fig_pos_m, use_container_width=True)
+
+            # ── Pitch heatmap ────────────────────────────────────────────
+            st.markdown("#### Pitch heatmap")
+
+            if "start_x" in match_runs.columns and "start_y" in match_runs.columns:
+                x_edges = [-52.5, -17.5, 17.5, 52.5]
+                y_edges = [-34.0, -11.33, 11.33, 34.0]
+                x_labels = ["Defensive third", "Middle third", "Attacking third"]
+                y_labels  = ["Right channel", "Central channel", "Left channel"]
+
+                zone_counts   = np.zeros((3, 3), dtype=int)
+                zone_speed_sum= np.zeros((3, 3))
+
+                for _, row in match_runs.iterrows():
+                    xi = min(np.searchsorted(x_edges[1:], row["start_x"]), 2)
+                    yi = min(np.searchsorted(y_edges[1:], row["start_y"]), 2)
+                    zone_counts[yi, xi] += 1
+                    if "peak_speed_kmh" in match_runs.columns:
+                        zone_speed_sum[yi, xi] += row["peak_speed_kmh"]
+
+                with np.errstate(divide="ignore", invalid="ignore"):
+                    zone_avg_speed = np.where(zone_counts > 0,
+                                              zone_speed_sum / zone_counts, 0)
+                total_r  = zone_counts.sum()
+                zone_pct_m = np.where(total_r > 0, zone_counts / total_r * 100, 0)
+                max_count  = zone_counts.max() if zone_counts.max() > 0 else 1
+
+                fig_pm = go.Figure()
+                PITCH_BG   = "#f8f8f5"
+                PITCH_LINE = "#c8c8c4"
+
+                fig_pm.add_shape(
+                    type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34,
+                    fillcolor=PITCH_BG, line=dict(color=PITCH_LINE, width=1.5), layer="below"
+                )
+                for row_i in range(3):
+                    for col_i in range(3):
+                        x0, x1 = x_edges[col_i], x_edges[col_i+1]
+                        y0, y1 = y_edges[row_i], y_edges[row_i+1]
+                        count  = int(zone_counts[row_i, col_i])
+                        pct    = zone_pct_m[row_i, col_i]
+                        speed  = zone_avg_speed[row_i, col_i]
+                        inten  = count / max_count
+                        r = int(255 + (26  - 255) * inten)
+                        g = int(255 + (75  - 255) * inten)
+                        b = int(255 + (140 - 255) * inten)
+                        fill = f"rgba({r},{g},{b},0.75)"
+                        tcol = "#ffffff" if inten > 0.4 else "#333333"
+                        cx, cy = (x0+x1)/2, (y0+y1)/2
+                        fig_pm.add_shape(type="rect", x0=x0, x1=x1, y0=y0, y1=y1,
+                                         fillcolor=fill, line=dict(color=PITCH_LINE, width=0.8), layer="below")
+                        fig_pm.add_annotation(x=cx, y=cy+3, text=f"<b>{count}</b>",
+                                              showarrow=False, font=dict(family="Inter", size=14, color=tcol),
+                                              xanchor="center", yanchor="middle")
+                        fig_pm.add_annotation(x=cx, y=cy-3, text=f"{pct:.1f}%",
+                                              showarrow=False, font=dict(family="Inter", size=10, color=tcol),
+                                              xanchor="center", yanchor="middle")
+                        if speed > 0:
+                            fig_pm.add_annotation(x=cx, y=cy-7.5, text=f"avg {speed:.1f} km/h",
+                                                  showarrow=False,
+                                                  font=dict(family="Inter", size=9, color=tcol if inten > 0.4 else "#666"),
+                                                  xanchor="center", yanchor="middle")
+
+                PITCH_LINE_TOP = "#aaaaaa"
+                for sh in [
+                    dict(type="line", x0=0, x1=0, y0=-34, y1=34, line=dict(color=PITCH_LINE_TOP, width=1.2)),
+                    dict(type="circle", x0=-9.15, x1=9.15, y0=-9.15, y1=9.15, line=dict(color=PITCH_LINE_TOP, width=1)),
+                    dict(type="rect", x0=-52.5, x1=-36, y0=-20.16, y1=20.16, line=dict(color=PITCH_LINE_TOP, width=1)),
+                    dict(type="rect", x0=36, x1=52.5, y0=-20.16, y1=20.16, line=dict(color=PITCH_LINE_TOP, width=1)),
+                    dict(type="rect", x0=-52.5, x1=52.5, y0=-34, y1=34, line=dict(color=PITCH_LINE_TOP, width=1.5)),
+                ]:
+                    fig_pm.add_shape(**sh)
+                for xb in [-17.5, 17.5]:
+                    fig_pm.add_shape(type="line", x0=xb, x1=xb, y0=-34, y1=34,
+                                     line=dict(color=PITCH_LINE_TOP, width=0.8, dash="dot"))
+
+                for i, lbl in enumerate(x_labels):
+                    fig_pm.add_annotation(x=(x_edges[i]+x_edges[i+1])/2, y=36.5,
+                                          text=lbl.upper(), showarrow=False,
+                                          font=dict(family="Inter", size=10, color="#888"), xanchor="center")
+                for i, lbl in enumerate(y_labels):
+                    fig_pm.add_annotation(x=-55, y=(y_edges[i]+y_edges[i+1])/2,
+                                          text=lbl, showarrow=False,
+                                          font=dict(family="Inter", size=9, color="#888"), xanchor="right")
+
+                fig_pm.update_layout(
+                    plot_bgcolor=PITCH_BG, paper_bgcolor=PAPER_BG,
+                    height=460,
+                    margin=dict(l=80, r=20, t=30, b=20),
+                    xaxis=dict(range=[-58, 56], showgrid=False, zeroline=False,
+                               showticklabels=False, showline=False),
+                    yaxis=dict(range=[-40, 40], showgrid=False, zeroline=False,
+                               showticklabels=False, showline=False,
+                               scaleanchor="x", scaleratio=1),
+                    showlegend=False,
+                )
+                st.plotly_chart(fig_pm, use_container_width=True)
+
+
+
+# ══════════════════════════════════════════════
+# TAB 7 — Tournament Phases
+# ══════════════════════════════════════════════
+with tab7:
+    st.markdown("### Group Stage vs Knockout")
+    st.markdown(
+        '<p class="kicker">How does high-speed running change as the tournament progresses '
+        'and the stakes increase?</p>',
+        unsafe_allow_html=True
+    )
+    st.divider()
+
+    if match_meta_df.empty:
+        st.info("Add `match_metadata.csv` to the `data/` folder to enable this tab.")
+    elif "game_id" not in runs_df.columns:
+        st.info("hsr_runs.csv requires a game_id column.")
+    else:
+        runs_with_round = runs_df.merge(
+            match_meta_df[["game_id", "Round"]].assign(
+                game_id=match_meta_df["game_id"].astype(str)
+            ),
+            left_on=runs_df["game_id"].astype(str),
+            right_on="game_id",
+            how="left"
+        )
+        runs_with_round = runs_with_round[
+            runs_with_round["pct_of_vmax"] >= threshold_pct
+        ]
+
+        # Apply team/position filters
+        if "team_short" in runs_with_round.columns:
+            runs_with_round = runs_with_round[
+                runs_with_round["team_short"].isin(selected_teams)
+            ]
+        if "pos" in runs_with_round.columns:
+            runs_with_round = runs_with_round[
+                runs_with_round["pos"].isin(selected_positions)
+            ]
+
+        if runs_with_round.empty:
+            st.warning("No runs match the current filters.")
+        else:
+            round_agg = (
+                runs_with_round
+                .groupby("Round")
+                .agg(
+                    total_runs      = ("run_id", "count"),
+                    avg_pct_vmax    = ("pct_of_vmax", "mean"),
+                    avg_peak_speed  = ("peak_speed_kmh", "mean"),
+                    avg_distance    = ("distance_m", "mean"),
+                    avg_duration    = ("duration_sec", "mean"),
+                )
+                .reset_index()
+            )
+            round_agg["avg_pct_vmax"] = (round_agg["avg_pct_vmax"] * 100).round(1)
+
+            n_gs = match_meta_df[match_meta_df["Round"] == "Group Stage"].shape[0]
+            n_ko = match_meta_df[match_meta_df["Round"] == "Knockout"].shape[0]
+            round_agg["n_games"] = round_agg["Round"].map(
+                {"Group Stage": n_gs, "Knockout": n_ko}
+            )
+            round_agg["runs_per_game"] = (
+                round_agg["total_runs"] / round_agg["n_games"]
+            ).round(1)
+
+            rnd_colors = {"Group Stage": BLUE, "Knockout": RED}
+
+            # ── KPI row ───────────────────────────────────────────────────
+            st.markdown("#### Summary metrics")
+            kpi_cols = st.columns(4)
+            metrics_kpi = [
+                ("runs_per_game",  "Runs per game"),
+                ("avg_pct_vmax",   "Avg intensity (% v-max)"),
+                ("avg_peak_speed", "Avg peak speed (km/h)"),
+                ("avg_distance",   "Avg run distance (m)"),
+            ]
+            for col, (metric, label) in zip(kpi_cols, metrics_kpi):
+                fig_r = go.Figure(go.Bar(
+                    x=round_agg["Round"],
+                    y=round_agg[metric].round(1),
+                    marker=dict(
+                        color=[rnd_colors.get(r, BLUE) for r in round_agg["Round"]],
+                        opacity=0.85, line=dict(width=0),
+                    ),
+                    text=round_agg[metric].round(1),
+                    textposition="outside",
+                ))
+                fig_r.update_layout(**base_layout(label, height=300))
+                col.plotly_chart(fig_r, use_container_width=True)
+
+            st.divider()
+
+            # ── Week-by-week trend ────────────────────────────────────────
+            st.markdown("#### Week-by-week trend")
+            st.markdown(
+                '<p style="font-family:Inter;font-size:12px;color:#666;">'
+                'Average HSR runs per player per game across tournament weeks.</p>',
+                unsafe_allow_html=True
+            )
+
+            week_meta = match_meta_df[["game_id", "week", "Round"]].assign(
+                game_id=match_meta_df["game_id"].astype(str)
+            )
+            runs_with_week = runs_df.merge(
+                week_meta,
+                left_on=runs_df["game_id"].astype(str),
+                right_on="game_id",
+                how="left"
+            )
+            runs_with_week = runs_with_week[
+                runs_with_week["pct_of_vmax"] >= threshold_pct
+            ]
+
+            week_agg = (
+                runs_with_week
+                .groupby(["week_y" if "week_y" in runs_with_week.columns else "week", "Round"])
+                .agg(
+                    total_runs      = ("run_id", "count"),
+                    n_games         = ("game_id_y" if "game_id_y" in runs_with_week.columns
+                                       else "game_id", "nunique"),
+                    avg_peak_speed  = ("peak_speed_kmh", "mean"),
+                    avg_pct_vmax    = ("pct_of_vmax", "mean"),
+                )
+                .reset_index()
+            )
+            week_col = "week_y" if "week_y" in week_agg.columns else "week"
+            week_agg["runs_per_game"] = (
+                week_agg["total_runs"] / week_agg["n_games"].clip(lower=1)
+            ).round(1)
+            week_agg["avg_pct_vmax"] = (week_agg["avg_pct_vmax"] * 100).round(1)
+            week_agg = week_agg.sort_values(week_col)
+
+            tw1, tw2 = st.columns(2)
+
+            with tw1:
+                fig_week = go.Figure()
+                for rnd, color in rnd_colors.items():
+                    sub = week_agg[week_agg["Round"] == rnd]
+                    if sub.empty:
+                        continue
+                    fig_week.add_trace(go.Scatter(
+                        x=sub[week_col],
+                        y=sub["runs_per_game"],
+                        mode="lines+markers",
+                        name=rnd,
+                        line=dict(color=color, width=2),
+                        marker=dict(size=8, color=color),
+                        hovertemplate=f"<b>{rnd}</b><br>Week %{{x}}<br>Runs/game: %{{y}}<extra></extra>",
+                    ))
+                fig_week.update_layout(
+                    **base_layout(
+                        "HSR runs per game by week",
+                        height=340,
+                        xaxis=dict(title="Tournament week", dtick=1),
+                        yaxis=dict(title="Runs per game"),
+                    )
+                )
+                st.plotly_chart(fig_week, use_container_width=True)
+
+            with tw2:
+                fig_intensity = go.Figure()
+                for rnd, color in rnd_colors.items():
+                    sub = week_agg[week_agg["Round"] == rnd]
+                    if sub.empty:
+                        continue
+                    fig_intensity.add_trace(go.Scatter(
+                        x=sub[week_col],
+                        y=sub["avg_pct_vmax"],
+                        mode="lines+markers",
+                        name=rnd,
+                        line=dict(color=color, width=2),
+                        marker=dict(size=8, color=color),
+                        hovertemplate=f"<b>{rnd}</b><br>Week %{{x}}<br>Avg % v-max: %{{y}}<extra></extra>",
+                    ))
+                fig_intensity.update_layout(
+                    **base_layout(
+                        "Avg intensity (% v-max) by week",
+                        height=340,
+                        xaxis=dict(title="Tournament week", dtick=1),
+                        yaxis=dict(title="Avg % of v-max"),
+                    )
+                )
+                st.plotly_chart(fig_intensity, use_container_width=True)
+
+            st.divider()
+
+            # ── Position breakdown by round ───────────────────────────────
+            st.markdown("#### Position breakdown by round")
+
+            if "pos" in runs_with_round.columns:
+                pos_round = (
+                    runs_with_round
+                    .groupby(["Round", "pos"])
+                    .agg(total_runs=("run_id", "count"))
+                    .reset_index()
+                )
+                games_by_round = match_meta_df.groupby("Round").size().reset_index(name="n_games")
+                pos_round = pos_round.merge(games_by_round, on="Round", how="left")
+                pos_round["runs_per_game"] = (
+                    pos_round["total_runs"] / pos_round["n_games"]
+                ).round(2)
+
+                fig_pos_round = px.bar(
+                    pos_round,
+                    x="pos", y="runs_per_game",
+                    color="Round",
+                    barmode="group",
+                    color_discrete_map={"Group Stage": BLUE, "Knockout": RED},
+                    labels={
+                        "pos": "Position",
+                        "runs_per_game": "HSR runs per game",
+                        "Round": "Round",
+                    },
+                    text=pos_round["runs_per_game"],
+                )
+                fig_pos_round.update_traces(
+                    texttemplate="%{text:.1f}",
+                    textposition="outside",
+                    marker=dict(line=dict(width=0)),
+                )
+                fig_pos_round.update_layout(
+                    **base_layout("HSR runs per game by position and round", height=380)
+                )
+                st.plotly_chart(fig_pos_round, use_container_width=True)
+
+            st.divider()
+
+            # ── Summary table ─────────────────────────────────────────────
+            st.markdown("#### Summary table")
+            st.dataframe(
+                round_agg
+                .rename(columns={
+                    "Round":          "Round",
+                    "n_games":        "Games",
+                    "total_runs":     "Total runs",
+                    "runs_per_game":  "Runs / game",
+                    "avg_pct_vmax":   "Avg intensity (% v-max)",
+                    "avg_peak_speed": "Avg peak speed (km/h)",
+                    "avg_distance":   "Avg distance (m)",
+                    "avg_duration":   "Avg duration (s)",
+                })
+                .round(2),
+                use_container_width=True,
+                hide_index=True,
+            )
+
+# ─────────────────────────────────────────────
+# Footer
+# ─────────────────────────────────────────────
 st.divider()
 st.markdown(
-    f'<p style="text-align:center;font-family:Inter,sans-serif;font-size:11px;color:#aaa;">'
-    f'English Premier League 2015/16 · 323,322 ball receptions/recoveries · '
-    f'league base rate {BASE_RATE*100:.2f}% fouls won per possession &nbsp;·&nbsp; '
-    f'<a href="https://github.com/jngoh24/epl_foul_prediction" target="_blank" '
-    f'style="color:#888;text-decoration:underline;">View on GitHub</a></p>',
-    unsafe_allow_html=True)
+    '<p style="text-align:center;font-family:Inter,sans-serif;font-size:11px;color:#aaa;">'
+    'GradientSports FIFA World Cup 2022 · fast-forward-football · Azure Databricks Delta Lake · '
+    'Built for USSF Data Scientist application &nbsp;·&nbsp; '
+    '<a href="https://github.com/jngoh24/hsr-worldcup-2022" target="_blank" '
+    'style="color:#888;text-decoration:underline;">View on GitHub</a></p>',
+    unsafe_allow_html=True
+)
